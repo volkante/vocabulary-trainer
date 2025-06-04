@@ -2,6 +2,7 @@
 // Store DOM elements in variables
 const textArea = document.querySelector("#vocabulary-input");
 const sendButton = document.querySelector(".send-button");
+const outputText = document.querySelector(".output-text");
 
 function randomOrder() {
   // Store turkish words input into a constant named turkishWords
