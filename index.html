@@ -4,19 +4,61 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Vocabulary Training</title>
+    <style>
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        padding: 2rem 2rem 0;
+      }
+
+      .container {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      h1 {
+        margin-bottom: 1rem;
+      }
+
+      .send-button {
+        width: 120px;
+        height: 40px;
+        cursor: pointer;
+      }
+
+      section.input {
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+        gap: 1rem;
+      }
+    </style>
   </head>
   <body>
     <h1>Vocabulary Training</h1>
-    <label for="vocabulary-input"><b>Input:</b></label>
-    <br />
-    <br />
-    <textarea
-      name="vocabulary-input"
-      id="vocabulary-input"
-      cols="100"
-      rows="40"
-    ></textarea>
-    <button type="button" class="send-button">Send</button>
+    <div class="container">
+      <section class="input">
+        <label for="vocabulary-input"><b>Input:</b></label>
+        <textarea
+          name="vocabulary-input"
+          id="vocabulary-input"
+          cols="50"
+          rows="20"
+        ></textarea>
+        <button type="button" class="send-button">Send</button>
+      </section>
+      <section class="output">
+        <p class="output-text">
+          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Numquam
+          quidem quaerat alias impedit iure vero veniam ullam laboriosam
+          corporis minus.
+        </p>
+      </section>
+    </div>
     <script src="script.js"></script>
   </body>
 </html>
