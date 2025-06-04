@@ -35,7 +35,11 @@ section.input {
 }
 
 /* OUTPUT SECTION */
+h3 {
+  font-size: 16px;
+  margin-bottom: 1rem;
+}
 
-UL {
+ul {
   list-style: none;
 }
