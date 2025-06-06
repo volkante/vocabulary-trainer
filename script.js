@@ -3,11 +3,16 @@
 const textArea = document.querySelector("#vocabulary-input");
 const sendButton = document.querySelector(".btn--send-input");
 const outputList = document.querySelector(".output-list");
+const removeButton = document.querySelector(".btn--remove-output");
 
 // Store turkish words input into a constant named turkishWords
 const turkishWords = textArea.value;
 // Trim the blank space at the beginning and end of input just in case and split it into different strings by new row mark
 const turkishWordsArr = turkishWords.trim().split("\n");
+
+function removeOutputContent() {
+  outputList.replaceChildren();
+}
 
 function randomOrder() {
   // Create a random numbers array to store random numbers
@@ -43,3 +48,5 @@ function randomOrder() {
 }
 
 sendButton.addEventListener("click", randomOrder);
+
+removeButton.addEventListener("click", removeOutputContent);
