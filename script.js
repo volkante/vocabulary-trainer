@@ -1,7 +1,7 @@
 "use strict";
 // Store DOM elements in variables
 const textArea = document.querySelector("#vocabulary-input");
-const sendButton = document.querySelector(".send-button");
+const sendButton = document.querySelector(".btn--send-input");
 const outputList = document.querySelector(".output-list");
 
 // Store turkish words input into a constant named turkishWords

@@ -19,22 +19,33 @@ h1 {
   margin-bottom: 1rem;
 }
 
-/* INPUT SECTION */
-
-.send-button {
+.btn {
   width: 120px;
   height: 40px;
   cursor: pointer;
 }
+
+/* INPUT SECTION */
 
 section.input {
   display: flex;
   flex-direction: column;
   align-items: start;
   gap: 1rem;
+  position: relative;
+}
+
+.btn--send-input {
+  position: absolute;
+  bottom: -4rem;
 }
 
 /* OUTPUT SECTION */
+
+section.output {
+  position: relative;
+}
+
 h3 {
   font-size: 16px;
   margin-bottom: 1rem;
@@ -42,4 +53,9 @@ h3 {
 
 ul {
   list-style: none;
+}
+
+.btn--remove-output {
+  position: absolute;
+  bottom: -4rem;
 }
