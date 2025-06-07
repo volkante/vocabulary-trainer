@@ -5,16 +5,15 @@ const sendButton = document.querySelector(".btn--send-input");
 const outputList = document.querySelector(".output-list");
 const removeButton = document.querySelector(".btn--remove-output");
 
-// Store turkish words input into a constant named turkishWords
-const turkishWords = textArea.value;
-// Trim the blank space at the beginning and end of input just in case and split it into different strings by new row mark
-const turkishWordsArr = turkishWords.trim().split("\n");
-
 function removeOutputContent() {
   outputList.replaceChildren();
 }
 
 function randomOrder() {
+  // Store turkish words input into a constant named turkishWords
+  const turkishWords = textArea.value;
+  // Trim the blank space at the beginning and end of input just in case and split it into different strings by new row mark
+  const turkishWordsArr = turkishWords.trim().split("\n");
   // Create a random numbers array to store random numbers
   const randomNumArr = [];
   // Add random numbers to the random numbers array by calling create random number function
