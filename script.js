@@ -22,16 +22,21 @@ function randomOrder() {
   }
 
   console.log(randomNumArr);
+
   // Iterate over the turkish words to sort them randomly
-  for (let i = 0; i < turkishWordsArr.length; i++) {
-    // Create a list element for each word
-    const turkishWordElement = document.createElement("li");
-    // Take the list element's text content from turkish words arr
-    // by using the randomNumArr's elements as index number
-    // to ouput words in a different order each time
-    turkishWordElement.textContent = turkishWordsArr[randomNumArr[i]];
-    // Add list element to its parent to display it
-    outputList.appendChild(turkishWordElement);
+  createOutput(turkishWordsArr);
+
+  function createOutput(turkishWordsArr) {
+    for (let i = 0; i < turkishWordsArr.length; i++) {
+      // Create a list element for each word
+      const turkishWordElement = document.createElement("li");
+      // Take the list element's text content from turkish words arr
+      // by using the randomNumArr's elements as index number
+      // to ouput words in a different order each time
+      turkishWordElement.textContent = turkishWordsArr[randomNumArr[i]];
+      // Add list element to its parent to display it
+      outputList.appendChild(turkishWordElement);
+    }
   }
 
   // Declare a function to create a random num
