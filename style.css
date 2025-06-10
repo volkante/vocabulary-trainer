@@ -59,3 +59,9 @@ ul {
   position: absolute;
   bottom: -4rem;
 }
+
+.btn--next {
+  position: absolute;
+  bottom: -4rem;
+  right: 2rem;
+}

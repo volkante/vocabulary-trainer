@@ -4,6 +4,7 @@ const textArea = document.querySelector("#vocabulary-input");
 const sendButton = document.querySelector(".btn--send-input");
 const outputList = document.querySelector(".output-list");
 const removeButton = document.querySelector(".btn--remove-output");
+const nextButton = document.querySelector(".btn--next");
 
 function removeOutputContent() {
   outputList.replaceChildren();
@@ -25,8 +26,12 @@ function randomOrder() {
 
   // Iterate over the turkish words to sort them randomly
   createOutput(turkishWordsArr);
+  // Clear input after displaying outpur
+  clearInput();
 
   function createOutput(turkishWordsArr) {
+    if (turkishWordsArr.length <= 1) return;
+
     for (let i = 0; i < turkishWordsArr.length; i++) {
       // Create a list element for each word
       const turkishWordElement = document.createElement("li");
@@ -41,6 +46,7 @@ function randomOrder() {
 
   // Declare a function to create a random num
   function createRandomNum() {
+    if (turkishWordsArr.length <= 1) return;
     // Create a random number
     let randomNum = Math.floor(Math.random() * turkishWordsArr.length);
     // If the random number is already found in random number array, recreate a random number
@@ -48,6 +54,10 @@ function randomOrder() {
       randomNum = Math.floor(Math.random() * turkishWordsArr.length);
     }
     return randomNum;
+  }
+
+  function clearInput() {
+    textArea.value = "";
   }
 }
 
