@@ -31,7 +31,6 @@ function randomOrder() {
 
   function createOutput(turkishWordsArr) {
     if (turkishWordsArr.length <= 1) return;
-
     for (let i = 0; i < turkishWordsArr.length; i++) {
       // Create a list element for each word
       const turkishWordElement = document.createElement("li");
