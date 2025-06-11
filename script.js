@@ -6,6 +6,7 @@ const outputList = document.querySelector(".output-list");
 const removeButton = document.querySelector(".btn--remove-output");
 const nextButton = document.querySelector(".btn--next");
 
+// Declare a function to clear output when next button is clicked
 function removeOutputContent() {
   outputList.replaceChildren();
 }
@@ -26,7 +27,7 @@ function randomOrder() {
 
   // Iterate over the turkish words to sort them randomly
   createOutput(turkishWordsArr);
-  // Clear input after displaying outpur
+  // Clear input after displaying output
   clearInput();
 
   function createOutput(turkishWordsArr) {
@@ -41,15 +42,18 @@ function randomOrder() {
       // Add list element to its parent to display it
       outputList.appendChild(turkishWordElement);
     }
+    console.log(turkishWordsArr);
+    console.log(outputList);
   }
 
   // Declare a function to create a random num
   function createRandomNum() {
+    // If there is no input or one word, end the function
     if (turkishWordsArr.length <= 1) return;
-    // Create a random number
+    // Create a random integer between 0 and the length of turkish words array
     let randomNum = Math.floor(Math.random() * turkishWordsArr.length);
     // If the random number is already found in random number array, recreate a random number
-    while (randomNumArr.indexOf(randomNum) !== -1) {
+    while (randomNumArr.includes(randomNum)) {
       randomNum = Math.floor(Math.random() * turkishWordsArr.length);
     }
     return randomNum;
@@ -60,6 +64,6 @@ function randomOrder() {
   }
 }
 
+// Event listeners
 sendButton.addEventListener("click", randomOrder);
-
 removeButton.addEventListener("click", removeOutputContent);
