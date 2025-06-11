@@ -1,10 +1,15 @@
 "use strict";
+
 // Store DOM elements in variables
+
+// input - output
 const textArea = document.querySelector("#vocabulary-input");
-const shuffleButton = document.querySelector(".btn--shuffle-input");
 const outputList = document.querySelector(".output-list");
-const removeButton = document.querySelector(".btn--remove-output");
-const nextButton = document.querySelector(".btn--next");
+// Buttons
+const shuffleBtn = document.querySelector(".btn--shuffle-input");
+const removeBtn = document.querySelector(".btn--remove-output");
+const nextBtn = document.querySelector(".btn--next");
+const showOneBtn = document.querySelector(".btn--show-one");
 
 // Declare a function to clear output when next button is clicked
 function removeOutputContent() {
@@ -65,5 +70,5 @@ function randomOrder() {
 }
 
 // Event listeners
-shuffleButton.addEventListener("click", randomOrder);
-removeButton.addEventListener("click", removeOutputContent);
+shuffleBtn.addEventListener("click", randomOrder);
+removeBtn.addEventListener("click", removeOutputContent);
