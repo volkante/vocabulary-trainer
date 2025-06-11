@@ -38,6 +38,7 @@ section.input {
 .btn--send-input {
   position: absolute;
   bottom: -4rem;
+  background-color: greenyellow;
 }
 
 /* OUTPUT SECTION */
@@ -58,10 +59,12 @@ ul {
 .btn--remove-output {
   position: absolute;
   bottom: -4rem;
+  background-color: orange;
 }
 
 .btn--next {
   position: absolute;
   bottom: -4rem;
   right: 2rem;
+  background-color: aqua;
 }
