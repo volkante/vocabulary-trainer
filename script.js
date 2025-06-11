@@ -1,7 +1,7 @@
 "use strict";
 // Store DOM elements in variables
 const textArea = document.querySelector("#vocabulary-input");
-const sendButton = document.querySelector(".btn--send-input");
+const shuffleButton = document.querySelector(".btn--shuffle-input");
 const outputList = document.querySelector(".output-list");
 const removeButton = document.querySelector(".btn--remove-output");
 const nextButton = document.querySelector(".btn--next");
@@ -37,7 +37,7 @@ function randomOrder() {
       const turkishWordElement = document.createElement("li");
       // Take the list element's text content from turkish words arr
       // by using the randomNumArr's elements as index number
-      // to ouput words in a different order each time
+      // to output words in a different order each time
       turkishWordElement.textContent = turkishWordsArr[randomNumArr[i]];
       // Add list element to its parent to display it
       outputList.appendChild(turkishWordElement);
@@ -65,5 +65,5 @@ function randomOrder() {
 }
 
 // Event listeners
-sendButton.addEventListener("click", randomOrder);
+shuffleButton.addEventListener("click", randomOrder);
 removeButton.addEventListener("click", removeOutputContent);
