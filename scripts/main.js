@@ -11,17 +11,9 @@ import {
 
 import { shuffle } from "./shuffle.js";
 
-// Declare a function to clear output when next button is clicked
-function removeOutputContent() {
-  outputList.replaceChildren();
-}
+import { getArrayFromCorrectedInput } from "./utils.js";
 
-// Correct each turkish word in the array
-function getArrayFromCorrectedInput(inputVal) {
-  return inputVal.split("\n").map((element) => {
-    return element.trim();
-  });
-}
+/* ******************** Randomize order ************************ */
 
 function randomOrder() {
   // Store turkish words input into a constant named turkishWords
@@ -31,6 +23,13 @@ function randomOrder() {
   // Shuffle array
   const shuffledArr = shuffle(turkishWordsArr);
   console.log(shuffledArr);
+}
+
+/* ******************** Clear output list ******************** */
+
+// Declare a function to clear output when next button is clicked
+function removeOutputContent() {
+  outputList.replaceChildren();
 }
 
 /* ********************* Show one word ********************* */
@@ -53,8 +52,6 @@ function showOneWord() {
 
   // Iterate over the turkish words to sort them randomly
   createOutput(turkishWordsArr);
-  // Clear input after displaying output
-  clearInput();
 
   function createOutput(turkishWordsArr) {
     if (turkishWordsArr.length <= 1) return;
@@ -82,6 +79,7 @@ function showOneWord() {
     indexRandomNums++;
   }
 }
+
 // Event listeners
 shuffleBtn.addEventListener("click", randomOrder);
 removeBtn.addEventListener("click", removeOutputContent);
