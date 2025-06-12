@@ -11,32 +11,42 @@ const showOneBtn = document.querySelector(".btn--show-one");
 const removeBtn = document.querySelector(".btn--remove-output");
 const nextBtn = document.querySelector(".btn--next");
 
-// Assign 0 to show the first word in the list
-let indexRandomNums = 0;
-
 // Declare a function to clear output when next button is clicked
 function removeOutputContent() {
   outputList.replaceChildren();
+}
+
+// Correct each turkish word in the array
+function getArrayFromCorrectedInput(inputVal) {
+  return inputVal.split("\n").map((element) => {
+    return element.trim();
+  });
 }
 
 function randomOrder() {
   // Store turkish words input into a constant named turkishWords
   const turkishWords = textArea.value;
   // Trim the blank space at the beginning and end of input just in case and split it into different strings by new row mark
-  const turkishWordsArr = turkishWords.trim().split("\n");
+  const turkishWordsArr = getArrayFromCorrectedInput(turkishWords);
+  // Shuffle array
+  const shuffledArr = shuffle(turkishWordsArr);
+  console.log(shuffledArr);
+}
+
+function shuffle(arr) {
+  if (!Array.isArray(arr)) throw new Error("Expected Array");
+  let shuffledArr = [];
   // Create a random numbers array to store random numbers
   const randomNumArr = [];
   // Add random numbers to the random numbers array by calling create random number function
-  for (let i = 0; i < turkishWordsArr.length; i++) {
-    randomNumArr.push(createRandomNum());
+  for (let i = 0; i < arr.length; i++) {
+    randomNumArr.push(createRandomNum(arr));
   }
 
   console.log(randomNumArr);
 
   // Iterate over the turkish words to sort them randomly
-  createOutput(turkishWordsArr);
-  // Clear input after displaying output
-  clearInput();
+  createOutput(arr);
 
   function createOutput(turkishWordsArr) {
     if (turkishWordsArr.length <= 1) return;
@@ -51,11 +61,10 @@ function randomOrder() {
       outputList.appendChild(turkishWordElement);
     }
     console.log(turkishWordsArr);
-    console.log(outputList);
   }
 
   // Declare a function to create a random num
-  function createRandomNum() {
+  function createRandomNum(turkishWordsArr) {
     // If there is no input or one word, end the function
     if (turkishWordsArr.length <= 1) return;
     // Create a random integer between 0 and the length of turkish words array
@@ -66,13 +75,14 @@ function randomOrder() {
     }
     return randomNum;
   }
-
-  function clearInput() {
-    textArea.value = "";
-  }
+  return shuffledArr;
 }
 
+/* ********************* Show one word ********************* */
+
 function showOneWord() {
+  // Assign 0 to show the first word in the list
+  let indexRandomNums = 0;
   // Store turkish words input into a constant named turkishWords
   const turkishWords = textArea.value;
   // Trim the blank space at the beginning and end of input just in case and split it into different strings by new row mark
@@ -98,7 +108,6 @@ function showOneWord() {
       turkishWordsArr[randomNumArr[indexRandomNums]];
     outputList.appendChild(turkishWordElement);
     console.log(turkishWordsArr);
-    console.log(outputList);
   }
 
   // Declare a function to create a random num
@@ -117,14 +126,13 @@ function showOneWord() {
   function clearInput() {
     textArea.value = "";
   }
-}
 
-function increaseIndexRandomNums() {
-  indexRandomNums++;
+  function increaseIndexRandomNums() {
+    indexRandomNums++;
+  }
 }
-
 // Event listeners
 shuffleBtn.addEventListener("click", randomOrder);
 removeBtn.addEventListener("click", removeOutputContent);
 showOneBtn.addEventListener("click", showOneWord);
-nextBtn.addEventListener("click", increaseIndexRandomNums);
+//nextBtn.addEventListener("click", increaseIndexRandomNums);
