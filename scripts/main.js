@@ -13,76 +13,47 @@ import { shuffle } from "./shuffle.js";
 import { createOutput } from "./createOutput.js";
 import { getArrayFromCorrectedInput } from "./utils.js";
 
-/* ******************** Randomize order ************************ */
+/* ******************** Randomize order event handler ************************ */
 
-function randomOrder() {
+function randomOrderEventHandler() {
   // Store turkish words input into a constant named turkishWords
   const turkishWords = textArea.value;
   // Trim the blank space at the beginning and end of input just in case and split it into different strings by new row mark
   const turkishWordsArr = getArrayFromCorrectedInput(turkishWords);
-  // Shuffle array
+  // Shuffle turkish words
   const shuffledArr = shuffle(turkishWordsArr);
   // Display shuffled words
   createOutput(shuffledArr);
 }
 
-/* ******************** Clear output list ******************** */
+/* ******************** Clear output list event handler ******************** */
 
-// Declare a function to clear output when next button is clicked
-function removeOutputContent() {
+// Declare a function to clear output when butto "next" is clicked
+function removeOutputContentEventHandler() {
   outputList.replaceChildren();
 }
 
-/* ********************* Show one word ********************* */
+/* ********************* Show one word event handler ********************* */
 
-function showOneWord() {
-  // Assign 0 to show the first word in the list
-  let indexRandomNums = 0;
+function showOneEventHandler() {
   // Store turkish words input into a constant named turkishWords
   const turkishWords = textArea.value;
   // Trim the blank space at the beginning and end of input just in case and split it into different strings by new row mark
-  const turkishWordsArr = turkishWords.trim().split("\n");
-  // Create a random numbers array to store random numbers
-  const randomNumArr = [];
-  // Add random numbers to the random numbers array by calling create random number function
-  for (let i = 0; i < turkishWordsArr.length; i++) {
-    randomNumArr.push(createRandomNum());
-  }
-
-  console.log(randomNumArr);
-
-  // Iterate over the turkish words to sort them randomly
-  createOutput(turkishWordsArr);
-
-  function createOutput(turkishWordsArr) {
-    if (turkishWordsArr.length <= 1) return;
-    const turkishWordElement = document.createElement("li");
-    turkishWordElement.textContent =
-      turkishWordsArr[randomNumArr[indexRandomNums]];
-    outputList.appendChild(turkishWordElement);
-    console.log(turkishWordsArr);
-  }
-
-  // Declare a function to create a random num
-  function createRandomNum() {
-    // If there is no input or one word, end the function
-    if (turkishWordsArr.length <= 1) return;
-    // Create a random integer between 0 and the length of turkish words array
-    let randomNum = Math.floor(Math.random() * turkishWordsArr.length);
-    // If the random number is already found in random number array, recreate a random number
-    while (randomNumArr.includes(randomNum)) {
-      randomNum = Math.floor(Math.random() * turkishWordsArr.length);
-    }
-    return randomNum;
-  }
-
-  function increaseIndexRandomNums() {
-    indexRandomNums++;
-  }
+  const turkishWordsArr = getArrayFromCorrectedInput(turkishWords);
+  // Shuffle turkish words
+  const shuffledArr = shuffle(turkishWordsArr);
+  showOne(turkishWordsArr);
 }
 
-// Event listeners
-shuffleBtn.addEventListener("click", randomOrder);
-removeBtn.addEventListener("click", removeOutputContent);
-showOneBtn.addEventListener("click", showOneWord);
+function showOne(turkishWordsArr) {
+  removeOutputContentEventHandler();
+  let wordElement = document.createElement("li");
+  wordElement.textContent = turkishWordsArr[0];
+  outputList.appendChild(wordElement);
+}
+
+/* ****************** Event Listeners ********************* */
+shuffleBtn.addEventListener("click", randomOrderEventHandler);
+removeBtn.addEventListener("click", removeOutputContentEventHandler);
+showOneBtn.addEventListener("click", showOneEventHandler);
 //nextBtn.addEventListener("click", increaseIndexRandomNums);
