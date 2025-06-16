@@ -47,7 +47,34 @@ function showRandomEventHandler() {
   showOne(turkishWordsArr);
 }
 
+/* ******************* Next word event handler ********************* */
+let shuffledArr;
+function nextWordEventHandler() {
+  if (!shuffledArr) {
+    // Store turkish words input into a constant named turkishWords
+    const turkishWords = textArea.value;
+    // Trim the blank space at the beginning and end of input just in case and split it into different strings by new row mark
+    const turkishWordsArr = getArrayFromCorrectedInput(turkishWords);
+    // Shuffle turkish words
+    shuffledArr = shuffle(turkishWordsArr);
+    console.log(shuffledArr);
+  }
+  // Show first word from turkish words
+  moveNext(shuffledArr);
+}
+
+let indexOfDisplayedWord = 0;
+
+function moveNext(turkishWordsArr) {
+  outputList.replaceChildren();
+  let wordElement = document.createElement("li");
+  wordElement.textContent = turkishWordsArr[indexOfDisplayedWord];
+  indexOfDisplayedWord++;
+  outputList.appendChild(wordElement);
+}
+
 /* ****************** Event Listeners ********************* */
 shuffleBtn.addEventListener("click", randomOrderEventHandler);
 removeBtn.addEventListener("click", removeOutputContentEventHandler);
 showRandomWordBtn.addEventListener("click", showRandomEventHandler);
+nextBtn.addEventListener("click", nextWordEventHandler);
