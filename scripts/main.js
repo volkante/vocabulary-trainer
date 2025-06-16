@@ -4,7 +4,7 @@ import {
   textArea,
   outputList,
   shuffleBtn,
-  showOneBtn,
+  showRandomWordBtn,
   removeBtn,
   nextBtn,
 } from "./domElements.js";
@@ -12,6 +12,7 @@ import {
 import { shuffle } from "./shuffle.js";
 import { createOutput } from "./createOutput.js";
 import { getArrayFromCorrectedInput } from "./utils.js";
+import { showOne } from "./showOne.js";
 
 /* ******************** Randomize order event handler ************************ */
 
@@ -35,25 +36,18 @@ function removeOutputContentEventHandler() {
 
 /* ********************* Show one word event handler ********************* */
 
-function showOneEventHandler() {
+function showRandomEventHandler() {
   // Store turkish words input into a constant named turkishWords
   const turkishWords = textArea.value;
   // Trim the blank space at the beginning and end of input just in case and split it into different strings by new row mark
   const turkishWordsArr = getArrayFromCorrectedInput(turkishWords);
   // Shuffle turkish words
   const shuffledArr = shuffle(turkishWordsArr);
+  // Show first word from turkish words
   showOne(turkishWordsArr);
-}
-
-function showOne(turkishWordsArr) {
-  removeOutputContentEventHandler();
-  let wordElement = document.createElement("li");
-  wordElement.textContent = turkishWordsArr[0];
-  outputList.appendChild(wordElement);
 }
 
 /* ****************** Event Listeners ********************* */
 shuffleBtn.addEventListener("click", randomOrderEventHandler);
 removeBtn.addEventListener("click", removeOutputContentEventHandler);
-showOneBtn.addEventListener("click", showOneEventHandler);
-//nextBtn.addEventListener("click", increaseIndexRandomNums);
+showRandomWordBtn.addEventListener("click", showRandomEventHandler);
