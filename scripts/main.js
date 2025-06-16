@@ -10,7 +10,7 @@ import {
 } from "./domElements.js";
 
 import { shuffle } from "./shuffle.js";
-
+import { createOutput } from "./createOutput.js";
 import { getArrayFromCorrectedInput } from "./utils.js";
 
 /* ******************** Randomize order ************************ */
@@ -22,7 +22,8 @@ function randomOrder() {
   const turkishWordsArr = getArrayFromCorrectedInput(turkishWords);
   // Shuffle array
   const shuffledArr = shuffle(turkishWordsArr);
-  console.log(shuffledArr);
+  // Display shuffled words
+  createOutput(shuffledArr);
 }
 
 /* ******************** Clear output list ******************** */

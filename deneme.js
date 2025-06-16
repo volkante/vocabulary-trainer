@@ -5,11 +5,13 @@
 function shuffleArray(array) {
   for (let i = array.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
+    console.log("j(random number): ", j);
     [array[i], array[j]] = [array[j], array[i]];
+    console.log("array'in durumu: ", array);
   }
   return array;
-} */
-
+}
+ */
 const radiusArr = [3, 1, 2, 4];
 
 /* Util functions for calculating */
@@ -39,6 +41,6 @@ const calculate = function (radiusArr, calculateCb) {
 };
 
 // Log results
-console.log("Circumferences", calculate(radiusArr, calculateCircumference));
-console.log("Areas", calculate(radiusArr, calculateArea));
-console.log("Diameter", calculate(radiusArr, calculateDiameter));
+//console.log("Circumferences", calculate(radiusArr, calculateCircumference));
+//console.log("Areas", calculate(radiusArr, calculateArea));
+//console.log("Diameter", calculate(radiusArr, calculateDiameter));
