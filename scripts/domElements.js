@@ -2,19 +2,12 @@
 // Store DOM elements in variables
 
 // input - output
-const textArea = document.querySelector("#vocabulary-input");
-const outputList = document.querySelector(".output-list");
+export const textArea = document.querySelector("#vocabulary-input");
+export const outputList = document.querySelector(".output-list");
 // Buttons
-const shuffleBtn = document.querySelector(".btn--shuffle-input");
-const showRandomWordBtn = document.querySelector(".btn--show-random-word");
-const removeBtn = document.querySelector(".btn--remove-output");
-const nextBtn = document.querySelector(".btn--next");
-
-export {
-  textArea,
-  outputList,
-  shuffleBtn,
-  showRandomWordBtn,
-  removeBtn,
-  nextBtn,
-};
+export const shuffleBtn = document.querySelector(".btn--shuffle-input");
+export const showRandomWordBtn = document.querySelector(
+  ".btn--show-random-word"
+);
+export const removeBtn = document.querySelector(".btn--remove-output");
+export const nextBtn = document.querySelector(".btn--next");
