@@ -1,3 +1,5 @@
+"use script";
+
 import { outputList } from "./domElements.js";
 
 export function showOne(turkishWordsArr) {

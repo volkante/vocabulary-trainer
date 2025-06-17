@@ -51,7 +51,6 @@ function showRandomEventHandler() {
 /* ********************* Next word event handler ********************* */
 
 let shuffledArr;
-
 function nextWordEventHandler() {
   if (!shuffledArr) {
     // Store turkish words input into a constant named turkishWords

@@ -1,3 +1,4 @@
+"use script";
 import { outputList } from "./domElements.js";
 
 let indexOfDisplayedWord = 0;
