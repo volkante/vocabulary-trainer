@@ -13,6 +13,7 @@ import { shuffle } from "./shuffle.js";
 import { createOutput } from "./createOutput.js";
 import { getArrayFromCorrectedInput } from "./utils.js";
 import { showOne } from "./showOne.js";
+import { moveNext } from "./moveNext.js";
 
 /* ******************** Randomize order event handler ************************ */
 
@@ -44,11 +45,13 @@ function showRandomEventHandler() {
   // Shuffle turkish words
   const shuffledArr = shuffle(turkishWordsArr);
   // Show first word from turkish words
-  showOne(turkishWordsArr);
+  showOne(shuffledArr);
 }
 
-/* ******************* Next word event handler ********************* */
+/* ********************* Next word event handler ********************* */
+
 let shuffledArr;
+
 function nextWordEventHandler() {
   if (!shuffledArr) {
     // Store turkish words input into a constant named turkishWords
@@ -63,17 +66,8 @@ function nextWordEventHandler() {
   moveNext(shuffledArr);
 }
 
-let indexOfDisplayedWord = 0;
-
-function moveNext(turkishWordsArr) {
-  outputList.replaceChildren();
-  let wordElement = document.createElement("li");
-  wordElement.textContent = turkishWordsArr[indexOfDisplayedWord];
-  indexOfDisplayedWord++;
-  outputList.appendChild(wordElement);
-}
-
 /* ****************** Event Listeners ********************* */
+
 shuffleBtn.addEventListener("click", randomOrderEventHandler);
 removeBtn.addEventListener("click", removeOutputContentEventHandler);
 showRandomWordBtn.addEventListener("click", showRandomEventHandler);
