@@ -71,3 +71,22 @@ shuffleBtn.addEventListener("click", randomOrderEventHandler);
 removeBtn.addEventListener("click", removeOutputContentEventHandler);
 showRandomWordBtn.addEventListener("click", showRandomEventHandler);
 nextBtn.addEventListener("click", nextWordEventHandler);
+
+/* CSV deneme */
+function csvRead(event) {
+  const file = event.target.files[0];
+  if (!file) return;
+
+  const reader = new FileReader();
+
+  reader.onload = onLoadFunction;
+
+  reader.readAsText(file, "UTF-8");
+}
+
+function onLoadFunction(e) {
+  const text = e.target.result;
+  document.getElementById("output").textContent = text;
+}
+
+document.getElementById("csvInput").addEventListener("change", csvRead);
