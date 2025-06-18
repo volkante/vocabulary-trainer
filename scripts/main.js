@@ -79,21 +79,25 @@ function csvRead(event) {
 
   const reader = new FileReader();
 
-  reader.onload = onLoadFunction;
+  reader.onload = function (e) {
+    const csvText = e.target.result;
+    const json = CSVJSON.csv2json(csvText, { parseNumbers: true });
+    console.log("Dönüştürülmüş JSON:", json);
+  };
 
   reader.readAsText(file, "UTF-8");
 }
 
-function onLoadFunction(e) {
+/* function onLoadFunction(e) {
   const text = e.target.result;
   document.getElementById("output").textContent = text;
-}
+} */
 
 document.getElementById("csvInput").addEventListener("change", csvRead);
 
 /* CSV TO JSON */
 
-const csv = `album, year, US_peak_chart_post
+/* const csv = `album, year, US_peak_chart_post
 The White Stripes, 1999, -
 De Stijl, 2000, -
 White Blood Cells, 2001, 61
@@ -107,3 +111,4 @@ Nine Miles from the White City, 2013, -`;
 
 const json = CSVJSON.csv2json(csv, { parseNumbers: true });
 console.log(json);
+ */
