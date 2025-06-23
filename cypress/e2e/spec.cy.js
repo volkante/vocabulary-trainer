@@ -11,5 +11,3 @@ describe("My First Test", () => {
     expect(true).to.equal(true);
   });
 });
-
-describe("Next button works", () => {});
