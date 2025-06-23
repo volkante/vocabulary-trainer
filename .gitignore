@@ -1,4 +1,17 @@
+# Node.js ile ilgili
 node_modules/
-.vscode/*
-!.vscode/extensions.json
-dist
+package-lock.json
+
+# Geçici sistem dosyaları
+.DS_Store
+Thumbs.db
+
+# VSCode ayarları (kişisel ayarlar GitHub'a gitmesin)
+.vscode/
+
+# Geliştirme çıktıları (varsa)
+dist/
+build/
+
+# Geçici dosyalar
+*.log
