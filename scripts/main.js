@@ -74,6 +74,8 @@ nextBtn.addEventListener("click", nextWordEventHandler);
 
 /* ******************** CSV read ********************* */
 
+let json;
+
 function csvRead(event) {
   const file = event.target.files[0];
   if (!file) return;
@@ -83,7 +85,7 @@ function csvRead(event) {
   reader.onload = function (e) {
     console.log(e);
     const csvText = e.target.result;
-    const json = CSVJSON.csv2json(csvText, { parseNumbers: true });
+    json = CSVJSON.csv2json(csvText, { parseNumbers: true });
     console.log("Dönüştürülmüş JSON:", json);
   };
 
