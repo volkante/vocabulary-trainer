@@ -8,6 +8,7 @@ import {
   removeBtn,
   nextBtn,
   csvInput,
+  csvOutput,
 } from "./domElements.js";
 
 import { shuffle } from "./shuffle.js";
