@@ -1,10 +1,10 @@
 import { csvOutput } from "./domElements.js";
 
-let json;
+let jsonResult;
 export function onLoad(e) {
   console.log(e);
   const csvText = e.target.result;
-  json = CSVJSON.csv2json(csvText, { parseNumbers: true });
-  console.log("Dönüştürülmüş JSON:", json);
-  csvOutput.textContent = json;
+  jsonResult = CSVJSON.csv2json(csvText, { parseNumbers: true });
+  console.log("Dönüştürülmüş JSON:", jsonResult);
+  csvOutput.textContent = jsonResult[0]["Satz/Wort"];
 }
