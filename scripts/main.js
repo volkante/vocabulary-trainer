@@ -7,6 +7,7 @@ import {
   showRandomWordBtn,
   removeBtn,
   nextBtn,
+  csvInput,
 } from "./domElements.js";
 
 import { shuffle } from "./shuffle.js";
@@ -14,6 +15,7 @@ import { createOutput } from "./createOutput.js";
 import { getArrayFromCorrectedInput } from "./utils.js";
 import { showOne } from "./showOne.js";
 import { moveNext } from "./moveNext.js";
+import { onLoad } from "./onLoad.js";
 
 /* ******************** Randomize order event handler ************************ */
 
@@ -65,31 +67,20 @@ function nextWordEventHandler() {
   moveNext(shuffledArr);
 }
 
+/* ******************** CSV read ********************* */
+
+function csvRead(event) {
+  const file = event.target.files[0];
+  if (!file) return;
+  const reader = new FileReader();
+  reader.onload = onLoad;
+  reader.readAsText(file, "UTF-8");
+}
+
 /* ****************** Event Listeners ********************* */
 
 shuffleBtn.addEventListener("click", randomOrderEventHandler);
 removeBtn.addEventListener("click", removeOutputContentEventHandler);
 showRandomWordBtn.addEventListener("click", showRandomEventHandler);
 nextBtn.addEventListener("click", nextWordEventHandler);
-
-/* ******************** CSV read ********************* */
-
-let json;
-
-function csvRead(event) {
-  const file = event.target.files[0];
-  if (!file) return;
-
-  const reader = new FileReader();
-
-  reader.onload = function (e) {
-    console.log(e);
-    const csvText = e.target.result;
-    json = CSVJSON.csv2json(csvText, { parseNumbers: true });
-    console.log("Dönüştürülmüş JSON:", json);
-  };
-
-  reader.readAsText(file, "UTF-8");
-}
-
-document.getElementById("csvInput").addEventListener("change", csvRead);
+csvInput.addEventListener("change", csvRead);
