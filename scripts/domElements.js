@@ -8,6 +8,7 @@ export const csvOutput = document.getElementById("csv-output");
 export const textArea = document.querySelector("#vocabulary-input");
 export const outputList = document.querySelector(".output-list");
 // Buttons
+export const revealBtn = document.querySelector(".btn--reveal");
 export const shuffleBtn = document.querySelector(".btn--shuffle-input");
 export const showRandomWordBtn = document.querySelector(
   ".btn--show-random-word"

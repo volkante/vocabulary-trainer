@@ -3,10 +3,10 @@ import { outputList } from "./domElements.js";
 
 let indexOfDisplayedWord = 0;
 
-export function moveNext(turkishWordsArr) {
-  outputList.replaceChildren();
+export function moveNext(arr, element) {
+  element.replaceChildren();
   const wordElement = document.createElement("li");
-  wordElement.textContent = turkishWordsArr[indexOfDisplayedWord];
-  outputList.appendChild(wordElement);
+  wordElement.textContent = arr[indexOfDisplayedWord];
+  element.appendChild(wordElement);
   indexOfDisplayedWord++;
 }
