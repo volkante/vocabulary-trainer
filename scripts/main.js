@@ -18,11 +18,16 @@ import { showOne } from "./showOne.js";
 import { moveNext } from "./moveNext.js";
 import { onLoad } from "./onLoad.js";
 
+/* Global variables */
+
+let shuffledArr;
+
 /* ******************** Randomize order event handler ************************ */
 
 function randomOrderEventHandler() {
   // Store turkish words input into a constant named turkishWords
   const turkishWords = textArea.value;
+  console.log(lastCsvJsonResult);
   // Trim the blank space at the beginning and end of input just in case and split it into different strings by new row mark
   const turkishWordsArr = getArrayFromCorrectedInput(turkishWords);
   // Shuffle turkish words
@@ -53,7 +58,6 @@ function showRandomEventHandler() {
 
 /* ********************* Next word event handler ********************* */
 
-let shuffledArr;
 function nextWordEventHandler() {
   if (!shuffledArr) {
     // Store turkish words input into a constant named turkishWords
