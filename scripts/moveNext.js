@@ -5,9 +5,10 @@ let indexOfDisplayedWord = 0;
 export function moveNext(arr, element) {
   element.replaceChildren();
   const wordElement = document.createElement("li");
-  console.log(arr);
-  console.log(indexOfDisplayedWord);
-  wordElement.textContent = arr[indexOfDisplayedWord];
+  wordElement.textContent =
+    typeof arr[indexOfDisplayedWord] === "object"
+      ? arr[indexOfDisplayedWord]["Bedeutung"]
+      : arr[indexOfDisplayedWord];
   element.appendChild(wordElement);
   indexOfDisplayedWord++;
 }

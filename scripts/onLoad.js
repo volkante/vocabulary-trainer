@@ -1,4 +1,3 @@
-import { csvOutput } from "./domElements.js";
 import { getlastCsvJsonResult, setLastCsvJsonResult } from "./state.js";
 
 export function onLoad(e) {
