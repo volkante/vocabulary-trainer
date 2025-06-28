@@ -46,7 +46,7 @@ function revealNextInfoEventHandler(e) {
     console.log(shuffledArrObj);
   }
   // Show first word from turkish words
-  moveNext(shuffledArr, csvOutput);
+  moveNext(shuffledArrObj, csvOutput);
 }
 
 /* ******************** Randomize order event handler ************************ */
