@@ -25,6 +25,12 @@ h1 {
   cursor: pointer;
 }
 
+/* CSV OUTPUT SECTION */
+
+.btn--reveal {
+  background-color: bisque;
+}
+
 /* INPUT SECTION */
 
 section.input {
