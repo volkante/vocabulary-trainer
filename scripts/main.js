@@ -14,7 +14,7 @@ import {
 
 import { shuffle } from "./shuffle.js";
 import { createOutput } from "./createOutput.js";
-import { getArrayFromCorrectedInput } from "./utils.js";
+import { getArrayFromCorrectedInput, convertObjectsToArr } from "./utils.js";
 import { showOne } from "./showOne.js";
 import { moveNext } from "./moveNext.js";
 import { onLoad } from "./onLoad.js";
@@ -38,6 +38,7 @@ function csvRead(event) {
 /* ******************** Reveal next event handler **************** */
 
 function revealNextInfoEventHandler(e) {
+  let wordsArr;
   if (!shuffledArrObj) {
     // Store csv array of obj
     const value = getlastCsvJsonResult();
@@ -45,8 +46,9 @@ function revealNextInfoEventHandler(e) {
     shuffledArrObj = shuffle(value);
     console.log(shuffledArrObj);
   }
+  wordsArr = convertObjectsToArr(shuffledArrObj);
   // Show first word from turkish words
-  moveNext(shuffledArrObj, csvOutput);
+  moveNext(wordsArr, csvOutput);
 }
 
 /* ******************** Randomize order event handler ************************ */

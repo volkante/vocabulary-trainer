@@ -6,3 +6,14 @@ export function getArrayFromCorrectedInput(inputVal) {
     return element.trim();
   });
 }
+
+export function convertObjectsToArr(arr) {
+  const wordInfosArr = [];
+  for (let i = 0; i < arr.length; i++) {
+    const values = Object.values(arr[i]);
+    for (let j = 0; j < 4; j++) {
+      wordInfosArr.push(values[j]);
+    }
+  }
+  return wordInfosArr;
+}
