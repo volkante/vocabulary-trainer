@@ -37,7 +37,7 @@ function csvRead(event) {
 
 /* ******************** Reveal next event handler **************** */
 
-function revealNextInfoEventHandler(e) {
+function revealNextInfoEventHandler() {
   let wordsArr;
   if (!shuffledArrObj) {
     // Store csv array of obj
@@ -47,6 +47,7 @@ function revealNextInfoEventHandler(e) {
     console.log(shuffledArrObj);
   }
   wordsArr = convertObjectsToArr(shuffledArrObj);
+  console.log("wordsArr", wordsArr);
   // Show first word from turkish words
   moveNext(wordsArr, csvOutput);
 }
