@@ -12,18 +12,20 @@ export function convertObjectsToArr(arr) {
   for (let i = 0; i < arr.length; i++) {
     const entries = Object.entries(arr[i]);
     for (let j = 0; j < 4; j++) {
-      let wordInfo;
-      if (entries[j][1] === "") {
-        wordInfo = `keine ${entries[j][0]}`;
-      } else {
-        wordInfo = entries[j][1];
-      }
-      wordInfosArr.push(wordInfo);
+      let value = entries[j][1];
+      let key = entries[j][0];
+      wordInfosArr.push(wordInfoCreate(key, value));
     }
   }
   return wordInfosArr;
 }
 
-/* function createPlaceHolderForEmptyWordInfo (val) {
-  val === "" ? `keine ${}`
-} */
+function wordInfoCreate(key, val) {
+  let wordInfo;
+  if (val === "") {
+    wordInfo = `keine ${key}`;
+  } else {
+    wordInfo = val;
+  }
+  return wordInfo;
+}
