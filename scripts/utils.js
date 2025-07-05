@@ -10,12 +10,15 @@ export function getArrayFromCorrectedInput(inputVal) {
 export function convertObjectsToArr(arr) {
   const wordInfosArr = [];
   for (let i = 0; i < arr.length; i++) {
-    const values = Object.values(arr[i]);
+    const entries = Object.entries(arr[i]);
     for (let j = 0; j < 4; j++) {
-      if (values[j] === "") {
-        values[j] = `keine info`;
+      let wordInfo;
+      if (entries[j][1] === "") {
+        wordInfo = `keine ${entries[j][0]}`;
+      } else {
+        wordInfo = entries[j][1];
       }
-      wordInfosArr.push(values[j]);
+      wordInfosArr.push(wordInfo);
     }
   }
   return wordInfosArr;
