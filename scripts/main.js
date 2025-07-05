@@ -47,6 +47,7 @@ function revealNextInfoEventHandler(e) {
     console.log(shuffledArrObj);
   }
   wordsArr = convertObjectsToArr(shuffledArrObj);
+  console.log("wordsarr", wordsArr);
   // Show first word from turkish words
   moveNext(wordsArr, csvOutput);
 }

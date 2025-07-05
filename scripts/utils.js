@@ -12,8 +12,15 @@ export function convertObjectsToArr(arr) {
   for (let i = 0; i < arr.length; i++) {
     const values = Object.values(arr[i]);
     for (let j = 0; j < 4; j++) {
+      if (values[j] === "") {
+        values[j] = `keine info`;
+      }
       wordInfosArr.push(values[j]);
     }
   }
   return wordInfosArr;
 }
+
+/* function createPlaceHolderForEmptyWordInfo (val) {
+  val === "" ? `keine ${}`
+} */
