@@ -15,3 +15,4 @@ export const showRandomWordBtn = document.querySelector(
 );
 export const removeBtn = document.querySelector(".btn--remove-output");
 export const nextBtn = document.querySelector(".btn--next");
+export const backBtn = document.querySelector(".btn--back");
