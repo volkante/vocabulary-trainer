@@ -10,13 +10,11 @@ export function getArrayFromCorrectedInput(inputVal) {
 export function convertObjectsToArr(arr) {
   const wordInfosArr = [];
   // Iterate over objects of array
-  console.log(Object.entries(arr[0]));
   for (let i = 0; i < arr.length; i++) {
     // Create entries array which includes another array of the key and value of each word info
     const entries = Object.entries(arr[i]);
-    const turkishMeaning = entries[1];
-    entries[1] = entries[0];
-    entries[0] = turkishMeaning;
+    // Replace first entry with Turkish meaning and second with German word
+    swapGermanWordTurkishMeaning(entries);
     // Iterate over entries array
     for (let j = 0; j < 4; j++) {
       let value = entries[j][1];
@@ -33,8 +31,8 @@ function wordInfoCreate(key, val) {
   return wordInfo;
 }
 
-/* function swapGermanWordTurkishMeaning (arr) {
-    const germanWord = arr[0];
-    arr[1] = arr[0];
-    arr[0] = germanWord;
-} */
+function swapGermanWordTurkishMeaning(entriesArr) {
+  const turkishMeaning = entriesArr[1];
+  entriesArr[1] = entriesArr[0];
+  entriesArr[0] = turkishMeaning;
+}
