@@ -28,7 +28,7 @@ let shuffledArrObj;
 
 /* ******************** CSV read ********************* */
 
-function csvRead(event) {
+function csvChangeHandler(event) {
   const file = event.target.files[0];
   if (!file) return;
   const reader = new FileReader();
@@ -111,7 +111,7 @@ function nextWordEventHandler() {
 
 /* ****************** Event Listeners ********************* */
 
-csvInput.addEventListener("change", csvRead);
+csvInput.addEventListener("change", csvChangeHandler);
 revealBtn.addEventListener("click", revealNextInfoEventHandler);
 backBtn.addEventListener("click", revealPreviousInfoEventHandler);
 shuffleBtn.addEventListener("click", randomOrderEventHandler);
