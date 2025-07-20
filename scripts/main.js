@@ -23,7 +23,7 @@ import { getlastCsvJsonResult, setLastCsvJsonResult } from "./state.js";
 
 /* Global variables */
 
-let shuffledArr;
+// let shuffledArr;
 //let shuffledArrObj;
 
 /* ******************** CSV read ********************* */
@@ -114,7 +114,7 @@ function nextWordEventHandler() {
 csvInput.addEventListener("change", csvChangeHandler);
 revealBtn.addEventListener("click", revealNextInfoEventHandler);
 backBtn.addEventListener("click", revealPreviousInfoEventHandler);
-shuffleBtn.addEventListener("click", randomOrderEventHandler);
-removeBtn.addEventListener("click", removeOutputContentEventHandler);
-showRandomWordBtn.addEventListener("click", showRandomEventHandler);
-nextBtn.addEventListener("click", nextWordEventHandler);
+//shuffleBtn.addEventListener("click", randomOrderEventHandler);
+//removeBtn.addEventListener("click", removeOutputContentEventHandler);
+//showRandomWordBtn.addEventListener("click", showRandomEventHandler);
+//nextBtn.addEventListener("click", nextWordEventHandler);

@@ -3,7 +3,7 @@
 let indexOfDisplayedWord = 0;
 
 export function moveNext(arr, element) {
-  element.replaceChildren();
+  //element.replaceChildren();
   const wordElement = document.createElement("li");
   const content = arr[indexOfDisplayedWord];
   // If revealed info is a link, make it anchor element
