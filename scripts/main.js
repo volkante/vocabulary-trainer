@@ -24,7 +24,7 @@ import { getlastCsvJsonResult, setLastCsvJsonResult } from "./state.js";
 /* Global variables */
 
 // let shuffledArr;
-//let shuffledArrObj;
+// let shuffledArrObj;
 
 /* ******************** CSV read ********************* */
 
@@ -61,53 +61,53 @@ function revealPreviousInfoEventHandler() {
 
 /* ******************** Randomize order event handler ************************ */
 
-function randomOrderEventHandler() {
-  // Store turkish words input into a constant named turkishWords
-  const turkishWords = textArea.value;
-  console.log(turkishWords);
-  // Trim the blank space at the beginning and end of input just in case and split it into different strings by new row mark
-  const turkishWordsArr = getArrayFromCorrectedInput(turkishWords);
-  // Shuffle turkish words
-  const shuffledArr = shuffle(turkishWordsArr);
-  // Display shuffled words
-  createOutput(shuffledArr);
-}
+// function randomOrderEventHandler() {
+//   // Store turkish words input into a constant named turkishWords
+//   const turkishWords = textArea.value;
+//   console.log(turkishWords);
+//   // Trim the blank space at the beginning and end of input just in case and split it into different strings by new row mark
+//   const turkishWordsArr = getArrayFromCorrectedInput(turkishWords);
+//   // Shuffle turkish words
+//   const shuffledArr = shuffle(turkishWordsArr);
+//   // Display shuffled words
+//   createOutput(shuffledArr);
+// }
 
-/* ******************** Clear output list event handler ******************** */
+// /* ******************** Clear output list event handler ******************** */
 
-// Declare a function to clear output when butto "next" is clicked
-function removeOutputContentEventHandler() {
-  outputList.replaceChildren();
-}
+// // Declare a function to clear output when butto "next" is clicked
+// function removeOutputContentEventHandler() {
+//   outputList.replaceChildren();
+// }
 
-/* ********************* Show one word event handler ********************* */
+// /* ********************* Show one word event handler ********************* */
 
-function showRandomEventHandler() {
-  // Store turkish words input into a constant named turkishWords
-  const turkishWords = textArea.value;
-  // Trim the blank space at the beginning and end of input just in case and split it into different strings by new row mark
-  const turkishWordsArr = getArrayFromCorrectedInput(turkishWords);
-  // Shuffle turkish words
-  const shuffledArr = shuffle(turkishWordsArr);
-  // Show first word from turkish words
-  showOne(shuffledArr);
-}
+// function showRandomEventHandler() {
+//   // Store turkish words input into a constant named turkishWords
+//   const turkishWords = textArea.value;
+//   // Trim the blank space at the beginning and end of input just in case and split it into different strings by new row mark
+//   const turkishWordsArr = getArrayFromCorrectedInput(turkishWords);
+//   // Shuffle turkish words
+//   const shuffledArr = shuffle(turkishWordsArr);
+//   // Show first word from turkish words
+//   showOne(shuffledArr);
+// }
 
-/* ********************* Next word event handler ********************* */
+// /* ********************* Next word event handler ********************* */
 
-function nextWordEventHandler() {
-  if (!shuffledArr) {
-    // Store turkish words input into a constant named turkishWords
-    const turkishWords = textArea.value;
-    // Trim the blank space at the beginning and end of input just in case and split it into different strings by new row mark
-    const turkishWordsArr = getArrayFromCorrectedInput(turkishWords);
-    // Shuffle turkish words
-    shuffledArr = shuffle(turkishWordsArr);
-    console.log(shuffledArr);
-  }
-  // Show first word from turkish words
-  moveNext(shuffledArr, outputList);
-}
+// function nextWordEventHandler() {
+//   if (!shuffledArr) {
+//     // Store turkish words input into a constant named turkishWords
+//     const turkishWords = textArea.value;
+//     // Trim the blank space at the beginning and end of input just in case and split it into different strings by new row mark
+//     const turkishWordsArr = getArrayFromCorrectedInput(turkishWords);
+//     // Shuffle turkish words
+//     shuffledArr = shuffle(turkishWordsArr);
+//     console.log(shuffledArr);
+//   }
+//   // Show first word from turkish words
+//   moveNext(shuffledArr, outputList);
+// }
 
 /* ****************** Event Listeners ********************* */
 

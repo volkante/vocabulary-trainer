@@ -1,11 +1,11 @@
 "use strict";
 
-let indexOfDisplayedWord = 0;
+import { getIndexOfDisplayedWord, setIndexOfDisplayedWord } from "./state.js";
 
 export function moveNext(arr, element) {
-  //element.replaceChildren();
+  element.replaceChildren();
   const wordElement = document.createElement("li");
-  const content = arr[indexOfDisplayedWord];
+  const content = arr[getIndexOfDisplayedWord()];
   // If revealed info is a link, make it anchor element
   if (content.startsWith("https")) {
     createLink(content, wordElement);
@@ -13,7 +13,7 @@ export function moveNext(arr, element) {
     wordElement.textContent = content;
   }
   element.appendChild(wordElement);
-  indexOfDisplayedWord++;
+  setIndexOfDisplayedWord(getIndexOfDisplayedWord() + 1);
 }
 
 function createLink(content, wordElement) {
