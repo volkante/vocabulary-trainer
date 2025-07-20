@@ -1,4 +1,4 @@
-"use script";
+"use strict";
 
 // Correct each turkish word in the array
 export function getArrayFromCorrectedInput(inputVal) {
