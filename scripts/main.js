@@ -24,7 +24,7 @@ import { getlastCsvJsonResult, setLastCsvJsonResult } from "./state.js";
 /* Global variables */
 
 let shuffledArr;
-let shuffledArrObj;
+//let shuffledArrObj;
 
 /* ******************** CSV read ********************* */
 
@@ -39,7 +39,7 @@ function csvChangeHandler(event) {
 /* ******************** Reveal next event handler **************** */
 
 function revealNextInfoEventHandler() {
-  let wordsArr;
+  /*  let wordsArr;
   if (!shuffledArrObj) {
     // Store csv array of obj
     const value = getlastCsvJsonResult();
@@ -48,9 +48,9 @@ function revealNextInfoEventHandler() {
     console.log(shuffledArrObj);
   }
   wordsArr = convertObjectsToArr(shuffledArrObj);
-  console.log("wordsarr", wordsArr);
+  console.log("wordsarr", wordsArr); */
   // Show first word from turkish words
-  moveNext(wordsArr, csvOutput);
+  moveNext(getlastCsvJsonResult(), csvOutput);
 }
 
 /* ********************* Reveal previous event handler ******************* */
