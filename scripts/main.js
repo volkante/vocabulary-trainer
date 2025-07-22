@@ -12,6 +12,7 @@ import {
   csvOutput,
   revealBtn,
 } from "./domElements.js";
+import { moveBack } from "./moveBack.js";
 
 /* import { shuffle } from "./shuffle.js";
 import { createOutput } from "./createOutput.js";
@@ -56,7 +57,7 @@ function revealNextInfoEventHandler() {
 /* ********************* Reveal previous event handler ******************* */
 
 function revealPreviousInfoEventHandler() {
-  console.log("previous tıklandı");
+  moveBack(getlastCsvJsonResult(), csvOutput);
 }
 
 /* ******************** Randomize order event handler ************************ */

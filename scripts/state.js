@@ -1,5 +1,5 @@
 let lastCsvJsonResult = null;
-let indexOfDisplayedWord = 0;
+let indexOfDisplayedWord = -1;
 
 export function getlastCsvJsonResult() {
   return lastCsvJsonResult;
