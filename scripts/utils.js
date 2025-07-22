@@ -50,6 +50,7 @@ export function createOutputsChild(wordInfosArr, element) {
   element.appendChild(wordElement);
 }
 
+// Add anchor tag into list element if word information starts with http
 function createLink(content, wordElement) {
   const link = document.createElement("a");
   link.href = content;
@@ -58,6 +59,7 @@ function createLink(content, wordElement) {
   wordElement.appendChild(link);
 }
 
+// When the word information is empty, create a string with "keine"
 function wordInfoCreate(key, val) {
   const wordInfo = val === "" ? `keine ${key}` : val;
   return wordInfo;
