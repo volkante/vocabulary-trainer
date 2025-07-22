@@ -9,12 +9,6 @@ body {
   padding: 2rem 2rem 0;
 }
 
-.container {
-  display: grid;
-  gap: 2rem;
-  grid-template-columns: repeat(2, 1fr);
-}
-
 h1 {
   margin-bottom: 1rem;
 }
@@ -25,52 +19,14 @@ h1 {
   cursor: pointer;
 }
 
-/* CSV OUTPUT SECTION */
-
-.btn--reveal {
-  background-color: bisque;
-}
-
-/* INPUT SECTION */
-
-section.input {
-  display: flex;
-  flex-direction: column;
-  align-items: start;
-  gap: 1rem;
-  position: relative;
-}
-
-.btn--show-random-word {
-  position: absolute;
-  bottom: -4rem;
-  background-color: greenyellow;
-}
-
 /* OUTPUT SECTION */
-
-section.output {
-  position: relative;
-}
-
-h3 {
-  font-size: 16px;
-  margin-bottom: 1rem;
-}
 
 ul {
   list-style: none;
 }
 
-.btn--remove-output {
-  position: absolute;
-  bottom: -4rem;
-  background-color: orange;
-}
-
-.btn--next {
-  position: absolute;
-  bottom: -4rem;
-  right: 2rem;
-  background-color: aqua;
+/* BUTTONS */
+.reveal-buttons {
+  display: flex;
+  justify-content: space-around;
 }

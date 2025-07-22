@@ -1,6 +1,6 @@
 "use strict";
 
-import { backBtn, csvInput, csvOutput, revealBtn } from "./domElements.js";
+import { backBtn, csvInput, csvOutput, nextBtn } from "./domElements.js";
 import { moveBack } from "./moveBack.js";
 import { moveNext } from "./moveNext.js";
 import { onLoad } from "./onLoad.js";
@@ -31,5 +31,5 @@ function revealPreviousInfoEventHandler() {
 /* ****************** Event Listeners ********************* */
 
 csvInput.addEventListener("change", csvChangeHandler);
-revealBtn.addEventListener("click", revealNextInfoEventHandler);
+nextBtn.addEventListener("click", revealNextInfoEventHandler);
 backBtn.addEventListener("click", revealPreviousInfoEventHandler);
