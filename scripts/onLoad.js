@@ -12,6 +12,5 @@ export function onLoad(e) {
   let wordInfosArr = convertObjectsToArr(shuffledJsonResult);
   // Set result to shuffled array
   setLastCsvJsonResult(wordInfosArr);
-
-  //console.log(getlastCsvJsonResult());
+  console.log(getlastCsvJsonResult());
 }

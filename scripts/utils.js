@@ -1,4 +1,5 @@
 "use strict";
+import { getIndexOfDisplayedWord } from "./state.js";
 
 // Correct each turkish word in the array
 export function getArrayFromCorrectedInput(inputVal) {
@@ -7,6 +8,7 @@ export function getArrayFromCorrectedInput(inputVal) {
   });
 }
 
+// Convert json into a one dimensional array
 export function convertObjectsToArr(arr) {
   const wordInfosArr = [];
   // Iterate over objects of array
@@ -24,6 +26,29 @@ export function convertObjectsToArr(arr) {
     }
   }
   return wordInfosArr;
+}
+
+// Create and fill the output ul's child(each word info as a li element)
+export function createOutputsChild(wordInfosArr, element) {
+  // Reset the previous word info (li element)
+  element.replaceChildren();
+  const wordElement = document.createElement("li");
+  const content = wordInfosArr[getIndexOfDisplayedWord()];
+  // If revealed info is a link, make it anchor element
+  if (content.startsWith("https")) {
+    createLink(content, wordElement);
+  } else {
+    wordElement.textContent = content;
+  }
+  element.appendChild(wordElement);
+}
+
+function createLink(content, wordElement) {
+  const link = document.createElement("a");
+  link.href = content;
+  link.textContent = content;
+  link.target = "_blank";
+  wordElement.appendChild(link);
 }
 
 function wordInfoCreate(key, val) {

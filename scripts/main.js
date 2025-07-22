@@ -13,10 +13,10 @@ import {
   revealBtn,
 } from "./domElements.js";
 
-import { shuffle } from "./shuffle.js";
+/* import { shuffle } from "./shuffle.js";
 import { createOutput } from "./createOutput.js";
 import { getArrayFromCorrectedInput, convertObjectsToArr } from "./utils.js";
-import { showOne } from "./showOne.js";
+import { showOne } from "./showOne.js"; */
 import { moveNext } from "./moveNext.js";
 import { onLoad } from "./onLoad.js";
 import { getlastCsvJsonResult, setLastCsvJsonResult } from "./state.js";
