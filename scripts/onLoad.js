@@ -5,6 +5,7 @@ export function onLoad(e) {
   const csvText = e.target.result;
   // Use CSVJSON program to get json result
   let jsonResult = CSVJSON.csv2json(csvText, { parseNumbers: true });
+  console.log(jsonResult);
   // Shuffle the array of objects by using shuffle function
   let shuffledJsonResult = shuffle(jsonResult);
   // Convert shuffled array of objects into an array

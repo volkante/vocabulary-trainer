@@ -21,6 +21,7 @@ export function convertObjectsToArr(arr) {
   return wordInfosArr;
 }
 
+// Shuffle word informations
 export function shuffle(arr) {
   // Check if arr is an array. Throw error when not.
   if (!Array.isArray(arr)) throw new Error("Expected Array");
