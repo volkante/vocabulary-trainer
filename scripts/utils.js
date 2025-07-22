@@ -1,13 +1,6 @@
 "use strict";
 import { getIndexOfDisplayedWord } from "./state.js";
 
-// Correct each turkish word in the array
-export function getArrayFromCorrectedInput(inputVal) {
-  return inputVal.split("\n").map((element) => {
-    return element.trim();
-  });
-}
-
 // Convert json into a one dimensional array
 export function convertObjectsToArr(arr) {
   const wordInfosArr = [];
