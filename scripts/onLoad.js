@@ -1,6 +1,5 @@
 import { getlastCsvJsonResult, setLastCsvJsonResult } from "./state.js";
-import { shuffle } from "./shuffle.js";
-import { convertObjectsToArr } from "./utils.js";
+import { convertObjectsToArr, shuffle } from "./utils.js";
 
 export function onLoad(e) {
   const csvText = e.target.result;

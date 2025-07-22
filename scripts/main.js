@@ -22,7 +22,7 @@ function revealNextInfoEventHandler() {
   moveNext(getlastCsvJsonResult(), csvOutput);
 }
 
-/* ********************* Reveal previous event handler ******************* */
+/* ********************* Reveal previous event handler ***************** */
 
 function revealPreviousInfoEventHandler() {
   moveBack(getlastCsvJsonResult(), csvOutput);
