@@ -6,6 +6,10 @@ import { moveNext } from "./moveNext.js";
 import { onLoad } from "./onLoad.js";
 import { getlastCsvJsonResult } from "./state.js";
 
+// TODO 1: Output ifadesini "turkish meaning", "word", "source", "example" ifadeleriyle değiştir. İçerik değiştiğinde.
+// TODO 2: Android csv'yi xls'e çevirdiği için mobilde olmuyor. Çözüm
+// TODO 3: Deploy etme ve yoldayken kullanabilme
+
 /* ******************** CSV read ********************* */
 
 function csvChangeHandler(event) {
