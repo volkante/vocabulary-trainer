@@ -39,6 +39,7 @@ export function createOutputsChild(wordInfosArr, element) {
   element.replaceChildren();
   const wordElement = document.createElement("li");
   const content = wordInfosArr[getIndexOfDisplayedWord()];
+  console.log(getIndexOfDisplayedWord());
   // If revealed info is a link, make it anchor element
   if (content.startsWith("https")) {
     createLink(content, wordElement);
