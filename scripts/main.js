@@ -5,6 +5,7 @@ import { moveBack } from "./moveBack.js";
 import { moveNext } from "./moveNext.js";
 import { onLoad } from "./onLoad.js";
 import { getlastCsvJsonResult } from "./state.js";
+import { setIndexOfDisplayedWord } from "./state.js";
 
 // TODO 1: Output ifadesini "turkish meaning", "word", "source", "example" ifadeleriyle değiştir. İçerik değiştiğinde.
 // TODO 2: Android csv'yi xls'e çevirdiği için mobilde olmuyor. Çözüm bul.
@@ -13,6 +14,8 @@ import { getlastCsvJsonResult } from "./state.js";
 /* ******************** CSV read ********************* */
 
 function csvChangeHandler(event) {
+  // When a new file is loaded ,set Index of Displayed Word to -1
+  setIndexOfDisplayedWord(-1);
   const file = event.target.files[0];
   if (!file) return;
   const reader = new FileReader();
