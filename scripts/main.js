@@ -7,9 +7,10 @@ import { onLoad } from "./onLoad.js";
 import { getlastCsvJsonResult } from "./state.js";
 import { setIndexOfDisplayedWord } from "./state.js";
 
-// TODO 1: Output ifadesini "turkish meaning", "word", "source", "example" ifadeleriyle değiştir. İçerik değiştiğinde.
-// TODO 2: Android csv'yi xls'e çevirdiği için mobilde olmuyor. Çözüm bul.
-// TODO 3: Deploy etme ve yoldayken kullanabilme
+// TODO 1: Android csv'yi xls'e çevirdiği için mobilde olmuyor. Çözüm bul.
+// TODO 2: Deploy etme ve yoldayken kullanabilme
+// TODO 3: Örnekler arasında alt satıra geçme utils'de. sadeleştir, fonksionel programlamaya göre yaz.
+// TODO 4: Changeoutputtitle' function'ını switch ile yaz.
 
 /* ******************** CSV read ********************* */
 

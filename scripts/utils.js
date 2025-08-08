@@ -37,16 +37,36 @@ export function shuffle(arr) {
 export function createOutputsChild(wordInfosArr, element) {
   // Reset the previous word info (li element)
   element.replaceChildren();
-  const wordElement = document.createElement("li");
+  let wordElement;
   const content = wordInfosArr[getIndexOfDisplayedWord()];
-  console.log(getIndexOfDisplayedWord());
   // If revealed info is a link, make it anchor element
   if (content.startsWith("https")) {
+    wordElement = document.createElement("li");
     createLink(content, wordElement);
+    // If revealed info is not a link but a plain text:
+    element.appendChild(wordElement);
   } else {
-    wordElement.textContent = content;
+    // If the text has a new line
+    if (content.includes("\n")) {
+      const examplesArr = content.split("\n");
+      console.log(examplesArr);
+      const exampleElements = examplesArr.map((item) => {
+        const exampleElement = document.createElement("li");
+        exampleElement.textContent = item;
+        return exampleElement;
+      });
+      console.log(exampleElements);
+      for (let i = 0; i < exampleElements.length; i++) {
+        const liElement = exampleElements[i];
+        element.appendChild(liElement);
+      }
+      // If text does not have a new line
+    } else {
+      wordElement = document.createElement("li");
+      wordElement.textContent = content;
+      element.appendChild(wordElement);
+    }
   }
-  element.appendChild(wordElement);
 }
 
 // Add anchor tag into list element if word information starts with http
