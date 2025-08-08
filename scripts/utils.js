@@ -63,3 +63,16 @@ function wordInfoCreate(key, val) {
   const wordInfo = val === "" ? `keine ${key}` : val;
   return wordInfo;
 }
+
+// Change Output title by showed information type
+export function changeOutputTitle(outputTitle, indexOfDisplayedWord) {
+  if (indexOfDisplayedWord % 4 === 0) {
+    outputTitle.textContent = "Meaning";
+  } else if (indexOfDisplayedWord % 4 === 1) {
+    outputTitle.textContent = "Word";
+  } else if (indexOfDisplayedWord % 4 === 2) {
+    outputTitle.textContent = "Source";
+  } else if (indexOfDisplayedWord % 4 === 3) {
+    outputTitle.textContent = "Example(s)/remarks";
+  }
+}

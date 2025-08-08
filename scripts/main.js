@@ -14,7 +14,7 @@ import { setIndexOfDisplayedWord } from "./state.js";
 /* ******************** CSV read ********************* */
 
 function csvChangeHandler(event) {
-  // When a new file is loaded ,set Index of Displayed Word to -1
+  // When a new file is loaded, set Index of Displayed Word to -1
   setIndexOfDisplayedWord(-1);
   const file = event.target.files[0];
   if (!file) return;

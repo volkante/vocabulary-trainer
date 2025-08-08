@@ -4,8 +4,10 @@
 // Csv file upload
 export const csvInput = document.getElementById("csvInput");
 export const csvOutput = document.getElementById("csv-output");
-// output list
+// Output list
 export const outputList = document.querySelector(".output-list");
+// Output text
+export const outputTitle = document.querySelector(".output-section h2");
 // Buttons
 export const nextBtn = document.querySelector(".btn--next");
 export const backBtn = document.querySelector(".btn--back");
