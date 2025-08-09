@@ -113,7 +113,7 @@ export function changeOutputTitle(outputTitle, indexOfDisplayedWord) {
       content = "Source";
       break;
     case 3:
-      content = "Example/remark";
+      content = "Example/Remark";
       break;
     default:
       break;

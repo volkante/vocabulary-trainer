@@ -9,7 +9,7 @@ import { setIndexOfDisplayedWord } from "./state.js";
 
 // TODO 1: Android csv'yi xls'e çevirdiği için mobilde olmuyor. Çözüm bul.
 // TODO 2: Deploy etme ve yoldayken kullanabilme
-// TODO 3: Örnekler arasında alt satıra geçme utils'de. sadeleştir, fonksionel programlamaya göre yaz.
+// TODO 3: Next ve back buttonlarına dosya yokken de tıklanabiliyor ve index of displayed word artıp-azalabiliyor. Buttonları file yoksa disable et.
 
 /* ******************** CSV read ********************* */
 
