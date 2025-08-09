@@ -63,16 +63,7 @@ export function createOutputsChild(
   } else {
     // If the text has a new line (e.g. more than one example), place one under the other in the output
     if (content.includes("\n")) {
-      const examplesArr = content.split("\n");
-      const exampleElements = examplesArr.map((item) => {
-        const exampleElement = document.createElement("li");
-        exampleElement.textContent = item;
-        return exampleElement;
-      });
-      for (let i = 0; i < exampleElements.length; i++) {
-        const liElement = exampleElements[i];
-        element.appendChild(liElement);
-      }
+      createNewLines(element, content);
       // If text does not have a new line (e.g. just one example), write it simply to the list element
     } else {
       wordElement = document.createElement("li");
@@ -90,6 +81,23 @@ function createLink(content, wordElement) {
   link.target = "_blank";
   wordElement.appendChild(link);
 }
+
+// If the text has a new line (e.g. more than one example), place one under the other in the output
+// I.e. Create new lines
+function createNewLines(element, content) {
+  const examplesArr = content.split("\n");
+  const exampleElements = examplesArr.map((item) => {
+    const exampleElement = document.createElement("li");
+    exampleElement.textContent = item;
+    return exampleElement;
+  });
+  for (let i = 0; i < exampleElements.length; i++) {
+    const liElement = exampleElements[i];
+    element.appendChild(liElement);
+  }
+}
+
+/* *** Output Title Change *** */
 
 // Change Output title by showed information type between "Meaning", "Word", "Source" and "Example"
 export function changeOutputTitle(outputTitle, indexOfDisplayedWord) {
