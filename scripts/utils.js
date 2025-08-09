@@ -84,15 +84,24 @@ function wordInfoCreate(key, val) {
   return wordInfo;
 }
 
-// Change Output title by showed information type
+// Change Output title by showed information type between "Meaning", "Word", "Source" and "Example"
 export function changeOutputTitle(outputTitle, indexOfDisplayedWord) {
-  if (indexOfDisplayedWord % 4 === 0) {
-    outputTitle.textContent = "Meaning";
-  } else if (indexOfDisplayedWord % 4 === 1) {
-    outputTitle.textContent = "Word";
-  } else if (indexOfDisplayedWord % 4 === 2) {
-    outputTitle.textContent = "Source";
-  } else if (indexOfDisplayedWord % 4 === 3) {
-    outputTitle.textContent = "Example(s)/remarks";
+  let content;
+  switch (indexOfDisplayedWord % 4) {
+    case 0:
+      content = "Meaning";
+      break;
+    case 1:
+      content = "Word";
+      break;
+    case 2:
+      content = "Source";
+      break;
+    case 3:
+      content = "Example/remark";
+      break;
+    default:
+      break;
   }
+  outputTitle.textContent = content;
 }
