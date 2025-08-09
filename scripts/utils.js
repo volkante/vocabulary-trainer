@@ -1,5 +1,7 @@
 "use strict";
 
+/* *** Objects to Array Conversion *** */
+
 // Convert json into a one dimensional array
 export function convertObjectsToArr(arr) {
   const wordInfosArr = [];
@@ -18,6 +20,14 @@ export function convertObjectsToArr(arr) {
   return wordInfosArr;
 }
 
+// When the word information is empty, create a string with "keine"
+function wordInfoCreate(key, val) {
+  const wordInfo = val === "" ? `keine ${key}` : val;
+  return wordInfo;
+}
+
+/* *** Word Shuffle *** */
+
 // Shuffle word informations
 export function shuffle(arr) {
   // Check if arr is an array. Throw error when not.
@@ -31,6 +41,8 @@ export function shuffle(arr) {
   }
   return arr;
 }
+
+/* *** Output children creation *** */
 
 // Create and fill the output ul's child(each word info as a li element)
 export function createOutputsChild(
@@ -77,12 +89,6 @@ function createLink(content, wordElement) {
   link.textContent = content;
   link.target = "_blank";
   wordElement.appendChild(link);
-}
-
-// When the word information is empty, create a string with "keine"
-function wordInfoCreate(key, val) {
-  const wordInfo = val === "" ? `keine ${key}` : val;
-  return wordInfo;
 }
 
 // Change Output title by showed information type between "Meaning", "Word", "Source" and "Example"
