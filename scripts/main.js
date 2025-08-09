@@ -7,9 +7,8 @@ import { onLoad } from "./onLoad.js";
 import { getlastCsvJsonResult } from "./state.js";
 import { setIndexOfDisplayedWord } from "./state.js";
 
-// TODO 1: Android csv'yi xls'e çevirdiği için mobilde olmuyor. Çözüm bul.
-// TODO 2: Deploy etme ve yoldayken kullanabilme
-// TODO 3: Next ve back buttonlarına dosya yokken de tıklanabiliyor ve index of displayed word artıp-azalabiliyor. Buttonları file yoksa disable et.
+// TODO 1: Deploy etme ve yoldayken kullanabilme
+// TODO 2: Next ve back buttonlarına dosya yokken de tıklanabiliyor ve index of displayed word artıp-azalabiliyor. Buttonları file yoksa disable et.
 
 /* ******************** CSV read ********************* */
 
@@ -26,13 +25,17 @@ function csvChangeHandler(event) {
 /* ******************** Reveal next event handler **************** */
 
 function revealNextInfoEventHandler() {
-  moveNext(getlastCsvJsonResult(), csvOutput);
+  // move to next information only if csv input is not empty
+  if (!(csvInput.files.length === 0))
+    moveNext(getlastCsvJsonResult(), csvOutput);
 }
 
 /* ********************* Reveal previous event handler ***************** */
 
 function revealPreviousInfoEventHandler() {
-  moveBack(getlastCsvJsonResult(), csvOutput);
+  // move to previous information only if csv input is not empty
+  if (!(csvInput.files.length === 0))
+    moveBack(getlastCsvJsonResult(), csvOutput);
 }
 
 /* ****************** Event Listeners ********************* */
