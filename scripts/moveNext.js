@@ -7,5 +7,5 @@ import { outputTitle } from "./domElements.js";
 export function moveNext(wordInfosArr, element) {
   setIndexOfDisplayedWord(getIndexOfDisplayedWord() + 1);
   changeOutputTitle(outputTitle, getIndexOfDisplayedWord());
-  createOutputsChild(wordInfosArr, element);
+  createOutputsChild(wordInfosArr, element, getIndexOfDisplayedWord());
 }

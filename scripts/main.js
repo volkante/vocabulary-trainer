@@ -10,7 +10,6 @@ import { setIndexOfDisplayedWord } from "./state.js";
 // TODO 1: Android csv'yi xls'e çevirdiği için mobilde olmuyor. Çözüm bul.
 // TODO 2: Deploy etme ve yoldayken kullanabilme
 // TODO 3: Örnekler arasında alt satıra geçme utils'de. sadeleştir, fonksionel programlamaya göre yaz.
-// TODO 4: Changeoutputtitle' function'ını switch ile yaz.
 
 /* ******************** CSV read ********************* */
 

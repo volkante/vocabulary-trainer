@@ -1,5 +1,4 @@
 "use strict";
-import { getIndexOfDisplayedWord } from "./state.js";
 
 // Convert json into a one dimensional array
 export function convertObjectsToArr(arr) {
@@ -34,33 +33,35 @@ export function shuffle(arr) {
 }
 
 // Create and fill the output ul's child(each word info as a li element)
-export function createOutputsChild(wordInfosArr, element) {
-  // Reset the previous word info (li element)
+export function createOutputsChild(
+  wordInfosArr,
+  element,
+  indexOfDisplayedWord
+) {
+  // Reset the previous word info (li element) each time this function's called
   element.replaceChildren();
   let wordElement;
-  const content = wordInfosArr[getIndexOfDisplayedWord()];
+  const content = wordInfosArr[indexOfDisplayedWord];
   // If revealed info is a link, make it anchor element
   if (content.startsWith("https")) {
     wordElement = document.createElement("li");
     createLink(content, wordElement);
-    // If revealed info is not a link but a plain text:
     element.appendChild(wordElement);
+    // If revealed info is not a link but a plain text:
   } else {
-    // If the text has a new line
+    // If the text has a new line (e.g. more than one example), place one under the other in the output
     if (content.includes("\n")) {
       const examplesArr = content.split("\n");
-      console.log(examplesArr);
       const exampleElements = examplesArr.map((item) => {
         const exampleElement = document.createElement("li");
         exampleElement.textContent = item;
         return exampleElement;
       });
-      console.log(exampleElements);
       for (let i = 0; i < exampleElements.length; i++) {
         const liElement = exampleElements[i];
         element.appendChild(liElement);
       }
-      // If text does not have a new line
+      // If text does not have a new line (e.g. just one example), write it simply to the list element
     } else {
       wordElement = document.createElement("li");
       wordElement.textContent = content;
