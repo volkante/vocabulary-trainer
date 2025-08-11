@@ -121,10 +121,10 @@ export function changeOutputTitle(outputTitle, indexOfDisplayedWord) {
   outputTitle.textContent = content;
 }
 
-/* *** Enable Disable Button *** */
+/* *** Create and Display a start text in output area *** */
 
 export function createStartText(outputElement) {
   const startText = document.createElement("li");
-  startText.textContent = 'Click "Next Button" to start';
+  startText.textContent = "Click Next Button to start";
   outputElement.appendChild(startText);
 }

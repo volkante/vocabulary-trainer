@@ -13,8 +13,9 @@ import { createStartText } from "./utils.js";
 /* ******************** CSV read ********************* */
 
 function csvChangeHandler(event) {
-  // When a new file is loaded, set Index of Displayed Word to -1 and create start text in output element
+  // When a new file is loaded, set Index of Displayed Word to -1
   setIndexOfDisplayedWord(-1);
+  // When a new file is loaded, create and display the start text in output element.
   createStartText(outputList);
   const file = event.target.files[0];
   if (!file) return;
