@@ -8,7 +8,6 @@ import { getlastCsvJsonResult } from "./state.js";
 import { setIndexOfDisplayedWord } from "./state.js";
 
 // TODO 1: Deploy etme ve yoldayken kullanabilme
-// TODO 2: Bitince ilerlemeye devam ediyor.
 
 /* ******************** CSV read ********************* */
 

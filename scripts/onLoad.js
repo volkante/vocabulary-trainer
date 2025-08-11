@@ -1,3 +1,5 @@
+"use strict";
+
 import { getlastCsvJsonResult, setLastCsvJsonResult } from "./state.js";
 import { convertObjectsToArr, shuffle } from "./utils.js";
 

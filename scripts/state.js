@@ -1,3 +1,5 @@
+"use strict";
+
 let lastCsvJsonResult = null;
 let indexOfDisplayedWord = -1;
 
