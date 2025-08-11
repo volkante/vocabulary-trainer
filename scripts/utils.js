@@ -123,10 +123,8 @@ export function changeOutputTitle(outputTitle, indexOfDisplayedWord) {
 
 /* *** Enable Disable Button *** */
 
-export function disableElement(element) {
-  element.disabled = true;
-}
-
-export function enableElement(element) {
-  element.disabled = false;
+export function createStartText(outputElement) {
+  const startText = document.createElement("li");
+  startText.textContent = 'Click "Next Button" to start';
+  outputElement.appendChild(startText);
 }

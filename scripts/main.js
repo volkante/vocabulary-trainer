@@ -1,19 +1,21 @@
 "use strict";
 
-import { backBtn, csvInput, csvOutput, nextBtn } from "./domElements.js";
+import { backBtn, csvInput, nextBtn, outputList } from "./domElements.js";
 import { moveBack } from "./moveBack.js";
 import { moveNext } from "./moveNext.js";
 import { onLoad } from "./onLoad.js";
 import { getlastCsvJsonResult } from "./state.js";
 import { setIndexOfDisplayedWord } from "./state.js";
+import { createStartText } from "./utils.js";
 
 // TODO 1: Deploy etme ve yoldayken kullanabilme
 
 /* ******************** CSV read ********************* */
 
 function csvChangeHandler(event) {
-  // When a new file is loaded, set Index of Displayed Word to -1
+  // When a new file is loaded, set Index of Displayed Word to -1 and create start text in output element
   setIndexOfDisplayedWord(-1);
+  createStartText(outputList);
   const file = event.target.files[0];
   if (!file) return;
   const reader = new FileReader();
@@ -24,9 +26,9 @@ function csvChangeHandler(event) {
 /* ******************** Reveal next event handler **************** */
 
 function revealNextInfoEventHandler() {
-  // move to next information only if csv input is not empty
+  // Move to the next information only if csv input exists
   if (!(csvInput.files.length === 0))
-    moveNext(getlastCsvJsonResult(), csvOutput);
+    moveNext(getlastCsvJsonResult(), outputList);
 }
 
 /* ********************* Reveal previous event handler ***************** */
@@ -34,7 +36,7 @@ function revealNextInfoEventHandler() {
 function revealPreviousInfoEventHandler() {
   // move to previous information only if csv input is not empty
   if (!(csvInput.files.length === 0))
-    moveBack(getlastCsvJsonResult(), csvOutput);
+    moveBack(getlastCsvJsonResult(), outputList);
 }
 
 /* ****************** Event Listeners ********************* */

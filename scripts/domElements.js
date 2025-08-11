@@ -3,7 +3,6 @@
 
 // Csv file upload
 export const csvInput = document.getElementById("csvInput");
-export const csvOutput = document.getElementById("csv-output");
 // Output list
 export const outputList = document.querySelector(".output-list");
 // Output text
