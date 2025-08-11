@@ -8,7 +8,7 @@ import { getlastCsvJsonResult } from "./state.js";
 import { setIndexOfDisplayedWord } from "./state.js";
 
 // TODO 1: Deploy etme ve yoldayken kullanabilme
-// TODO 2: Next ve back buttonlarına dosya yokken de tıklanabiliyor ve index of displayed word artıp-azalabiliyor. Buttonları file yoksa disable et.
+// TODO 2: Bitince ilerlemeye devam ediyor.
 
 /* ******************** CSV read ********************* */
 

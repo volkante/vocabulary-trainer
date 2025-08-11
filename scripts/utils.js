@@ -120,3 +120,13 @@ export function changeOutputTitle(outputTitle, indexOfDisplayedWord) {
   }
   outputTitle.textContent = content;
 }
+
+/* *** Enable Disable Button *** */
+
+export function disableElement(element) {
+  element.disabled = true;
+}
+
+export function enableElement(element) {
+  element.disabled = false;
+}
