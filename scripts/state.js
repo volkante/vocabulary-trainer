@@ -1,7 +1,7 @@
 "use strict";
 
 let lastCsvJsonResult = null;
-let indexOfDisplayedWord = -1;
+let indexOfDisplayedWordInfo = -1;
 
 export function getlastCsvJsonResult() {
   return lastCsvJsonResult;
@@ -11,10 +11,10 @@ export function setLastCsvJsonResult(val) {
   lastCsvJsonResult = val;
 }
 
-export function getIndexOfDisplayedWord() {
-  return indexOfDisplayedWord;
+export function getIndexOfDisplayedWordInfo() {
+  return indexOfDisplayedWordInfo;
 }
 
-export function setIndexOfDisplayedWord(indexNum) {
-  indexOfDisplayedWord = indexNum;
+export function setIndexOfDisplayedWordInfo(indexNum) {
+  indexOfDisplayedWordInfo = indexNum;
 }

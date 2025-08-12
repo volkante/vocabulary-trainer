@@ -48,12 +48,12 @@ export function shuffle(arr) {
 export function createOutputsChild(
   wordInfosArr,
   element,
-  indexOfDisplayedWord
+  indexOfDisplayedWordInfo
 ) {
   // Reset the previous word info (li element) each time this function's called
   element.replaceChildren();
   let wordElement;
-  const content = wordInfosArr[indexOfDisplayedWord];
+  const content = wordInfosArr[indexOfDisplayedWordInfo];
   // If revealed info is a link, make it anchor element
   if (content.startsWith("https")) {
     wordElement = document.createElement("li");
@@ -100,9 +100,9 @@ function createNewLines(element, content) {
 /* *** Output Title Change *** */
 
 // Change Output title by showed information type between "Meaning", "Word", "Source" and "Example"
-export function changeOutputTitle(outputTitle, indexOfDisplayedWord) {
+export function changeOutputTitle(outputTitle, indexOfDisplayedWordInfo) {
   let content;
-  switch (indexOfDisplayedWord % 4) {
+  switch (indexOfDisplayedWordInfo % 4) {
     case 0:
       content = "Meaning";
       break;
@@ -129,4 +129,4 @@ export function createStartText(outputElement) {
   outputElement.appendChild(startText);
 }
 
-/* *** Create and Display a start text in output area *** */
+/* ***  *** */

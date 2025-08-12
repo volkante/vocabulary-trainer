@@ -5,7 +5,7 @@ import { moveBack } from "./moveBack.js";
 import { moveNext } from "./moveNext.js";
 import { onLoad } from "./onLoad.js";
 import { getlastCsvJsonResult } from "./state.js";
-import { setIndexOfDisplayedWord } from "./state.js";
+import { setIndexOfDisplayedWordInfo } from "./state.js";
 import { createStartText } from "./utils.js";
 
 // TODO 1: Yeni kelimeye geçtiğin anlaşılmıyor. Meaning ifadesinin rengi değişebilir.
@@ -13,12 +13,13 @@ import { createStartText } from "./utils.js";
 // TODO 3: Ortaya tekrar karşına çıkarma buttonu ekleme.
 // TODO 4: Stillerle oynama. Özellikle button ve icon tuşları.
 // TODO 5: Yeni csv yüklenince başlama yazısı alt alta tekrar geliyor. BUG!
+// TODO 6: Aslında input'u shuffle ettikten sonra tüm bilgileri array'a yaymak zorunda mıyım? Array of objects olarak kalsa?
 
 /* ******************** CSV read ********************* */
 
 function csvChangeHandler(event) {
-  // When a new file is loaded, set Index of Displayed Word to -1
-  setIndexOfDisplayedWord(-1);
+  // When a new file is loaded, set Index of Displayed Word information to -1
+  setIndexOfDisplayedWordInfo(-1);
   // When a new file is loaded, create and display the start text in output element.
   createStartText(outputList);
   const file = event.target.files[0];
