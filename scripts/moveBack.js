@@ -14,4 +14,5 @@ export function moveBack(wordInfosArr, element) {
 
   changeOutputTitle(outputTitle, getIndexOfDisplayedWord());
   createOutputsChild(wordInfosArr, element, getIndexOfDisplayedWord());
+  console.log(getIndexOfDisplayedWord());
 }

@@ -8,7 +8,10 @@ import { getlastCsvJsonResult } from "./state.js";
 import { setIndexOfDisplayedWord } from "./state.js";
 import { createStartText } from "./utils.js";
 
-// TODO 1: Deploy etme ve yoldayken kullanabilme
+// TODO 1: Yeni kelimeye geçtiğin anlaşılmıyor. Meaning ifadesinin rengi değişebilir.
+// TODO 2: Kaç kelime kaldı, toplamda kaç gelime var. Output field'in sağ üstünde olabilir.
+// TODO 3: Ortaya tekrar karşına çıkarma buttonu ekleme.
+// TODO 4: Stillerle oynama. Özellikle button ve icon tuşları.
 
 /* ******************** CSV read ********************* */
 

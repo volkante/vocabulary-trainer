@@ -62,11 +62,21 @@ input[type="file"]:focus {
   margin-bottom: 2rem;
 }
 
-.output-section h2 {
-  font-size: 1.3rem;
-  color: #1976d2;
+.output-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   margin-bottom: 0.8rem;
+}
+
+.output-section h2 {
+  color: #1976d2;
+  font-size: 1.3rem;
   font-weight: 700;
+}
+
+.index {
+  font-weight: 600;
 }
 
 .output-list {

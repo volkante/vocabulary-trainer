@@ -17,4 +17,5 @@ export function moveNext(wordInfosArr, element) {
   }
   changeOutputTitle(outputTitle, getIndexOfDisplayedWord());
   createOutputsChild(wordInfosArr, element, getIndexOfDisplayedWord());
+  console.log(getIndexOfDisplayedWord());
 }
