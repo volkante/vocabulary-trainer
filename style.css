@@ -76,7 +76,11 @@ input[type="file"]:focus {
 }
 
 .index {
-  font-weight: 600;
+  font-weight: 700;
+}
+
+.total-wordlist-length {
+  font-weight: 400;
 }
 
 .output-list {

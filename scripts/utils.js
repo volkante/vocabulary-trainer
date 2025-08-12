@@ -128,3 +128,5 @@ export function createStartText(outputElement) {
   startText.textContent = "Click Next Button to start";
   outputElement.appendChild(startText);
 }
+
+/* *** Create and Display a start text in output area *** */
