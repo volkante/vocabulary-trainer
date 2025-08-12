@@ -12,8 +12,7 @@ import { createStartText } from "./utils.js";
 // TODO 2: Kaç kelime kaldı, toplamda kaç gelime var. Output field'in sağ üstünde olabilir.
 // TODO 3: Ortaya tekrar karşına çıkarma buttonu ekleme.
 // TODO 4: Stillerle oynama. Özellikle button ve icon tuşları.
-// TODO 5: Yeni csv yüklenince başlama yazısı alt alta tekrar geliyor. BUG!
-// TODO 6: Aslında input'u shuffle ettikten sonra tüm bilgileri array'a yaymak zorunda mıyım? Array of objects olarak kalsa?
+// TODO 5: Aslında input'u shuffle ettikten sonra tüm bilgileri array'a yaymak zorunda mıyım? Array of objects olarak kalsa?
 
 /* ******************** CSV read ********************* */
 
