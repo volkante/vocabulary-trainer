@@ -13,7 +13,8 @@ import { createStartText } from "./utils.js";
 // TODO 3: Ortaya tekrar karşına çıkarma buttonu ekleme.
 // TODO 4: Stillerle oynama. Özellikle button ve icon tuşları.
 // TODO 5: Aslında input'u shuffle ettikten sonra tüm bilgileri array'a yaymak zorunda mıyım? Array of objects olarak kalsa?
-
+// TODO 6: Iphone safari'de kaymalar oluyor. Responsive düzeltmek!
+// TODO 7: Line height for sentences in output list is too low. Increase the line height.
 /* ******************** CSV read ********************* */
 
 function csvChangeHandler(event) {
