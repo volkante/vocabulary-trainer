@@ -127,7 +127,7 @@ export function changeOutputTitle(outputTitle, indexOfDisplayedWordInfo) {
 
 export function createStartText(outputElement) {
   const startText = document.createElement("li");
-  startText.textContent = "Click Next Button to start";
+  startText.textContent = "Click Next Button to start 💡";
   outputElement.appendChild(startText);
 }
 
