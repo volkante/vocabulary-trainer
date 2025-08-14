@@ -9,7 +9,6 @@ import {
   createOutputsChild,
   changeOutputTitle,
   decreaseWordIndex,
-  displayWordIndex,
 } from "./utils.js";
 import { outputTitle, wordIndexElement } from "./domElements.js";
 
@@ -19,7 +18,7 @@ export function moveBack(wordInfosArr, element) {
     setIndexOfDisplayedWordInfo(getIndexOfDisplayedWordInfo() - 1);
     // Decrease word index and display it
     decreaseWordIndex(getIndexOfWord(), getIndexOfDisplayedWordInfo());
-    displayWordIndex(wordIndexElement, getIndexOfWord());
+    wordIndexElement.textContent = getIndexOfWord();
   } else {
     return;
   }

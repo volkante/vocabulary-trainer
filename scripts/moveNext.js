@@ -10,7 +10,6 @@ import {
   createOutputsChild,
   changeOutputTitle,
   increaseWordIndex,
-  displayWordIndex,
 } from "./utils.js";
 import { outputTitle, wordIndexElement } from "./domElements.js";
 
@@ -22,7 +21,7 @@ export function moveNext(wordInfosArr, element) {
     setIndexOfDisplayedWordInfo(getIndexOfDisplayedWordInfo() + 1);
     // Increase word index and display it
     increaseWordIndex(getIndexOfWord(), getIndexOfDisplayedWordInfo());
-    displayWordIndex(wordIndexElement, getIndexOfWord());
+    wordIndexElement.textContent = getIndexOfWord();
   }
   changeOutputTitle(outputTitle, getIndexOfDisplayedWordInfo());
   createOutputsChild(wordInfosArr, element, getIndexOfDisplayedWordInfo());

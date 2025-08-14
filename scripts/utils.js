@@ -131,7 +131,7 @@ export function createStartText(outputElement) {
   outputElement.appendChild(startText);
 }
 
-/* *** Increase Index of Displayed Word and Display it *** */
+/* *** Increase Word index  *** */
 
 export function increaseWordIndex(wordIndex, indexOfDisplayedWordInfo) {
   // Increase word index whenever displayed word info is a meaning. i.e. word info's index is 4 or its multiples.
@@ -141,14 +141,12 @@ export function increaseWordIndex(wordIndex, indexOfDisplayedWordInfo) {
   }
 }
 
+/* *** Decrease Word Index *** */
+
 export function decreaseWordIndex(wordIndex, indexOfDisplayedWordInfo) {
   // Decrease word index whenever displayed word info is an example/remark. i.e. word info's index is 3 or its multiples.
   if (indexOfDisplayedWordInfo % 4 === 3) {
     const currIndexWord = wordIndex - 1;
     setIndexOfWord(currIndexWord);
   }
-}
-
-export function displayWordIndex(element, wordIndex) {
-  element.textContent = wordIndex;
 }
