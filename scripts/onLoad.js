@@ -34,5 +34,6 @@ export function onLoad(e) {
   setIndexOfWord(0);
   // When a new file is loaded, create and display the start text in output element.
   createStartText(outputList);
-  //wordIndexElement.replaceChildren();
+  // When a new file is loaded set word index display to 0.
+  wordIndexElement.textContent = 0;
 }
