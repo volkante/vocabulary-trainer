@@ -2,7 +2,7 @@
 
 let lastCsvJsonResult = null;
 let indexOfDisplayedWordInfo = -1;
-let indexOfDisplayed = 1;
+let indexOfWord = 0;
 
 export function getlastCsvJsonResult() {
   return lastCsvJsonResult;
@@ -20,10 +20,10 @@ export function setIndexOfDisplayedWordInfo(indexNum) {
   indexOfDisplayedWordInfo = indexNum;
 }
 
-export function getIndexOfDisplayed() {
-  return indexOfDisplayed;
+export function getIndexOfWord() {
+  return indexOfWord;
 }
 
-export function setIndexOfDisplayed(indexNum) {
-  indexOfDisplayed = indexNum;
+export function setIndexOfWord(indexNum) {
+  indexOfWord = indexNum;
 }

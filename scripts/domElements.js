@@ -8,7 +8,7 @@ export const outputTitle = document.querySelector(".output-section h2");
 export const totalWordlistLength = document.querySelector(
   ".total-wordlist-length"
 );
-export const wordIndex = document.querySelector(".word-index");
+export const wordIndexElement = document.querySelector(".word-index");
 // Output text
 export const outputList = document.querySelector(".output-list");
 // Buttons

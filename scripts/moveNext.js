@@ -2,11 +2,17 @@
 
 import {
   getIndexOfDisplayedWordInfo,
+  getIndexOfWord,
   getlastCsvJsonResult,
   setIndexOfDisplayedWordInfo,
 } from "./state.js";
-import { createOutputsChild, changeOutputTitle } from "./utils.js";
-import { outputTitle } from "./domElements.js";
+import {
+  createOutputsChild,
+  changeOutputTitle,
+  increaseWordIndex,
+  displayWordIndex,
+} from "./utils.js";
+import { outputTitle, wordIndexElement } from "./domElements.js";
 
 export function moveNext(wordInfosArr, element) {
   // Prevent index of displayed word from exceeding the wordinfos array: If index is at the last, return from the function.
@@ -14,8 +20,12 @@ export function moveNext(wordInfosArr, element) {
     return;
   } else {
     setIndexOfDisplayedWordInfo(getIndexOfDisplayedWordInfo() + 1);
+    // Increase word index and display it
+    increaseWordIndex(getIndexOfWord(), getIndexOfDisplayedWordInfo());
+    displayWordIndex(wordIndexElement, getIndexOfWord());
   }
   changeOutputTitle(outputTitle, getIndexOfDisplayedWordInfo());
   createOutputsChild(wordInfosArr, element, getIndexOfDisplayedWordInfo());
-  console.log(getIndexOfDisplayedWordInfo());
+  console.log("word info index:", getIndexOfDisplayedWordInfo());
+  console.log("indexword", getIndexOfWord());
 }
