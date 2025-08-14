@@ -1,6 +1,12 @@
 "use strict";
 
-import { backBtn, csvInput, nextBtn, outputList } from "./domElements.js";
+import {
+  backBtn,
+  csvInput,
+  nextBtn,
+  outputList,
+  wordIndexElement,
+} from "./domElements.js";
 import { moveBack } from "./moveBack.js";
 import { moveNext } from "./moveNext.js";
 import { onLoad } from "./onLoad.js";
@@ -17,6 +23,7 @@ function csvChangeHandler(event) {
   const file = event.target.files[0];
   if (!file) {
     outputList.replaceChildren();
+    wordIndexElement.textContent = 0;
     return;
   }
   const reader = new FileReader();
