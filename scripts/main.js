@@ -1,17 +1,10 @@
 "use strict";
 
-import {
-  backBtn,
-  csvInput,
-  nextBtn,
-  outputList,
-  wordIndexElement,
-} from "./domElements.js";
+import { backBtn, csvInput, nextBtn, outputList } from "./domElements.js";
 import { moveBack } from "./moveBack.js";
 import { moveNext } from "./moveNext.js";
 import { onLoad } from "./onLoad.js";
 import { getlastCsvJsonResult } from "./state.js";
-import { createStartText } from "./utils.js";
 
 // TODO 1: Ortaya tekrar karşına çıkarma buttonu ekleme.
 // TODO 2: Stillerle oynama. Özellikle button ve icon tuşları.
@@ -22,7 +15,10 @@ import { createStartText } from "./utils.js";
 
 function csvChangeHandler(event) {
   const file = event.target.files[0];
-  if (!file) return;
+  if (!file) {
+    outputList.replaceChildren();
+    return;
+  }
   const reader = new FileReader();
   reader.onload = onLoad;
   reader.readAsText(file, "UTF-8");
