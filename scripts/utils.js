@@ -104,7 +104,7 @@ export function changeOutputTitle(outputTitle, indexOfDisplayedWordInfo) {
   let content;
   switch (indexOfDisplayedWordInfo % 4) {
     case 0:
-      content = "Meaning";
+      content = "✨ Meaning";
       break;
     case 1:
       content = "Word";
