@@ -21,6 +21,7 @@ import { getlastCsvJsonResult } from "./state.js";
 
 function csvChangeHandler(event) {
   const file = event.target.files[0];
+  // If no file is uploaded, reset output section
   if (!file) {
     outputList.replaceChildren();
     wordIndexElement.textContent = 0;

@@ -2,6 +2,22 @@
 
 import { getIndexOfWord, setIndexOfWord } from "./state.js";
 
+/* *** Word Shuffle *** */
+
+// Shuffle word informations
+export function shuffle(arr) {
+  // Check if arr is an array. Throw error when not.
+  if (!Array.isArray(arr)) throw new Error("Expected Array");
+  // Check if more than one word is given as input
+  if (arr.length <= 1) throw new Error("Expected more than one word");
+  // Shuffle the array
+  for (let i = arr.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [arr[i], arr[j]] = [arr[j], arr[i]];
+  }
+  return arr;
+}
+
 /* *** Objects to Array Conversion *** */
 
 // Convert json into a one dimensional array
@@ -11,6 +27,7 @@ export function convertObjectsToArr(arr) {
   for (let i = 0; i < arr.length; i++) {
     // Create entries array which includes another array of the key and value of each word info
     const entries = Object.entries(arr[i]);
+
     // Iterate over entries array
     for (let j = 0; j < 4; j++) {
       let value = entries[j][1];
@@ -26,22 +43,6 @@ export function convertObjectsToArr(arr) {
 function wordInfoCreate(key, val) {
   const wordInfo = val === "" ? `keine ${key}` : val;
   return wordInfo;
-}
-
-/* *** Word Shuffle *** */
-
-// Shuffle word informations
-export function shuffle(arr) {
-  // Check if arr is an array. Throw error when not.
-  if (!Array.isArray(arr)) throw new Error("Expected Array");
-  // Check if more than one word is given as input
-  if (arr.length <= 1) throw new Error("Expected more than one word");
-  // Shuffle the array
-  for (let i = arr.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [arr[i], arr[j]] = [arr[j], arr[i]];
-  }
-  return arr;
 }
 
 /* *** Output children creation *** */
