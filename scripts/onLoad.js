@@ -14,12 +14,14 @@ export function onLoad(e) {
   const csvText = e.target.result;
   // Use CSVJSON program to get json result
   let jsonResult = CSVJSON.csv2json(csvText, { parseNumbers: true });
-  console.log(jsonResult);
 
+  console.log(jsonResult);
+  const jsonResultShallowCopy = [...jsonResult];
   // Shuffle the array of objects by using shuffle function
-  let shuffledJsonResult = shuffle(jsonResult);
+  const shuffledJsonResult = shuffle(jsonResultShallowCopy);
   // Show output wordlist length on screen
   totalWordlistLength.textContent = shuffledJsonResult.length;
+
   // Convert shuffled array of objects into an array
   let wordInfosArr = convertObjectsToArr(shuffledJsonResult);
   // Set result to shuffled array
