@@ -7,7 +7,7 @@ import {
   outputList,
   wordIndexElement,
 } from "./domElements.js";
-import { moveBack } from "./moveBack.js";
+//import { moveBack } from "./moveBack.js";
 import { moveNext } from "./moveNext.js";
 import { onLoad } from "./onLoad.js";
 import { getlastCsvJsonResult } from "./state.js";

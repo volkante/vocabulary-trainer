@@ -1,6 +1,6 @@
 "use strict";
 
-import {
+/* import {
   getIndexOfDisplayedWordInfo,
   setIndexOfDisplayedWordInfo,
   getIndexOfWord,
@@ -27,3 +27,4 @@ export function moveBack(wordInfosArr, element) {
   createOutputsChild(wordInfosArr, element, getIndexOfDisplayedWordInfo());
   console.log(getIndexOfDisplayedWordInfo());
 }
+ */

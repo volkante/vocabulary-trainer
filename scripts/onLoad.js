@@ -4,10 +4,10 @@ import { totalWordlistLength, wordIndexElement } from "./domElements.js";
 import {
   getlastCsvJsonResult,
   setLastCsvJsonResult,
-  setIndexOfDisplayedWordInfo,
   setIndexOfWord,
+  getIndexOfWord,
 } from "./state.js";
-import { convertObjectsToArr, shuffle, createStartText } from "./utils.js";
+import { shuffle, createStartText } from "./utils.js";
 import { outputList } from "./domElements.js";
 
 export function onLoad(e) {
@@ -15,21 +15,20 @@ export function onLoad(e) {
   // Use CSVJSON program to get json result
   let jsonResult = CSVJSON.csv2json(csvText, { parseNumbers: true });
 
-  console.log(jsonResult);
   const jsonResultShallowCopy = [...jsonResult];
   // Shuffle the array of objects by using shuffle function
   const shuffledJsonResult = shuffle(jsonResultShallowCopy);
   // Show output wordlist length on screen
   totalWordlistLength.textContent = shuffledJsonResult.length;
 
-  // Convert shuffled array of objects into an array
-  let wordInfosArr = convertObjectsToArr(shuffledJsonResult);
   // Set result to shuffled array
-  setLastCsvJsonResult(wordInfosArr);
+  setLastCsvJsonResult(shuffledJsonResult);
   console.log(getlastCsvJsonResult());
-
-  // When a new file is loaded, set Index of Displayed Word information to -1
-  setIndexOfDisplayedWordInfo(-1);
+  console.log(getIndexOfWord());
+  const obj = getlastCsvJsonResult()[getIndexOfWord()];
+  for (const property in obj) {
+    console.log(property, obj[property]);
+  }
   // When a new file is loaded, clear the output-list field
   outputList.replaceChildren();
   // When a new file is loaded, set displayed word Index to 0

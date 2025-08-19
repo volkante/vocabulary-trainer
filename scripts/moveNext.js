@@ -1,30 +1,14 @@
 "use strict";
 
 import {
-  getIndexOfDisplayedWordInfo,
   getIndexOfWord,
   getlastCsvJsonResult,
-  setIndexOfDisplayedWordInfo,
+  setIndexOfWord,
 } from "./state.js";
-import {
-  createOutputsChild,
-  changeOutputTitle,
-  increaseWordIndex,
-} from "./utils.js";
-import { outputTitle, wordIndexElement } from "./domElements.js";
 
-export function moveNext(wordInfosArr, element) {
+export function moveNext(wordsArr, element) {
   // Prevent index of displayed word from exceeding the wordinfos array: If index is at the last, return from the function.
-  if (getIndexOfDisplayedWordInfo() >= getlastCsvJsonResult().length - 1) {
+  if (getIndexOfWord() >= getlastCsvJsonResult().length) {
     return;
-  } else {
-    setIndexOfDisplayedWordInfo(getIndexOfDisplayedWordInfo() + 1);
-    // Increase word index and display it
-    increaseWordIndex(getIndexOfWord(), getIndexOfDisplayedWordInfo());
-    wordIndexElement.textContent = getIndexOfWord();
   }
-  changeOutputTitle(outputTitle, getIndexOfDisplayedWordInfo());
-  createOutputsChild(wordInfosArr, element, getIndexOfDisplayedWordInfo());
-  console.log("word info index:", getIndexOfDisplayedWordInfo());
-  console.log("indexword", getIndexOfWord());
 }
