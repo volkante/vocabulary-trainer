@@ -2,6 +2,7 @@
 
 let lastCsvJsonResult = null;
 let indexOfWord = 0;
+let indexOfWordInfoField = 0;
 
 export function getlastCsvJsonResult() {
   return lastCsvJsonResult;
@@ -17,4 +18,12 @@ export function getIndexOfWord() {
 
 export function setIndexOfWord(indexNum) {
   indexOfWord = indexNum;
+}
+
+export function getIndexOfWordInfoField() {
+  return indexOfWordInfoField;
+}
+
+export function setIndexOfWordInfoField(indexNum) {
+  indexOfWordInfoField = indexNum;
 }

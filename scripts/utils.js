@@ -48,6 +48,39 @@ function wordInfoCreate(key, val) {
 
 /* *** Output children creation *** */
 
+// Create and fill the output ul's child(each word info as a li element)
+export function createOutputsChild(wordsArr, element, indexOfWord) {
+  // Reset the previous word info (li element) each time this function's called
+  element.replaceChildren();
+  const currWordObj = wordsArr[indexOfWord];
+  const keys = Object.keys(currWordObj);
+  console.log("keys", keys);
+  const entries = Object.entries(currWordObj);
+  console.log("entries", entries);
+
+  let wordElement = document.createElement("li");
+  wordElement.textContent = currWordObj[keys[indexOfWord]];
+  element.appendChild(wordElement);
+
+  // If revealed info is a link, make it anchor element
+  /*   if (content.startsWith("https")) {
+    wordElement = document.createElement("li");
+    createLink(content, wordElement);
+    element.appendChild(wordElement);
+    // If revealed info is not a link but a plain text:
+  } else {
+    // If the text has a new line (e.g. more than one example), place one under the other in the output
+    if (content.includes("\n")) {
+      createNewLines(element, content);
+      // If text does not have a new line (e.g. just one example), write it simply to the list element
+    } else {
+      wordElement = document.createElement("li");
+      wordElement.textContent = content;
+      element.appendChild(wordElement);
+    }
+  } */
+}
+
 // Add anchor tag into list element if word information starts with http
 function createLink(content, wordElement) {
   const link = document.createElement("a");
@@ -74,8 +107,27 @@ function createNewLines(element, content) {
 
 /* *** Output Title Change *** */
 
-// Change Output title by showed information type
-export function changeOutputTitle() {}
+// Change Output title by showed information type between "Meaning", "Word", "Source" and "Example"
+export function changeOutputTitle(outputTitle, indexOfDisplayedWordInfo) {
+  let content;
+  switch (indexOfDisplayedWordInfo % 4) {
+    case 0:
+      content = "✨ Meaning";
+      break;
+    case 1:
+      content = "Word";
+      break;
+    case 2:
+      content = "Source";
+      break;
+    case 3:
+      content = "Example/Remark";
+      break;
+    default:
+      break;
+  }
+  outputTitle.textContent = content;
+}
 
 /* *** Create and Display a start text in output area *** */
 

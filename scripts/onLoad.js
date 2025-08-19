@@ -24,11 +24,7 @@ export function onLoad(e) {
   // Set result to shuffled array
   setLastCsvJsonResult(shuffledJsonResult);
   console.log(getlastCsvJsonResult());
-  console.log(getIndexOfWord());
-  const obj = getlastCsvJsonResult()[getIndexOfWord()];
-  for (const property in obj) {
-    console.log(property, obj[property]);
-  }
+
   // When a new file is loaded, clear the output-list field
   outputList.replaceChildren();
   // When a new file is loaded, set displayed word Index to 0
