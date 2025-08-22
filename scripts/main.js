@@ -53,3 +53,31 @@ function revealPreviousInfoEventHandler() {
 csvInput.addEventListener("change", csvChangeHandler);
 nextBtn.addEventListener("click", revealNextInfoEventHandler);
 backBtn.addEventListener("click", revealPreviousInfoEventHandler);
+
+const SHEET_URL =
+  "https://docs.google.com/spreadsheets/d/e/2PACX-1vSQ_2Er_ncGu3LgJ19zG8zmwbWcJlcLDxJSR2lNRuybfu_zCVCmvOZ1Xg-q_YcOfquEQbzRnSWUXomX/pub?output=csv";
+
+async function loadSheet() {
+  try {
+    const response = await fetch(SHEET_URL);
+    if (!response.ok) throw new Error("Network error: " + response.status);
+
+    const csvString = await response.text();
+
+    const parsed = Papa.parse(csvString, {
+      header: true, // use first row as column names
+      skipEmptyLines: true,
+    });
+
+    console.log(parsed.data); // array of objects
+    document.getElementById("output").textContent = JSON.stringify(
+      parsed.data,
+      null,
+      2
+    );
+  } catch (err) {
+    console.error("Fetch error:", err);
+  }
+}
+
+loadSheet();
