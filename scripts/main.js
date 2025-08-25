@@ -58,11 +58,12 @@ const SHEET_URL =
   "https://docs.google.com/spreadsheets/d/e/2PACX-1vSQ_2Er_ncGu3LgJ19zG8zmwbWcJlcLDxJSR2lNRuybfu_zCVCmvOZ1Xg-q_YcOfquEQbzRnSWUXomX/pub?output=csv";
 
 const DENEME =
-  "https://docs.google.com/spreadsheets/d/1fUPOLbQFSogaPcoCZGhLCdOZakNwbnburLPEq_xNRMQ/gviz/tq?tqx=out:csv&gid=136879385";
+  "https://docs.google.com/spreadsheets/d/1fUPOLbQFSogaPcoCZGhLCdOZakNwbnburLPEq_x";
 
 async function loadSheet() {
   try {
     const response = await fetch(DENEME);
+    console.log(response);
     if (!response.ok) throw new Error("Network error: " + response.status);
 
     const csvString = await response.text();
