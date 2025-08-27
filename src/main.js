@@ -1,5 +1,9 @@
 "use strict";
 
+import "./style.css";
+
+import Papa from "papaparse";
+
 import {
   backBtn,
   csvInput,
@@ -60,23 +64,29 @@ const SHEET_URL =
 const DENEME =
   "https://docs.google.com/spreadsheets/d/1fUPOLbQFSogaPcoCZGhLCdOZakNwbnburLPEq_xNRMQ/gviz/tq?tqx=out:csv&gid=136879385";
 
-const deneme2 =
+const DENEME2 =
   "https://docs.google.com/spreadsheets/d/13BH_Js2hf-ee3l4SvM16pYv0QMCWOXHy_RZFCDik-Oc/gviz/tq?tqx=out:csv&gid=136879385";
+
+const DENEME3 =
+  "https://docs.google.com/spreadsheets/d/14p7mhuJQe8y0nk7j-ZK6EG1jQt0DuOqvs9BDqNHY3oE/edit?gid=0#gid=0";
+
+const charIndexToRemoveUnnecessaryPart = DENEME3.indexOf("edit");
+const clearApiLink = DENEME3.slice(0, charIndexToRemoveUnnecessaryPart).concat(
+  "gviz/tq?tqx=out:csv"
+);
 
 async function loadSheet() {
   try {
-    const response = await fetch(deneme2);
-    console.log(response);
+    const response = await fetch(clearApiLink);
     if (!response.ok) throw new Error("Network error: " + response.status);
 
     const csvString = await response.text();
-
     const parsed = Papa.parse(csvString, {
       header: true, // use first row as column names
       skipEmptyLines: true,
     });
 
-    console.log(parsed.data); // array of objects
+    console.log("arrayofobjects", parsed.data); // array of objects
     document.getElementById("output").textContent = JSON.stringify(
       parsed.data,
       null,

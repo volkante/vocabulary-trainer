@@ -1,5 +1,5 @@
 "use strict";
-
+import Papa from "papaparse";
 import { totalWordlistLength, wordIndexElement } from "./domElements.js";
 import {
   getlastCsvJsonResult,
@@ -12,11 +12,13 @@ import { outputList } from "./domElements.js";
 
 export function onLoad(e) {
   const csvText = e.target.result;
-  // Use CSVJSON program to get json result
-  let jsonResult = CSVJSON.csv2json(csvText, { parseNumbers: true });
+  // Use Papa.parse program to get json result
+  let jsonResult = Papa.parse(csvText, {
+    header: true, // use first row as column names
+    skipEmptyLines: true,
+  });
 
-  console.log(jsonResult);
-  const jsonResultShallowCopy = [...jsonResult];
+  const jsonResultShallowCopy = [...jsonResult.data];
   // Shuffle the array of objects by using shuffle function
   const shuffledJsonResult = shuffle(jsonResultShallowCopy);
   // Show output wordlist length on screen
