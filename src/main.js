@@ -64,9 +64,20 @@ const SHEET_URL =
 const DENEME =
   "https://docs.google.com/spreadsheets/d/1fUPOLbQFSogaPcoCZGhLCdOZakNwbnburLPEq_xNRMQ/gviz/tq?tqx=out:csv&gid=136879385";
 
+const DENEME2 =
+  "https://docs.google.com/spreadsheets/d/13BH_Js2hf-ee3l4SvM16pYv0QMCWOXHy_RZFCDik-Oc/gviz/tq?tqx=out:csv&gid=136879385";
+
+const DENEME3 =
+  "https://docs.google.com/spreadsheets/d/14p7mhuJQe8y0nk7j-ZK6EG1jQt0DuOqvs9BDqNHY3oE/edit?gid=0#gid=0";
+
+const charIndexToRemoveUnnecessaryPart = DENEME3.indexOf("edit");
+const clearApiLink = DENEME3.slice(0, charIndexToRemoveUnnecessaryPart).concat(
+  "gviz/tq?tqx=out:csv"
+);
+
 async function loadSheet() {
   try {
-    const response = await fetch(DENEME);
+    const response = await fetch(clearApiLink);
     if (!response.ok) throw new Error("Network error: " + response.status);
 
     const csvString = await response.text();
