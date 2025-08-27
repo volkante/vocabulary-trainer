@@ -1,5 +1,9 @@
 "use strict";
 
+import "./style.css";
+
+import Papa from "papaparse";
+
 import {
   backBtn,
   csvInput,
@@ -66,7 +70,6 @@ const deneme2 =
 async function loadSheet() {
   try {
     const response = await fetch(deneme2);
-    console.log(response);
     if (!response.ok) throw new Error("Network error: " + response.status);
 
     const csvString = await response.text();
