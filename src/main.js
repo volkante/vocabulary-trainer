@@ -64,22 +64,18 @@ const SHEET_URL =
 const DENEME =
   "https://docs.google.com/spreadsheets/d/1fUPOLbQFSogaPcoCZGhLCdOZakNwbnburLPEq_xNRMQ/gviz/tq?tqx=out:csv&gid=136879385";
 
-const deneme2 =
-  "https://docs.google.com/spreadsheets/d/13BH_Js2hf-ee3l4SvM16pYv0QMCWOXHy_RZFCDik-Oc/gviz/tq?tqx=out:csv&gid=136879385";
-
 async function loadSheet() {
   try {
-    const response = await fetch(deneme2);
+    const response = await fetch(DENEME);
     if (!response.ok) throw new Error("Network error: " + response.status);
 
     const csvString = await response.text();
-
     const parsed = Papa.parse(csvString, {
       header: true, // use first row as column names
       skipEmptyLines: true,
     });
 
-    console.log(parsed.data); // array of objects
+    console.log("arrayofobjects", parsed.data); // array of objects
     document.getElementById("output").textContent = JSON.stringify(
       parsed.data,
       null,
