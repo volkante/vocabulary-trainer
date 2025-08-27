@@ -58,11 +58,14 @@ const SHEET_URL =
   "https://docs.google.com/spreadsheets/d/e/2PACX-1vSQ_2Er_ncGu3LgJ19zG8zmwbWcJlcLDxJSR2lNRuybfu_zCVCmvOZ1Xg-q_YcOfquEQbzRnSWUXomX/pub?output=csv";
 
 const DENEME =
-  "https://docs.google.com/spreadsheets/d/1fUPOLbQFSogaPcoCZGhLCdOZakNwbnburLPEq_x";
+  "https://docs.google.com/spreadsheets/d/1fUPOLbQFSogaPcoCZGhLCdOZakNwbnburLPEq_xNRMQ/gviz/tq?tqx=out:csv&gid=136879385";
+
+const deneme2 =
+  "https://docs.google.com/spreadsheets/d/13BH_Js2hf-ee3l4SvM16pYv0QMCWOXHy_RZFCDik-Oc/gviz/tq?tqx=out:csv&gid=136879385";
 
 async function loadSheet() {
   try {
-    const response = await fetch(DENEME);
+    const response = await fetch(deneme2);
     console.log(response);
     if (!response.ok) throw new Error("Network error: " + response.status);
 
