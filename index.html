@@ -18,10 +18,27 @@
         </h1>
       </header>
       <section class="upload-section">
-        <label for="csvInput" class="upload-label">
-          <span class="icon">⬆️</span> Upload your wordlist (.csv)
-        </label>
-        <input type="file" id="csvInput" accept=".csv" />
+        <div class="file-upload-part">
+          <label for="csvInput" class="upload-label">
+            <span class="icon">⬆️</span> Upload your wordlist (.csv)
+          </label>
+          <input type="file" id="csvInput" accept=".csv" />
+        </div>
+        <br />
+        <span style="color: blue">or</span>
+        <br />
+        <br />
+        <div class="url-paste-part">
+          <label for="sheetUrl" class="upload-label">
+            <span class="icon">🔗</span> Paste sheet url
+          </label>
+          <input
+            type="url"
+            id="sheetUrl"
+            placeholder="Paste your sheet url here"
+            size="50"
+          />
+        </div>
       </section>
       <section class="output-section">
         <div class="output-heading">

@@ -20,6 +20,8 @@ import { getlastCsvJsonResult } from "./state.js";
 // TODO 2: Stillerle oynama. Özellikle button ve icon tuşları.
 // TODO 3: Aslında input'u shuffle ettikten sonra tüm bilgiler array'a yaymak zorunda mıyım? Array of objects olarak kalsa?
 // TODO 4: Iphone safari'de kaymalar oluyor. Responsive düzeltmek!
+// TODO 5: Gidecek kelime kalmayınca, yani next çalışmayınca bir window.alert vb. eklemek?
+// TODO 6: Repeat tuşu
 
 /* ******************** CSV read ********************* */
 
@@ -77,7 +79,7 @@ const clearApiLink = DENEME3.slice(0, charIndexToRemoveUnnecessaryPart).concat(
 
 async function loadSheet() {
   try {
-    const response = await fetch(clearApiLink);
+    const response = await fetch(DENEME2);
     if (!response.ok) throw new Error("Network error: " + response.status);
 
     const csvString = await response.text();
