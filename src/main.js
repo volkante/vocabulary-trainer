@@ -10,6 +10,7 @@ import {
   nextBtn,
   outputList,
   wordIndexElement,
+  urlSubmitBtn,
 } from "./domElements.js";
 import { moveBack } from "./moveBack.js";
 import { moveNext } from "./moveNext.js";
@@ -38,48 +39,20 @@ function csvChangeHandler(event) {
   reader.readAsText(file, "UTF-8");
 }
 
-/* ******************** Reveal next event handler **************** */
+/* ********************* Url api function ***************** */
 
-function revealNextInfoEventHandler() {
-  // Move to the next information only if csv input exists
-  if (!(csvInput.files.length === 0))
-    moveNext(getlastCsvJsonResult(), outputList);
-}
+async function urlInputSubmitHandler() {
+  const SHEET_URL =
+    "https://docs.google.com/spreadsheets/d/1p9-HKqKhibluYDzHQHRxYaETRZwC23U4TDaW5UX1P-g/edit?gid=136879385#gid=136879385";
 
-/* ********************* Reveal previous event handler ***************** */
+  const charIndexToRemoveUnnecessaryPart = SHEET_URL.indexOf("edit");
+  const clearApiLink = SHEET_URL.slice(
+    0,
+    charIndexToRemoveUnnecessaryPart
+  ).concat("gviz/tq?tqx=out:csv");
 
-function revealPreviousInfoEventHandler() {
-  // move to previous information only if csv input is not empty
-  if (!(csvInput.files.length === 0))
-    moveBack(getlastCsvJsonResult(), outputList);
-}
-
-/* ****************** Event Listeners ********************* */
-
-csvInput.addEventListener("change", csvChangeHandler);
-nextBtn.addEventListener("click", revealNextInfoEventHandler);
-backBtn.addEventListener("click", revealPreviousInfoEventHandler);
-
-const SHEET_URL =
-  "https://docs.google.com/spreadsheets/d/e/2PACX-1vSQ_2Er_ncGu3LgJ19zG8zmwbWcJlcLDxJSR2lNRuybfu_zCVCmvOZ1Xg-q_YcOfquEQbzRnSWUXomX/pub?output=csv";
-
-const DENEME =
-  "https://docs.google.com/spreadsheets/d/1fUPOLbQFSogaPcoCZGhLCdOZakNwbnburLPEq_xNRMQ/gviz/tq?tqx=out:csv&gid=136879385";
-
-const DENEME2 =
-  "https://docs.google.com/spreadsheets/d/13BH_Js2hf-ee3l4SvM16pYv0QMCWOXHy_RZFCDik-Oc/gviz/tq?tqx=out:csv&gid=136879385";
-
-const DENEME3 =
-  "https://docs.google.com/spreadsheets/d/14p7mhuJQe8y0nk7j-ZK6EG1jQt0DuOqvs9BDqNHY3oE/edit?gid=0#gid=0";
-
-const charIndexToRemoveUnnecessaryPart = DENEME3.indexOf("edit");
-const clearApiLink = DENEME3.slice(0, charIndexToRemoveUnnecessaryPart).concat(
-  "gviz/tq?tqx=out:csv"
-);
-
-async function loadSheet() {
   try {
-    const response = await fetch(DENEME2);
+    const response = await fetch(clearApiLink);
     if (!response.ok) throw new Error("Network error: " + response.status);
 
     const csvString = await response.text();
@@ -99,4 +72,25 @@ async function loadSheet() {
   }
 }
 
-loadSheet();
+/* ******************** Reveal next event handler **************** */
+
+function revealNextInfoEventHandler() {
+  // Move to the next information only if csv input exists
+  if (!(csvInput.files.length === 0))
+    moveNext(getlastCsvJsonResult(), outputList);
+}
+
+/* ********************* Reveal previous event handler ***************** */
+
+function revealPreviousInfoEventHandler() {
+  // move to previous information only if csv input is not empty
+  if (!(csvInput.files.length === 0))
+    moveBack(getlastCsvJsonResult(), outputList);
+}
+
+/* ****************** Event Listeners ********************* */
+
+csvInput.addEventListener("change", csvChangeHandler);
+urlSubmitBtn.addEventListener("click", urlInputSubmitHandler);
+nextBtn.addEventListener("click", revealNextInfoEventHandler);
+backBtn.addEventListener("click", revealPreviousInfoEventHandler);
