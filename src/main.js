@@ -1,7 +1,4 @@
-"use strict";
-
 import "./style.css";
-
 import Papa from "papaparse";
 
 import {
@@ -42,50 +39,44 @@ function csvChangeHandler(event) {
 /* ********************* Url api function ***************** */
 
 async function urlInputSubmitHandler() {
-  const SHEET_URL =
-    "https://docs.google.com/spreadsheets/d/1p9-HKqKhibluYDzHQHRxYaETRZwC23U4TDaW5UX1P-g/edit?gid=136879385#gid=136879385";
+  const sheetUrl = document.getElementById("sheetUrl").value;
+  if (!sheetUrl) return;
 
-  const charIndexToRemoveUnnecessaryPart = SHEET_URL.indexOf("edit");
-  const clearApiLink = SHEET_URL.slice(
-    0,
-    charIndexToRemoveUnnecessaryPart
-  ).concat("gviz/tq?tqx=out:csv");
+  const charIndexToRemoveUnnecessaryPart = sheetUrl.indexOf("edit");
+  const clearApiLink = sheetUrl
+    .slice(0, charIndexToRemoveUnnecessaryPart)
+    .concat("gviz/tq?tqx=out:csv");
 
   try {
     const response = await fetch(clearApiLink);
     if (!response.ok) throw new Error("Network error: " + response.status);
 
     const csvString = await response.text();
-    const parsed = Papa.parse(csvString, {
-      header: true, // use first row as column names
-      skipEmptyLines: true,
-    });
 
-    console.log("arrayofobjects", parsed.data); // array of objects
-    document.getElementById("output").textContent = JSON.stringify(
-      parsed.data,
-      null,
-      2
-    );
+    // CSV string'i onLoad fonksiyonuna gönderelim
+    onLoad({ target: { result: csvString } });
   } catch (err) {
     console.error("Fetch error:", err);
+    outputList.innerHTML = `<li style="color: red">Hata: ${err.message}</li>`;
   }
 }
 
 /* ******************** Reveal next event handler **************** */
 
 function revealNextInfoEventHandler() {
-  // Move to the next information only if csv input exists
-  if (!(csvInput.files.length === 0))
+  // Move to the next information if we have data (either from CSV or URL)
+  if (getlastCsvJsonResult()) {
     moveNext(getlastCsvJsonResult(), outputList);
+  }
 }
 
 /* ********************* Reveal previous event handler ***************** */
 
 function revealPreviousInfoEventHandler() {
-  // move to previous information only if csv input is not empty
-  if (!(csvInput.files.length === 0))
+  // move to previous information if we have data (either from CSV or URL)
+  if (getlastCsvJsonResult()) {
     moveBack(getlastCsvJsonResult(), outputList);
+  }
 }
 
 /* ****************** Event Listeners ********************* */

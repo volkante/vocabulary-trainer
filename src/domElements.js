@@ -1,4 +1,3 @@
-"use strict";
 // Store DOM elements in variables
 
 // Csv file upload

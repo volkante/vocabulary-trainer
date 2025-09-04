@@ -1,4 +1,3 @@
-"use strict";
 import Papa from "papaparse";
 import { totalWordlistLength, wordIndexElement } from "./domElements.js";
 import {
