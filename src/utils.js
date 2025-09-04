@@ -1,5 +1,3 @@
-"use strict";
-
 import { getIndexOfWord, setIndexOfWord } from "./state.js";
 
 /* *** Word Shuffle *** */

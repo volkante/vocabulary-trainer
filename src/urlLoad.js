@@ -9,7 +9,7 @@ import {
 import { convertObjectsToArr, shuffle, createStartText } from "./utils.js";
 import { outputList } from "./domElements.js";
 
-export function onLoad(e) {
+export function urlLoad(e) {
   const csvText = e.target.result;
   // Use Papa.parse program to get json result
   let jsonResult = Papa.parse(csvText, {
