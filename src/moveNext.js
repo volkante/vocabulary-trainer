@@ -12,8 +12,9 @@ import {
 import { outputTitle, wordIndexElement } from "./domElements.js";
 
 export function moveNext(wordInfosArr, element) {
-  // Prevent index of displayed word from exceeding the wordinfos array: If index is at the last, return from the function.
+  // Prevent index of displayed word from exceeding the wordinfos array: If index is at the last, show alert and return from the function.
   if (getIndexOfDisplayedWordInfo() >= getlastCsvJsonResult().length - 1) {
+    alert("Word list is finished.");
     return;
   } else {
     setIndexOfDisplayedWordInfo(getIndexOfDisplayedWordInfo() + 1);
