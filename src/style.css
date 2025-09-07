@@ -171,7 +171,7 @@ input[type="file"]:focus {
 .separator {
   text-align: center;
   color: #90a4ae;
-  font-size: 0.85rem;
+  font-size: 1rem;
   margin: 2rem 0;
   display: flex;
   align-items: center;
@@ -231,6 +231,8 @@ input[type="file"]:focus {
   transform: translateY(-2px);
 }
 
+/* MEDIA QUERIES */
+
 @media (max-width: 600px) {
   .container {
     padding: 1.2rem 0.5rem;
@@ -255,6 +257,7 @@ input[type="file"]:focus {
   h1 {
     font-size: 1.5rem;
   }
+
   .btn {
     font-size: 1rem;
     padding: 0.6rem 0;
