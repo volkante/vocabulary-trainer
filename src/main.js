@@ -17,8 +17,9 @@ import { getlastCsvJsonResult } from "./state.js";
 // TODO 2: Stillerle oynama. Özellikle button ve icon tuşları.
 // TODO 3: Aslında input'u shuffle ettikten sonra tüm bilgiler array'a yaymak zorunda mıyım? Array of objects olarak kalsa?
 // TODO 4: Iphone safari'de kaymalar oluyor. Responsive düzeltmek!
-// TODO 5: Gidecek kelime kalmayınca, yani next çalışmayınca bir window.alert vb. eklemek?
-// TODO 6: Repeat tuşu
+// TODO 5: Repeat tuşu
+// TODO 6: CSS'leri comment ile ayır
+// TODO 7: Inputlardan biri girilince diğeri boş gözüksün
 
 /* ******************** CSV read ********************* */
 

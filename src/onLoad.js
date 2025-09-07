@@ -20,6 +20,7 @@ export function onLoad(e) {
   const jsonResultShallowCopy = [...jsonResult.data];
   // Shuffle the array of objects by using shuffle function
   const shuffledJsonResult = shuffle(jsonResultShallowCopy);
+  console.log(shuffledJsonResult);
   // Show output wordlist length on screen
   totalWordlistLength.textContent = shuffledJsonResult.length;
 
