@@ -1,5 +1,4 @@
 import "./style.css";
-import Papa from "papaparse";
 
 import {
   backBtn,

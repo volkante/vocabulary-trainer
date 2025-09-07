@@ -39,7 +39,7 @@ export function convertObjectsToArr(arr) {
 
 // When the word information is empty, create a string with "keine"
 function wordInfoCreate(key, val) {
-  const wordInfo = val === "" ? `keine ${key}` : val;
+  const wordInfo = val === "" ? `no ${key}` : val;
   return wordInfo;
 }
 
