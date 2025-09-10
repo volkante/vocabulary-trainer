@@ -16,12 +16,13 @@ export function moveNext(wordInfosArr, element) {
   if (getIndexOfDisplayedWordInfo() >= getlastCsvJsonResult().length - 1) {
     alert("Word list is finished.");
     return;
-  } else {
-    setIndexOfDisplayedWordInfo(getIndexOfDisplayedWordInfo() + 1);
-    // Increase word index and display it
-    increaseWordIndex(getIndexOfWord(), getIndexOfDisplayedWordInfo());
-    wordIndexElement.textContent = getIndexOfWord();
   }
+
+  setIndexOfDisplayedWordInfo(getIndexOfDisplayedWordInfo() + 1);
+  // Increase word index and display it
+  increaseWordIndex(getIndexOfWord(), getIndexOfDisplayedWordInfo());
+  wordIndexElement.textContent = getIndexOfWord();
+
   changeOutputTitle(outputTitle, getIndexOfDisplayedWordInfo());
   createOutputsChild(wordInfosArr, element, getIndexOfDisplayedWordInfo());
 }
