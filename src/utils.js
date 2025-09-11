@@ -1,5 +1,3 @@
-import { getIndexOfWord, setIndexOfWord } from "./state.js";
-
 /* *** Word Shuffle *** */
 
 // Shuffle word informations
@@ -19,7 +17,7 @@ export function shuffle(arr) {
 /* *** Objects to Array Conversion *** */
 
 // Convert json into a one dimensional array
-export function convertObjectsToArr(arr) {
+/* export function convertObjectsToArr(arr) {
   const wordInfosArr = [];
   // Iterate over objects of array
   for (let i = 0; i < arr.length; i++) {
@@ -36,6 +34,7 @@ export function convertObjectsToArr(arr) {
   }
   return wordInfosArr;
 }
+ */
 
 // When the word information is empty, create a string with "keine"
 function wordInfoCreate(key, val) {
@@ -46,7 +45,7 @@ function wordInfoCreate(key, val) {
 /* *** Output children creation *** */
 
 // Create and fill the output ul's child(each word info as a li element)
-export function createOutputsChild(
+/* export function createOutputsChild(
   wordInfosArr,
   element,
   indexOfDisplayedWordInfo
@@ -72,7 +71,7 @@ export function createOutputsChild(
       element.appendChild(wordElement);
     }
   }
-}
+} */
 
 // Add anchor tag into list element if word information starts with http
 function createLink(content, wordElement) {
@@ -101,8 +100,10 @@ function createNewLines(element, content) {
 /* *** Output Title Change *** */
 
 // Change Output title by showed information type between "Meaning", "Word", "Source" and "Example"
-export function changeOutputTitle(outputTitle, indexOfDisplayedWordInfo) {
-  let content;
+export function changeOutputTitle(arrOfObj, indexOfDisplayedWordInfo) {
+  const newWordInfoArr = Object.entries(arrOfObj);
+  let content = newWordInfoArr[indexOfDisplayedWordInfo];
+
   switch (indexOfDisplayedWordInfo % 4) {
     case 0:
       content = "✨ Meaning";
@@ -134,6 +135,7 @@ export function createStartText(outputElement) {
 
 export function increaseWordIndex(wordIndex, indexOfDisplayedWordInfo) {
   // Increase word index whenever displayed word info is a meaning. i.e. word info's index is 4 or its multiples.
+
   if (indexOfDisplayedWordInfo % 4 === 0) {
     const currIndexWord = wordIndex + 1;
     setIndexOfWord(currIndexWord);
