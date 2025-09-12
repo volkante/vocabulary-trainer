@@ -1,5 +1,3 @@
-import { getIndexOfWord, setIndexOfWord } from "./state.js";
-
 /* *** Word Shuffle *** */
 
 // Shuffle word informations
@@ -19,7 +17,7 @@ export function shuffle(arr) {
 /* *** Objects to Array Conversion *** */
 
 // Convert json into a one dimensional array
-export function convertObjectsToArr(arr) {
+/* export function convertObjectsToArr(arr) {
   const wordInfosArr = [];
   // Iterate over objects of array
   for (let i = 0; i < arr.length; i++) {
@@ -36,6 +34,7 @@ export function convertObjectsToArr(arr) {
   }
   return wordInfosArr;
 }
+ */
 
 // When the word information is empty, create a string with "keine"
 function wordInfoCreate(key, val) {
@@ -75,7 +74,7 @@ export function createOutputsChild(
 }
 
 // Add anchor tag into list element if word information starts with http
-function createLink(content, wordElement) {
+export function createLink(content, wordElement) {
   const link = document.createElement("a");
   link.href = content;
   link.textContent = content;
@@ -85,7 +84,7 @@ function createLink(content, wordElement) {
 
 // If the text has a new line (e.g. more than one example), place one under the other in the output
 // I.e. Create new lines
-function createNewLines(element, content) {
+export function createNewLines(element, content) {
   const examplesArr = content.split("\n");
   const exampleElements = examplesArr.map((item) => {
     const exampleElement = document.createElement("li");
@@ -101,8 +100,11 @@ function createNewLines(element, content) {
 /* *** Output Title Change *** */
 
 // Change Output title by showed information type between "Meaning", "Word", "Source" and "Example"
-export function changeOutputTitle(outputTitle, indexOfDisplayedWordInfo) {
-  let content;
+
+/* export function changeOutputTitle(arrOfObj, indexOfDisplayedWordInfo) {
+  const newWordInfoArr = Object.entries(arrOfObj);
+  let content = newWordInfoArr[indexOfDisplayedWordInfo];
+
   switch (indexOfDisplayedWordInfo % 4) {
     case 0:
       content = "✨ Meaning";
@@ -120,7 +122,7 @@ export function changeOutputTitle(outputTitle, indexOfDisplayedWordInfo) {
       break;
   }
   outputTitle.textContent = content;
-}
+} */
 
 /* *** Create and Display a start text in output area *** */
 
@@ -134,6 +136,7 @@ export function createStartText(outputElement) {
 
 export function increaseWordIndex(wordIndex, indexOfDisplayedWordInfo) {
   // Increase word index whenever displayed word info is a meaning. i.e. word info's index is 4 or its multiples.
+
   if (indexOfDisplayedWordInfo % 4 === 0) {
     const currIndexWord = wordIndex + 1;
     setIndexOfWord(currIndexWord);

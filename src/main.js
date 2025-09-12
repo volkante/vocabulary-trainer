@@ -8,18 +8,21 @@ import {
   wordIndexElement,
   urlSubmitBtn,
 } from "./domElements.js";
-import { moveBack } from "./moveBack.js";
 import { moveNext } from "./moveNext.js";
 import { onLoad } from "./onLoad.js";
 import { getlastCsvJsonResult } from "./state.js";
 
 // TODO 1: Ortaya tekrar karşına çıkarma buttonu ekleme.
-// TODO 2: Stillerle oynama. Özellikle button ve icon tuşları.
+// TODO 2: Stillerle oynama. Özellikle button ve icon tuşları. bu generic stilden kurtulmak.
 // TODO 3: Aslında input'u shuffle ettikten sonra tüm bilgiler array'a yaymak zorunda mıyım? Array of objects olarak kalsa?
 // TODO 4: Iphone safari'de kaymalar oluyor. Responsive düzeltmek!
 // TODO 5: Repeat tuşu
 // TODO 6: CSS'leri comment ile ayır
 // TODO 7: Inputlardan biri girilince diğeri boş gözüksün
+// TODO 8: İçeride bir şey yoksa back tuşu alert versin. Dosya yükle ya da link sağla diye.
+// TODO 9: Unit test yazma, popüler bir unit test library'si yükleyerek.
+// TODO 1O: Başta gelen "Click Next Button to start"'tan önce gelsin ampül emojisi.
+// TODO 11: aşağıdaki urlInputSubmitHandler içindeki "CSV string'i onLoad fonksiyonuna gönderelim" comment'ini ingilizce yap!
 
 /* ******************** CSV read ********************* */
 
@@ -36,7 +39,7 @@ function csvChangeHandler(event) {
   reader.readAsText(file, "UTF-8");
 }
 
-/* ********************* Url api function ***************** */
+/* ********************* fetch json from url function ***************** */
 
 async function urlInputSubmitHandler() {
   const sheetUrl = document.getElementById("sheetUrl").value;

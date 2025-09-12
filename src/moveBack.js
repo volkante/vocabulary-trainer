@@ -1,4 +1,4 @@
-import {
+/* import {
   getIndexOfDisplayedWordInfo,
   setIndexOfDisplayedWordInfo,
   getIndexOfWord,
@@ -23,4 +23,4 @@ export function moveBack(wordInfosArr, element) {
 
   changeOutputTitle(outputTitle, getIndexOfDisplayedWordInfo());
   createOutputsChild(wordInfosArr, element, getIndexOfDisplayedWordInfo());
-}
+} */
