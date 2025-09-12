@@ -6,15 +6,16 @@ import {
   setWordInfoIndex,
   getlastCsvJsonResult,
 } from "./state.js";
-import { createLink, createNewLines } from "./utils.js";
-
-let objectPropertyLength;
+import { changeOutputTitle, createLink, createNewLines } from "./utils.js";
 
 export function moveNext(wordObjArr, element) {
-  objectPropertyLength = Object.entries(wordObjArr[0]).length;
+  // Store the number of word information titles to determine when to change output title
+  let objectPropertyLength = Object.entries(wordObjArr[0]).length;
 
+  // Increase word information index by 1 to be able to move to new title and word information
   setWordInfoIndex(getWordInfoIndex() + 1);
 
+  // If word information is finished, move to new word object and set the word information index to 0
   if (getWordInfoIndex() === objectPropertyLength) {
     const nextIndexOfWordObj = getIndexOfWordObj() + 1;
     setIndexOfWordObj(nextIndexOfWordObj);
@@ -32,14 +33,20 @@ export function moveNext(wordObjArr, element) {
 
   console.log("get index", getIndexOfWordObj());
 
-  /* OUTPUT TITLE */
+  // Store each word's informations in an array of arrays(title, definition)
   const wordInfos = Object.entries(wordObjArr[getIndexOfWordObj()]);
+  console.log("wordinfos: ", wordInfos);
 
+  // Store each word information in a variable by means of word information index that increases by each click
   let currWordInfo = wordInfos[getWordInfoIndex()];
 
-  outputTitle.textContent = currWordInfo[0];
+  /* CHANGE OUTPUT TITLE */
 
-  /* OUTPUT LIST */
+  changeOutputTitle(outputTitle, currWordInfo);
+
+  /* CREATE OUTPUT LIST ITEMS */
+
+  /* TODO 1: BU AŞAĞIDAKİ CREATE OUTPUT LIST UTILS'E FUNCTION OLARAK GİDECEK. UTILS'E BAK! */
 
   // Reset the previous word info (li element) each time this function's called
   element.replaceChildren();
