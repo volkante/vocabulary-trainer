@@ -1,5 +1,6 @@
 import { outputTitle } from "./domElements.js";
 import { getIndexOfWordObj, getlastCsvJsonResult } from "./state.js";
+import { createLink, createNewLines } from "./utils.js";
 
 let wordInfoIndex = -1;
 let wordIndexObj = 0;
@@ -12,23 +13,46 @@ export function moveNext(wordObjArr, element) {
     return;
   }
 
+  /* OUTPUT TITLE */
+
   objectPropertyLength = Object.entries(wordObjArr[0]).length;
-  console.log("objectpropertylength", objectPropertyLength);
 
   wordInfoIndex++;
 
   if (wordInfoIndex === objectPropertyLength) {
-    console.log(wordInfoIndex === objectPropertyLength);
     wordIndexObj++;
     wordInfoIndex = 0;
   }
 
   const wordInfos = Object.entries(wordObjArr[wordIndexObj]);
 
-  console.log(wordInfos);
-  console.log("wordinfoindex", wordInfoIndex);
-  console.log("key", wordInfos[wordInfoIndex]);
-  outputTitle.textContent = wordInfos[wordInfoIndex][0];
+  let currWordInfo = wordInfos[wordInfoIndex];
+
+  outputTitle.textContent = currWordInfo[0];
+
+  /* OUTPUT LIST */
+
+  // Reset the previous word info (li element) each time this function's called
+  element.replaceChildren();
+  let wordElement;
+  const content = currWordInfo[1];
+  // If revealed info is a link, make it anchor element
+  if (content.startsWith("https")) {
+    wordElement = document.createElement("li");
+    createLink(content, wordElement);
+    element.appendChild(wordElement);
+    // If revealed info is not a link but a plain text:
+  } else {
+    // If the text has a new line (e.g. more than one example), place one under the other in the output
+    if (content.includes("\n")) {
+      createNewLines(element, content);
+      // If text does not have a new line (e.g. just one example), write it simply to the list element
+    } else {
+      wordElement = document.createElement("li");
+      wordElement.textContent = content;
+      element.appendChild(wordElement);
+    }
+  }
 
   /*   setIndexOfDisplayedWordInfo(getIndexOfDisplayedWordInfo() + 1);
   // Increase word index and display it

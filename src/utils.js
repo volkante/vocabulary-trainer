@@ -74,7 +74,7 @@ export function createOutputsChild(
 }
 
 // Add anchor tag into list element if word information starts with http
-function createLink(content, wordElement) {
+export function createLink(content, wordElement) {
   const link = document.createElement("a");
   link.href = content;
   link.textContent = content;
@@ -84,7 +84,7 @@ function createLink(content, wordElement) {
 
 // If the text has a new line (e.g. more than one example), place one under the other in the output
 // I.e. Create new lines
-function createNewLines(element, content) {
+export function createNewLines(element, content) {
   const examplesArr = content.split("\n");
   const exampleElements = examplesArr.map((item) => {
     const exampleElement = document.createElement("li");
