@@ -1,4 +1,4 @@
-import { outputTitle } from "./domElements.js";
+import { outputTitle, wordIndexElement } from "./domElements.js";
 import { getIndexOfWordObj, getlastCsvJsonResult } from "./state.js";
 import { createLink, createNewLines } from "./utils.js";
 
@@ -7,14 +7,6 @@ let wordIndexObj = 0;
 let objectPropertyLength;
 
 export function moveNext(wordObjArr, element) {
-  // Prevent index of displayed word from exceeding the wordinfos array: If index is at the last, show alert and return from the function.
-  if (getIndexOfWordObj() >= getlastCsvJsonResult().length - 1) {
-    alert("Word list is finished.");
-    return;
-  }
-
-  /* OUTPUT TITLE */
-
   objectPropertyLength = Object.entries(wordObjArr[0]).length;
 
   wordInfoIndex++;
@@ -24,6 +16,16 @@ export function moveNext(wordObjArr, element) {
     wordInfoIndex = 0;
   }
 
+  // Prevent index of displayed word from exceeding the wordinfos array: If index is at the last, show alert and return from the function.
+  if (wordIndexObj >= getlastCsvJsonResult().length) {
+    alert("Word list is finished.");
+    return;
+  }
+
+  /*  Word Index Header */
+  wordIndexElement.textContent = wordIndexObj + 1;
+
+  /* OUTPUT TITLE */
   const wordInfos = Object.entries(wordObjArr[wordIndexObj]);
 
   let currWordInfo = wordInfos[wordInfoIndex];
