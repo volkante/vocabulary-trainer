@@ -29,7 +29,7 @@ export function onLoad(e) {
   setLastCsvJsonResult(wordInfosArr);
 
   // When a new file is loaded, set Index of Word Object to -1
-  setIndexOfWordObj(-1);
+  setIndexOfWordObj(0);
   // When a new file is loaded, clear the output-list field
   outputList.replaceChildren();
   // When a new file is loaded, create and display the start text in output element.
