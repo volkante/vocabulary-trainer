@@ -2,22 +2,23 @@ import { outputTitle, wordIndexElement } from "./domElements.js";
 import {
   getIndexOfWordObj,
   setIndexOfWordObj,
+  getWordInfoIndex,
+  setWordInfoIndex,
   getlastCsvJsonResult,
 } from "./state.js";
 import { createLink, createNewLines } from "./utils.js";
 
-let wordInfoIndex = -1;
 let objectPropertyLength;
 
 export function moveNext(wordObjArr, element) {
   objectPropertyLength = Object.entries(wordObjArr[0]).length;
 
-  wordInfoIndex++;
+  setWordInfoIndex(getWordInfoIndex() + 1);
 
-  if (wordInfoIndex === objectPropertyLength) {
+  if (getWordInfoIndex() === objectPropertyLength) {
     const nextIndexOfWordObj = getIndexOfWordObj() + 1;
     setIndexOfWordObj(nextIndexOfWordObj);
-    wordInfoIndex = 0;
+    setWordInfoIndex(0);
   }
 
   // Prevent index of displayed word from exceeding the wordinfos array: If index is at the last, show alert and return from the function.
@@ -34,7 +35,7 @@ export function moveNext(wordObjArr, element) {
   /* OUTPUT TITLE */
   const wordInfos = Object.entries(wordObjArr[getIndexOfWordObj()]);
 
-  let currWordInfo = wordInfos[wordInfoIndex];
+  let currWordInfo = wordInfos[getWordInfoIndex()];
 
   outputTitle.textContent = currWordInfo[0];
 
