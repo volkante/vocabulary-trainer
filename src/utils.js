@@ -45,7 +45,7 @@ function wordInfoCreate(key, val) {
 /* *** Output children creation *** */
 
 // Create and fill the output ul's child(each word info as a li element)
-/* export function createOutputsChild(
+export function createOutputsChild(
   wordInfosArr,
   element,
   indexOfDisplayedWordInfo
@@ -71,7 +71,7 @@ function wordInfoCreate(key, val) {
       element.appendChild(wordElement);
     }
   }
-} */
+}
 
 // Add anchor tag into list element if word information starts with http
 function createLink(content, wordElement) {
@@ -100,7 +100,8 @@ function createNewLines(element, content) {
 /* *** Output Title Change *** */
 
 // Change Output title by showed information type between "Meaning", "Word", "Source" and "Example"
-export function changeOutputTitle(arrOfObj, indexOfDisplayedWordInfo) {
+
+/* export function changeOutputTitle(arrOfObj, indexOfDisplayedWordInfo) {
   const newWordInfoArr = Object.entries(arrOfObj);
   let content = newWordInfoArr[indexOfDisplayedWordInfo];
 
@@ -121,7 +122,7 @@ export function changeOutputTitle(arrOfObj, indexOfDisplayedWordInfo) {
       break;
   }
   outputTitle.textContent = content;
-}
+} */
 
 /* *** Create and Display a start text in output area *** */
 

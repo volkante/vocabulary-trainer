@@ -27,7 +27,6 @@ export function onLoad(e) {
   let wordInfosArr = [...shuffledJsonResult];
   // Set result to shuffled array
   setLastCsvJsonResult(wordInfosArr);
-  console.log(getlastCsvJsonResult());
 
   // When a new file is loaded, set Index of Word Object to -1
   setIndexOfWordObj(-1);

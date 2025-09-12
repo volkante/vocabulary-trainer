@@ -2,6 +2,7 @@
 
 let lastCsvJsonResult = null;
 let indexOfWordObj = 0;
+
 /* let indexOfDisplayedWordInfo = -1;
  */
 
