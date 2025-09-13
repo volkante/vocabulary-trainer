@@ -1,38 +1,52 @@
 import { outputTitle, wordIndexElement } from "./domElements.js";
-import { getIndexOfWordObj, getlastCsvJsonResult } from "./state.js";
-import { createLink, createNewLines } from "./utils.js";
-
-let wordInfoIndex = -1;
-let wordIndexObj = 0;
-let objectPropertyLength;
+import {
+  getIndexOfWordObj,
+  setIndexOfWordObj,
+  getWordInfoIndex,
+  setWordInfoIndex,
+  getlastCsvJsonResult,
+} from "./state.js";
+import { changeOutputTitle, createLink, createNewLines } from "./utils.js";
 
 export function moveNext(wordObjArr, element) {
-  objectPropertyLength = Object.entries(wordObjArr[0]).length;
+  // Store the number of word information titles to determine when to change output title
+  let objectPropertyLength = Object.entries(wordObjArr[0]).length;
 
-  wordInfoIndex++;
+  // Increase word information index by 1 to be able to move to new title and word information
+  setWordInfoIndex(getWordInfoIndex() + 1);
 
-  if (wordInfoIndex === objectPropertyLength) {
-    wordIndexObj++;
-    wordInfoIndex = 0;
+  // If word information is finished, move to new word object and set the word information index to 0
+  if (getWordInfoIndex() === objectPropertyLength) {
+    const nextIndexOfWordObj = getIndexOfWordObj() + 1;
+    setIndexOfWordObj(nextIndexOfWordObj);
+    setWordInfoIndex(0);
   }
 
   // Prevent index of displayed word from exceeding the wordinfos array: If index is at the last, show alert and return from the function.
-  if (wordIndexObj >= getlastCsvJsonResult().length) {
+  if (getIndexOfWordObj() >= getlastCsvJsonResult().length) {
     alert("Word list is finished.");
     return;
   }
 
   /*  Word Index Header */
-  wordIndexElement.textContent = wordIndexObj + 1;
+  wordIndexElement.textContent = getIndexOfWordObj() + 1;
 
-  /* OUTPUT TITLE */
-  const wordInfos = Object.entries(wordObjArr[wordIndexObj]);
+  console.log("get index", getIndexOfWordObj());
 
-  let currWordInfo = wordInfos[wordInfoIndex];
+  // Store each word's informations in an array of arrays(title, definition)
+  const wordInfos = Object.entries(wordObjArr[getIndexOfWordObj()]);
+  console.log("wordinfos: ", wordInfos);
 
-  outputTitle.textContent = currWordInfo[0];
+  // Store each word information in a variable by means of word information index that increases by each click
+  let currWordInfo = wordInfos[getWordInfoIndex()];
 
-  /* OUTPUT LIST */
+  /* CHANGE OUTPUT TITLE */
+
+  changeOutputTitle(outputTitle, currWordInfo);
+
+  /* CREATE OUTPUT LIST ITEMS */
+
+  /* TODO 1: BU AŞAĞIDAKİ CREATE OUTPUT LIST UTILS'E FUNCTION OLARAK GİDECEK. UTILS'E BAK! */
 
   // Reset the previous word info (li element) each time this function's called
   element.replaceChildren();

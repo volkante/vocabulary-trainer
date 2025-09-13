@@ -101,28 +101,9 @@ export function createNewLines(element, content) {
 
 // Change Output title by showed information type between "Meaning", "Word", "Source" and "Example"
 
-/* export function changeOutputTitle(arrOfObj, indexOfDisplayedWordInfo) {
-  const newWordInfoArr = Object.entries(arrOfObj);
-  let content = newWordInfoArr[indexOfDisplayedWordInfo];
-
-  switch (indexOfDisplayedWordInfo % 4) {
-    case 0:
-      content = "✨ Meaning";
-      break;
-    case 1:
-      content = "Word";
-      break;
-    case 2:
-      content = "Source";
-      break;
-    case 3:
-      content = "Example/Remark";
-      break;
-    default:
-      break;
-  }
-  outputTitle.textContent = content;
-} */
+export function changeOutputTitle(outputTitle, currWordInfo) {
+  outputTitle.textContent = currWordInfo[0];
+}
 
 /* *** Create and Display a start text in output area *** */
 
