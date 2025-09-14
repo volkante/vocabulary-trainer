@@ -6,7 +6,12 @@ import {
   setWordInfoIndex,
   getlastCsvJsonResult,
 } from "./state.js";
-import { changeOutputTitle, createLink, createNewLines } from "./utils.js";
+import {
+  changeOutputTitle,
+  createLink,
+  createNewLines,
+  createOutputsChild,
+} from "./utils.js";
 
 export function moveNext(wordObjArr, element) {
   // Store the number of word information titles to determine when to change output title
@@ -48,27 +53,7 @@ export function moveNext(wordObjArr, element) {
 
   /* TODO 1: BU AŞAĞIDAKİ CREATE OUTPUT LIST UTILS'E FUNCTION OLARAK GİDECEK. UTILS'E BAK! */
 
-  // Reset the previous word info (li element) each time this function's called
-  element.replaceChildren();
-  let wordElement;
-  const content = currWordInfo[1];
-  // If revealed info is a link, make it anchor element
-  if (content.startsWith("https")) {
-    wordElement = document.createElement("li");
-    createLink(content, wordElement);
-    element.appendChild(wordElement);
-    // If revealed info is not a link but a plain text:
-  } else {
-    // If the text has a new line (e.g. more than one example), place one under the other in the output
-    if (content.includes("\n")) {
-      createNewLines(element, content);
-      // If text does not have a new line (e.g. just one example), write it simply to the list element
-    } else {
-      wordElement = document.createElement("li");
-      wordElement.textContent = content;
-      element.appendChild(wordElement);
-    }
-  }
+  createOutputsChild(element, currWordInfo);
 
   /*   setIndexOfDisplayedWordInfo(getIndexOfDisplayedWordInfo() + 1);
   // Increase word index and display it

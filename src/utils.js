@@ -45,15 +45,11 @@ function wordInfoCreate(key, val) {
 /* *** Output children creation *** */
 
 // Create and fill the output ul's child(each word info as a li element)
-export function createOutputsChild(
-  wordInfosArr,
-  element,
-  indexOfDisplayedWordInfo
-) {
+export function createOutputsChild(element, currWordInfo) {
   // Reset the previous word info (li element) each time this function's called
   element.replaceChildren();
   let wordElement;
-  const content = wordInfosArr[indexOfDisplayedWordInfo];
+  const content = currWordInfo[1];
   // If revealed info is a link, make it anchor element
   if (content.startsWith("https")) {
     wordElement = document.createElement("li");
