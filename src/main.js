@@ -42,7 +42,12 @@ function csvChangeHandler(event) {
 /* ********************* fetch json from url function ***************** */
 
 async function urlInputSubmitHandler() {
-  const sheetUrl = document.getElementById("sheetUrl").value;
+  /* *** GEÇİCİ *** */
+  // const sheetUrl = document.getElementById("sheetUrl").value;
+  const sheetUrl =
+    "https://docs.google.com/spreadsheets/d/1asLz4xOAGOdfpP__FkoAfAipP19RssR0dff4_0JPzuk/edit?gid=995310803#gid=995310803";
+  /* *** GEÇİCİ *** */
+
   if (!sheetUrl) return;
 
   const charIndexToRemoveUnnecessaryPart = sheetUrl.indexOf("edit");
