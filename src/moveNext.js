@@ -43,6 +43,6 @@ export function moveNext(wordObjects, element) {
   const wordFieldValues = Object.values(wordObjects[getIndexOfWordObj()]);
   // Store each word information in a variable by means of word information index that increases by each click
   let currWordInfo = wordFieldValues[getWordInfoIndex()];
-  // Create output list items
+  // Create and display word information on output
   createOutputsChild(element, currWordInfo);
 }
