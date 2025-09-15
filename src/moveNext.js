@@ -6,21 +6,16 @@ import {
   setWordInfoIndex,
   getlastCsvJsonResult,
 } from "./state.js";
-import {
-  changeOutputTitle,
-  createLink,
-  createNewLines,
-  createOutputsChild,
-} from "./utils.js";
+import { changeOutputTitle, createOutputsChild } from "./utils.js";
 
 export function moveNext(wordObjArr, element) {
-  // Store the number of word information titles to determine when to change output title
-  let objectPropertyLength = Object.entries(wordObjArr[0]).length;
+  // Get the number of properties(word information titles) from the first word object to determine when to change output title
+  let objectPropertyLength = Object.keys(wordObjArr[0]).length;
 
   // Increase word information index by 1 to be able to move to new title and word information
   setWordInfoIndex(getWordInfoIndex() + 1);
 
-  // If word information is finished, move to new word object and set the word information index to 0
+  // If word informations are finished, move to new word object and set the word information index to 0
   if (getWordInfoIndex() === objectPropertyLength) {
     const nextIndexOfWordObj = getIndexOfWordObj() + 1;
     setIndexOfWordObj(nextIndexOfWordObj);
@@ -35,31 +30,23 @@ export function moveNext(wordObjArr, element) {
 
   /*  Word Index Header */
   wordIndexElement.textContent = getIndexOfWordObj() + 1;
-
-  console.log("get index", getIndexOfWordObj());
+  console.log("get index: ", getIndexOfWordObj());
 
   // Store each word's informations in an array of arrays(title, definition)
   const wordInfos = Object.entries(wordObjArr[getIndexOfWordObj()]);
   console.log("wordinfos: ", wordInfos);
 
+  const wortTitles = Object.keys(wordObjArr[getIndexOfWordObj()]);
+
   // Store each word information in a variable by means of word information index that increases by each click
   let currWordInfo = wordInfos[getWordInfoIndex()];
+  console.log(currWordInfo);
 
-  /* CHANGE OUTPUT TITLE */
+  // Change output title
 
   changeOutputTitle(outputTitle, currWordInfo);
 
-  /* CREATE OUTPUT LIST ITEMS */
-
-  /* TODO 1: BU AŞAĞIDAKİ CREATE OUTPUT LIST UTILS'E FUNCTION OLARAK GİDECEK. UTILS'E BAK! */
+  // Create output list items
 
   createOutputsChild(element, currWordInfo);
-
-  /*   setIndexOfDisplayedWordInfo(getIndexOfDisplayedWordInfo() + 1);
-  // Increase word index and display it
-  increaseWordIndex(getIndexOfWord(), getIndexOfDisplayedWordInfo());
-  wordIndexElement.textContent = getIndexOfWord();
-
-  changeOutputTitle(outputTitle, getIndexOfDisplayedWordInfo());
-  createOutputsChild(wordInfosArr, element, getIndexOfDisplayedWordInfo()); */
 }

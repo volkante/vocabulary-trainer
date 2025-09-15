@@ -14,28 +14,6 @@ export function shuffle(arr) {
   return arr;
 }
 
-/* *** Objects to Array Conversion *** */
-
-// Convert json into a one dimensional array
-/* export function convertObjectsToArr(arr) {
-  const wordInfosArr = [];
-  // Iterate over objects of array
-  for (let i = 0; i < arr.length; i++) {
-    // Create entries array which includes another array of the key and value of each word info
-    const entries = Object.entries(arr[i]);
-
-    // Iterate over entries array
-    for (let j = 0; j < 4; j++) {
-      let value = entries[j][1];
-      let key = entries[j][0];
-      // Push word info if it exists, push "keine + key name" if no word info exists
-      wordInfosArr.push(wordInfoCreate(key, value));
-    }
-  }
-  return wordInfosArr;
-}
- */
-
 // When the word information is empty, create a string with "keine"
 function wordInfoCreate(key, val) {
   const wordInfo = val === "" ? `no ${key}` : val;
@@ -49,6 +27,7 @@ export function createOutputsChild(element, currWordInfo) {
   // Reset the previous word info (li element) each time this function's called
   element.replaceChildren();
   let wordElement;
+  // Store word information
   const content = currWordInfo[1];
   // If revealed info is a link, make it anchor element
   if (content.startsWith("https")) {
@@ -129,3 +108,25 @@ export function decreaseWordIndex(wordIndex, indexOfDisplayedWordInfo) {
     setIndexOfWord(currIndexWord);
   }
 }
+
+/* *** Objects to Array Conversion *** */
+
+// Convert json into a one dimensional array
+/* export function convertObjectsToArr(arr) {
+  const wordInfosArr = [];
+  // Iterate over objects of array
+  for (let i = 0; i < arr.length; i++) {
+    // Create entries array which includes another array of the key and value of each word info
+    const entries = Object.entries(arr[i]);
+
+    // Iterate over entries array
+    for (let j = 0; j < 4; j++) {
+      let value = entries[j][1];
+      let key = entries[j][0];
+      // Push word info if it exists, push "keine + key name" if no word info exists
+      wordInfosArr.push(wordInfoCreate(key, value));
+    }
+  }
+  return wordInfosArr;
+}
+ */
