@@ -30,7 +30,6 @@ export function moveNext(wordObjects, element) {
 
   /*  Word Index Header */
   wordIndexElement.textContent = getIndexOfWordObj() + 1;
-  console.log("get index: ", getIndexOfWordObj());
 
   // Get all wordTitles in an array
   const wordTitles = Object.keys(wordObjects[getIndexOfWordObj()]);
