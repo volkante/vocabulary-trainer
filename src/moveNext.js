@@ -32,21 +32,17 @@ export function moveNext(wordObjArr, element) {
   wordIndexElement.textContent = getIndexOfWordObj() + 1;
   console.log("get index: ", getIndexOfWordObj());
 
-  // Store each word's informations in an array of arrays(title, definition)
-  const wordInfos = Object.entries(wordObjArr[getIndexOfWordObj()]);
-  console.log("wordinfos: ", wordInfos);
+  // Get all wordTitles in an array
+  const wordTitles = Object.keys(wordObjArr[getIndexOfWordObj()]);
+  // Store the current title
+  let currWordTitle = wordTitles[getWordInfoIndex()];
+  // Change output title
+  changeOutputTitle(outputTitle, currWordTitle);
 
-  const wortTitles = Object.keys(wordObjArr[getIndexOfWordObj()]);
-
+  // Get all word information (values)
+  const wordInfos = Object.values(wordObjArr[getIndexOfWordObj()]);
   // Store each word information in a variable by means of word information index that increases by each click
   let currWordInfo = wordInfos[getWordInfoIndex()];
-  console.log(currWordInfo);
-
-  // Change output title
-
-  changeOutputTitle(outputTitle, currWordInfo);
-
   // Create output list items
-
   createOutputsChild(element, currWordInfo);
 }

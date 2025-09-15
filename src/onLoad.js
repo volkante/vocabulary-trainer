@@ -24,9 +24,9 @@ export function onLoad(e) {
   totalWordlistLength.textContent = shuffledJsonResult.length;
 
   //
-  let wordInfosArr = [...shuffledJsonResult];
+  let wordObjects = [...shuffledJsonResult];
   // Set result to shuffled array
-  setLastCsvJsonResult(wordInfosArr);
+  setLastCsvJsonResult(wordObjects);
 
   // When a new file is loaded, set Index of Word Object to -1
   setIndexOfWordObj(0);

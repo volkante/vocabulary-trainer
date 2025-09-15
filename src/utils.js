@@ -30,19 +30,19 @@ export function createOutputsChild(element, currWordInfo) {
   // Store word information
   const content = currWordInfo[1];
   // If revealed info is a link, make it anchor element
-  if (content.startsWith("https")) {
+  if (currWordInfo.startsWith("https")) {
     wordElement = document.createElement("li");
-    createLink(content, wordElement);
+    createLink(currWordInfo, wordElement);
     element.appendChild(wordElement);
     // If revealed info is not a link but a plain text:
   } else {
     // If the text has a new line (e.g. more than one example), place one under the other in the output
-    if (content.includes("\n")) {
-      createNewLines(element, content);
+    if (currWordInfo.includes("\n")) {
+      createNewLines(element, currWordInfo);
       // If text does not have a new line (e.g. just one example), write it simply to the list element
     } else {
       wordElement = document.createElement("li");
-      wordElement.textContent = content;
+      wordElement.textContent = currWordInfo;
       element.appendChild(wordElement);
     }
   }
@@ -76,8 +76,8 @@ export function createNewLines(element, content) {
 
 // Change Output title by showed information type between "Meaning", "Word", "Source" and "Example"
 
-export function changeOutputTitle(outputTitle, currWordInfo) {
-  outputTitle.textContent = currWordInfo[0];
+export function changeOutputTitle(outputTitle, currWordTitle) {
+  outputTitle.textContent = currWordTitle;
 }
 
 /* *** Create and Display a start text in output area *** */
