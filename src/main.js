@@ -18,11 +18,15 @@ import { getlastCsvJsonResult } from "./state.js";
 // TODO 4: Iphone safari'de kaymalar oluyor. Responsive düzeltmek!
 // TODO 5: Repeat tuşu
 // TODO 6: CSS'leri comment ile ayır
-// TODO 7: Inputlardan biri girilince diğeri boş gözüksün
+// TODO 7: Inputlardan biri girilince diğeri boş gözüksüns
 // TODO 8: İçeride bir şey yoksa back tuşu alert versin. Dosya yükle ya da link sağla diye.
 // TODO 9: Unit test yazma, popüler bir unit test library'si yükleyerek.
 // TODO 1O: Başta gelen "Click Next Button to start"'tan önce gelsin ampül emojisi.
 // TODO 11: aşağıdaki urlInputSubmitHandler içindeki "CSV string'i onLoad fonksiyonuna gönderelim" comment'ini ingilizce yap!
+// TODO 12: revealnextinfo revealprevious'lardaki getter func'dan dönen sonucu önce readability için result vb. isimli değişkene at.
+// DEVAM TODO 12: aslında tüm getter functionlar'ı başta değişkenlere atamak okunurluk açısından daha iyi olabilir.
+// TODO 13: html elementlerin text content gösterme şeyleri ayrı bir function olabilir.
+// TODO 14: unload.js'de en alttaki, restart şeyleri hep baştan yüklenince diye gidiyor. Bunları tek bir func.'ta toplama?
 
 /* ******************** CSV read ********************* */
 
@@ -42,11 +46,7 @@ function csvChangeHandler(event) {
 /* ********************* fetch json from url function ***************** */
 
 async function urlInputSubmitHandler() {
-  /* *** GEÇİCİ *** */
-  // const sheetUrl = document.getElementById("sheetUrl").value;
-  const sheetUrl =
-    "https://docs.google.com/spreadsheets/d/1asLz4xOAGOdfpP__FkoAfAipP19RssR0dff4_0JPzuk/edit?gid=995310803#gid=995310803";
-  /* *** GEÇİCİ *** */
+  const sheetUrl = document.getElementById("sheetUrl").value;
 
   if (!sheetUrl) return;
 
