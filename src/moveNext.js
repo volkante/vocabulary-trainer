@@ -8,9 +8,9 @@ import {
 } from "./state.js";
 import { changeOutputTitle, createOutputsChild } from "./utils.js";
 
-export function moveNext(wordObjArr, element) {
+export function moveNext(wordObjects, element) {
   // Get the number of properties(word information titles) from the first word object to determine when to change output title
-  let objectPropertyLength = Object.keys(wordObjArr[0]).length;
+  let objectPropertyLength = Object.keys(wordObjects[0]).length;
 
   // Increase word information index by 1 to be able to move to new title and word information
   setWordInfoIndex(getWordInfoIndex() + 1);
@@ -30,19 +30,18 @@ export function moveNext(wordObjArr, element) {
 
   /*  Word Index Header */
   wordIndexElement.textContent = getIndexOfWordObj() + 1;
-  console.log("get index: ", getIndexOfWordObj());
 
   // Get all wordTitles in an array
-  const wordTitles = Object.keys(wordObjArr[getIndexOfWordObj()]);
+  const wordTitles = Object.keys(wordObjects[getIndexOfWordObj()]);
   // Store the current title
   let currWordTitle = wordTitles[getWordInfoIndex()];
   // Change output title
   changeOutputTitle(outputTitle, currWordTitle);
 
-  // Get all word information (values)
-  const wordInfos = Object.values(wordObjArr[getIndexOfWordObj()]);
+  // Get word informations (definitions, examples e.g.)
+  const wordFieldValues = Object.values(wordObjects[getIndexOfWordObj()]);
   // Store each word information in a variable by means of word information index that increases by each click
-  let currWordInfo = wordInfos[getWordInfoIndex()];
-  // Create output list items
+  let currWordInfo = wordFieldValues[getWordInfoIndex()];
+  // Create and display word information on output
   createOutputsChild(element, currWordInfo);
 }
