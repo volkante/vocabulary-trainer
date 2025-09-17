@@ -9,24 +9,25 @@ import {
   urlSubmitBtn,
 } from "./domElements.js";
 import { moveNext } from "./moveNext.js";
+import { moveBack } from "./moveBack.js";
 import { onLoad } from "./onLoad.js";
 import { getlastCsvJsonResult } from "./state.js";
 
 // TODO 1: Ortaya tekrar karşına çıkarma buttonu ekleme.
 // TODO 2: Stillerle oynama. Özellikle button ve icon tuşları. bu generic stilden kurtulmak.
 // TODO 3: Aslında input'u shuffle ettikten sonra tüm bilgiler array'a yaymak zorunda mıyım? Array of objects olarak kalsa?
-// TODO 4: Iphone safari'de kaymalar oluyor. Responsive düzeltmek!
+// TODO 4: Iphone safari'de kaymalar oluyor. Output html olunca telefonda da kayıyor. Responsive düzeltmek!
 // TODO 5: Repeat tuşu
 // TODO 6: CSS'leri comment ile ayır
 // TODO 7: Inputlardan biri girilince diğeri boş gözüksüns
 // TODO 8: İçeride bir şey yoksa back tuşu alert versin. Dosya yükle ya da link sağla diye.
 // TODO 9: Unit test yazma, popüler bir unit test library'si yükleyerek.
 // TODO 1O: Başta gelen "Click Next Button to start"'tan önce gelsin ampül emojisi.
-// TODO 11: aşağıdaki urlInputSubmitHandler içindeki "CSV string'i onLoad fonksiyonuna gönderelim" comment'ini ingilizce yap!
 // TODO 12: revealnextinfo revealprevious'lardaki getter func'dan dönen sonucu önce readability için result vb. isimli değişkene at.
 // DEVAM TODO 12: aslında tüm getter functionlar'ı başta değişkenlere atamak okunurluk açısından daha iyi olabilir.
 // TODO 13: html elementlerin text content gösterme şeyleri ayrı bir function olabilir.
 // TODO 14: unload.js'de en alttaki, restart şeyleri hep baştan yüklenince diye gidiyor. Bunları tek bir func.'ta toplama?
+// TODO 15: Unit Test ekleme. Hem cv'de güzel görünür.
 
 /* ******************** CSV read ********************* */
 
@@ -61,7 +62,7 @@ async function urlInputSubmitHandler() {
 
     const csvString = await response.text();
 
-    // CSV string'i onLoad fonksiyonuna gönderelim
+    // Send CSV string to onLoad function
     onLoad({ target: { result: csvString } });
   } catch (err) {
     console.error("Fetch error:", err);
@@ -72,18 +73,20 @@ async function urlInputSubmitHandler() {
 /* ******************** Reveal next event handler **************** */
 
 function revealNextInfoEventHandler() {
+  const wordObjects = getlastCsvJsonResult();
   // Move to the next information if we have data (either from CSV or URL)
-  if (getlastCsvJsonResult()) {
-    moveNext(getlastCsvJsonResult(), outputList);
+  if (wordObjects) {
+    moveNext(wordObjects, outputList);
   }
 }
 
 /* ********************* Reveal previous event handler ***************** */
 
 function revealPreviousInfoEventHandler() {
+  const wordObjects = getlastCsvJsonResult();
   // move to previous information if we have data (either from CSV or URL)
-  if (getlastCsvJsonResult()) {
-    moveBack(getlastCsvJsonResult(), outputList);
+  if (wordObjects) {
+    moveBack(wordObjects, outputList);
   }
 }
 
