@@ -84,7 +84,7 @@ export function changeOutputTitle(outputTitle, currWordTitle) {
 
 export function createStartText(outputElement) {
   const startText = document.createElement("li");
-  startText.textContent = "Click Next Button to start 💡";
+  startText.textContent = "💡 Click Next Button to start";
   outputElement.appendChild(startText);
 }
 
@@ -108,25 +108,3 @@ export function decreaseWordIndex(wordIndex, indexOfDisplayedWordInfo) {
     setIndexOfWord(currIndexWord);
   }
 }
-
-/* *** Objects to Array Conversion *** */
-
-// Convert json into a one dimensional array
-/* export function convertObjectsToArr(arr) {
-  const wordInfosArr = [];
-  // Iterate over objects of array
-  for (let i = 0; i < arr.length; i++) {
-    // Create entries array which includes another array of the key and value of each word info
-    const entries = Object.entries(arr[i]);
-
-    // Iterate over entries array
-    for (let j = 0; j < 4; j++) {
-      let value = entries[j][1];
-      let key = entries[j][0];
-      // Push word info if it exists, push "keine + key name" if no word info exists
-      wordInfosArr.push(wordInfoCreate(key, value));
-    }
-  }
-  return wordInfosArr;
-}
- */
