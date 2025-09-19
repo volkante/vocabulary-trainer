@@ -27,10 +27,14 @@ export function createOutputsChild(element, currWordInfo) {
   // Reset the previous word info (li element) each time this function's called
   element.replaceChildren();
   let wordElement;
-  // Store word information
-  const content = currWordInfo[1];
-  // If revealed info is a link, make it anchor element
-  if (currWordInfo.startsWith("https")) {
+
+  // If the content is empty, add "no" to title and show it
+  if (!currWordInfo) {
+    wordElement = document.createElement("li");
+    wordElement.textContent = "no information";
+    element.appendChild(wordElement);
+    // If revealed info is a link, make it anchor element
+  } else if (currWordInfo.startsWith("https")) {
     wordElement = document.createElement("li");
     createLink(currWordInfo, wordElement);
     element.appendChild(wordElement);
