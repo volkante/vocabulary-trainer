@@ -15,3 +15,4 @@ export const outputList = document.querySelector(".output-list");
 export const urlSubmitBtn = document.getElementById("urlSubmitButton");
 export const nextBtn = document.querySelector(".btn--next");
 export const backBtn = document.querySelector(".btn--back");
+export const revisitBtn = document.querySelector(".btn--repeat");
