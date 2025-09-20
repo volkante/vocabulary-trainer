@@ -24,18 +24,17 @@ import {
 // TODO 1: Ortaya tekrar karşına çıkarma buttonu ekleme.
 // TODO 2: Stillerle oynama. Özellikle button ve icon tuşları. bu generic stilden kurtulmak.
 // TODO 3: Aslında input'u shuffle ettikten sonra tüm bilgiler array'a yaymak zorunda mıyım? Array of objects olarak kalsa?
-// TODO 4: Output html link olunca çok taşıyor mobilde. Responsive düzeltmek!
+// TODO 4: Output html link olunca çok taşıyor mobilde. Ayrıca iphone safari'de input kısmı da taşıyor. Responsive düzeltmek!
 // TODO 5: Repeat tuşu
 // TODO 6: CSS'leri comment ile ayır
 // TODO 7: Inputlardan biri girilince diğeri boş gözüksün.
 // TODO 8: İçeride bir şey yoksa back tuşu alert versin. Dosya yükle ya da link sağla diye.
 // TODO 9: Unit test yazma, popüler bir unit test library'si yükleyerek.
-// DONE ---- TODO 1O: Başta gelen "Click Next Button to start"'tan önce gelsin ampül emojisi.
 // TODO 12: revealnextinfo revealprevious'lardaki getter func'dan dönen sonucu önce readability için result vb. isimli değişkenle at.
 // DEVAM TODO 12: aslında tüm getter functionlar'ı başta değişkenlere atamak okunurluk açısından daha iyi olabilir.
 // TODO 13: html elementlerin text content gösterme şeyleri ayrı bir function olabilir.
 // TODO 14: unload.js'de en alttaki, restart şeyleri hep baştan yüklenince diye gidiyor. Bunları tek bir func.'ta toplama?
-// TODO 15: Unit Test ekleme. Hem cv'de güzel görünür.
+// TODO 15: Unit Test ekleme! Sürekli bug çıkıyor. Soruna baştan çözüm.
 // TODO 16: bitti ve başlama alertlerinin içine emoji eklemek. tatlılaştırmak(comeaunun önerisi çünkü böyle çok sert duruyor demişti alertler itici geliyor)
 
 /* ******************** CSV read ********************* */
@@ -112,7 +111,7 @@ function revisitEventHandler() {
   ) {
     const currentObj = wordObjects[wordObjIndex];
     addToRevisitList(currentObj);
-    console.log("🔄 Word added to revisit list!");
+    alert("🔄 Word added to revisit list!");
 
     // Güncelle: revisit eklendiği anda toplam sayıyı artır ve DOM'u güncelle
     const updatedTotal = wordObjects.length + getRevisitList().length;
