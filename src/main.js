@@ -21,21 +21,21 @@ import {
   getRevisitList,
 } from "./state.js";
 
-// TODO 1: Ortaya tekrar karşına çıkarma buttonu ekleme.
+// DONE TODO 1: Ortaya tekrar karşına çıkarma buttonu ekleme.
 // TODO 2: Stillerle oynama. Özellikle button ve icon tuşları. bu generic stilden kurtulmak.
 // TODO 3: Aslında input'u shuffle ettikten sonra tüm bilgiler array'a yaymak zorunda mıyım? Array of objects olarak kalsa?
 // TODO 4: Output html link olunca çok taşıyor mobilde. Ayrıca iphone safari'de input kısmı da taşıyor. Responsive düzeltmek!
-// TODO 5: Repeat tuşu
+// DONE TODO 5: Repeat tuşu
 // TODO 6: CSS'leri comment ile ayır
 // TODO 7: Inputlardan biri girilince diğeri boş gözüksün.
 // TODO 8: İçeride bir şey yoksa back tuşu alert versin. Dosya yükle ya da link sağla diye.
-// TODO 9: Unit test yazma, popüler bir unit test library'si yükleyerek.
+// TODO 9: Unit test yazma, popüler bir unit test library'si yükleyerek. Sürekli bug çıkıyor. Soruna baştan çözüm.
 // TODO 12: revealnextinfo revealprevious'lardaki getter func'dan dönen sonucu önce readability için result vb. isimli değişkenle at.
 // DEVAM TODO 12: aslında tüm getter functionlar'ı başta değişkenlere atamak okunurluk açısından daha iyi olabilir.
 // TODO 13: html elementlerin text content gösterme şeyleri ayrı bir function olabilir.
-// TODO 14: unload.js'de en alttaki, restart şeyleri hep baştan yüklenince diye gidiyor. Bunları tek bir func.'ta toplama?
-// TODO 15: Unit Test ekleme! Sürekli bug çıkıyor. Soruna baştan çözüm.
-// TODO 16: bitti ve başlama alertlerinin içine emoji eklemek. tatlılaştırmak(comeaunun önerisi çünkü böyle çok sert duruyor demişti alertler itici geliyor)
+// TODO 14: unload.js'de en alttaki, restart şeyleri hep baştan yüklenince diye gidiyor. Bunları tek bir func.'ta toplama
+// TODO 15: Bitti ve başlama alertlerinin içine emoji eklemek. tatlılaştırmak (comeaunun önerisi çünkü böyle çok sert duruyor demişti alertler itici geliyor)
+// TODO 16: Liste'de yeni kelimeye geçtiği anlaşılmıyor. Meaning title başına bir yeni emojisi vb. bir emoji eklemek.
 
 /* ******************** CSV read ********************* */
 
