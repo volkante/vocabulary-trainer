@@ -21,11 +21,10 @@ import {
   getRevisitList,
 } from "./state.js";
 
-// DONE TODO 1: Ortaya tekrar karşına çıkarma buttonu ekleme.
 // TODO 2: Stillerle oynama. Özellikle button ve icon tuşları. bu generic stilden kurtulmak.
 // TODO 3: Aslında input'u shuffle ettikten sonra tüm bilgiler array'a yaymak zorunda mıyım? Array of objects olarak kalsa?
 // TODO 4: Output html link olunca çok taşıyor mobilde. Ayrıca iphone safari'de input kısmı da taşıyor. Responsive düzeltmek!
-// DONE TODO 5: Repeat tuşu
+
 // TODO 6: CSS'leri comment ile ayır
 // TODO 7: Inputlardan biri girilince diğeri boş gözüksün.
 // TODO 8: İçeride bir şey yoksa back tuşu alert versin. Dosya yükle ya da link sağla diye.
