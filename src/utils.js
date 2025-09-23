@@ -91,24 +91,3 @@ export function createStartText(outputElement) {
   startText.textContent = "💡 Click Next Button to start";
   outputElement.appendChild(startText);
 }
-
-/* *** Increase Word index  *** */
-
-export function increaseWordIndex(wordIndex, indexOfDisplayedWordInfo) {
-  // Increase word index whenever displayed word info is a meaning. i.e. word info's index is 4 or its multiples.
-
-  if (indexOfDisplayedWordInfo % 4 === 0) {
-    const currIndexWord = wordIndex + 1;
-    setIndexOfWord(currIndexWord);
-  }
-}
-
-/* *** Decrease Word Index *** */
-
-export function decreaseWordIndex(wordIndex, indexOfDisplayedWordInfo) {
-  // Decrease word index whenever displayed word info is an example/remark. i.e. word info's index is 3 or its multiples.
-  if (indexOfDisplayedWordInfo % 4 === 3) {
-    const currIndexWord = wordIndex - 1;
-    setIndexOfWord(currIndexWord);
-  }
-}
