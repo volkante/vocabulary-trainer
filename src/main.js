@@ -36,6 +36,7 @@ import {
 // TODO 14: unload.js'de en alttaki, restart şeyleri hep baştan yüklenince diye gidiyor. Bunları tek bir func.'ta toplama
 // TODO 15: Bitti ve başlama alertlerinin içine emoji eklemek. tatlılaştırmak (comeaunun önerisi çünkü böyle çok sert duruyor demişti alertler itici geliyor)
 // TODO 16: Liste'de yeni kelimeye geçtiği anlaşılmıyor. Meaning title başına bir yeni emojisi vb. bir emoji eklemek.
+// TODO 17: Kelime ekleme'de toastify ile eklendiğini bildirmek olabilir!
 
 /* ******************** CSV read ********************* */
 
@@ -111,7 +112,7 @@ function revisitEventHandler() {
   ) {
     const currentObj = wordObjects[wordObjIndex];
     addToRevisitList(currentObj);
-    alert("🔄 Word added to revisit list!");
+    console.log("🔄 Word added to revisit list!");
 
     // Güncelle: revisit eklendiği anda toplam sayıyı artır ve DOM'u güncelle
     const updatedTotal = wordObjects.length + getRevisitList().length;
