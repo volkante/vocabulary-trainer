@@ -9,6 +9,7 @@ import {
   urlSubmitBtn,
   revisitBtn,
   totalWordlistLength,
+  outputTitle,
 } from "./domElements.js";
 import { moveNext } from "./moveNext.js";
 import { moveBack } from "./moveBack.js";
@@ -21,21 +22,19 @@ import {
   getRevisitList,
 } from "./state.js";
 
-// TODO 2: Stillerle oynama. Özellikle button ve icon tuşları. bu generic stilden kurtulmak.
-// TODO 3: Aslında input'u shuffle ettikten sonra tüm bilgiler array'a yaymak zorunda mıyım? Array of objects olarak kalsa?
-// TODO 4: Output html link olunca çok taşıyor mobilde. Ayrıca iphone safari'de input kısmı da taşıyor. Responsive düzeltmek!
-
-// TODO 6: CSS'leri comment ile ayır
-// TODO 7: Inputlardan biri girilince diğeri boş gözüksün.
-// TODO 8: İçeride bir şey yoksa back tuşu alert versin. Dosya yükle ya da link sağla diye.
-// TODO 9: Unit test yazma, popüler bir unit test library'si yükleyerek. Sürekli bug çıkıyor. Soruna baştan çözüm.
-// TODO 12: revealnextinfo revealprevious'lardaki getter func'dan dönen sonucu önce readability için result vb. isimli değişkenle at.
-// DEVAM TODO 12: aslında tüm getter functionlar'ı başta değişkenlere atamak okunurluk açısından daha iyi olabilir.
-// TODO 13: html elementlerin text content gösterme şeyleri ayrı bir function olabilir.
-// TODO 14: unload.js'de en alttaki, restart şeyleri hep baştan yüklenince diye gidiyor. Bunları tek bir func.'ta toplama
-// TODO 15: Bitti ve başlama alertlerinin içine emoji eklemek. tatlılaştırmak (comeaunun önerisi çünkü böyle çok sert duruyor demişti alertler itici geliyor)
-// TODO 16: Liste'de yeni kelimeye geçtiği anlaşılmıyor. Meaning title başına bir yeni emojisi vb. bir emoji eklemek.
-// TODO 17: Kelime ekleme'de toastify ile eklendiğini bildirmek olabilir!
+// TODO 1: Stillerle oynama. Özellikle button ve icon tuşları. bu generic stilden kurtulmak.
+// TODO 2: CSS'leri ayrıntılı comment ile ayır
+// (ÖNERİ) TODO 3: Inputlardan biri girilince diğeri boş gözüksün.
+// TODO 4: İçeride bir şey yoksa back tuşu alert versin. Dosya yükle ya da link sağla diye.
+// TODO 5: Unit test yazma, popüler bir unit test library'si yükleyerek. Sürekli bug çıkıyor. Soruna baştan çözüm.
+// TODO 6: revealnextinfo revealprevious'lardaki getter func'dan dönen sonucu önce readability için result vb. isimli değişkenle at.
+// DEVAM TODO 6: aslında tüm getter functionlar'ı başta değişkenlere atamak okunurluk açısından daha iyi olabilir.
+// TODO 7: html elementlerin text content gösterme şeyleri ayrı bir function olabilir.
+// TODO 8: unload.js'de en alttaki, restart şeyleri hep baştan yüklenince diye gidiyor. Bunları tek bir func.'ta toplama
+// TODO 9: Bitti ve başlama alertlerinin içine emoji eklemek. tatlılaştırmak (comeaunun önerisi çünkü böyle çok sert duruyor demişti alertler itici geliyor)
+// TODO 10: Liste'de yeni kelimeye geçtiği anlaşılmıyor. Meaning title başına bir yeni emojisi vb. bir emoji eklemek.
+// TODO 11: Kelime ekleme'de toastify ile eklendiğini bildirmek olabilir!
+// TODO 12: Dosya seçtiğimde veya url submit edildiğin output kısmı sıfırlanmıyor. Her şey en başa dönmeli!
 
 /* ******************** CSV read ********************* */
 
@@ -45,8 +44,13 @@ function csvChangeHandler(event) {
   if (!file) {
     outputList.replaceChildren();
     wordIndexElement.textContent = 0;
+    outputTitle.textContent = "Output";
     return;
   }
+
+  // Reset output title when a new file is chosen
+  outputTitle.textContent = "Output";
+
   const reader = new FileReader();
   reader.onload = onLoad;
   reader.readAsText(file, "UTF-8");
@@ -58,6 +62,9 @@ async function urlInputSubmitHandler() {
   const sheetUrl = document.getElementById("sheetUrl").value;
 
   if (!sheetUrl) return;
+
+  // Reset output title when a new URL is submitted
+  outputTitle.textContent = "Output";
 
   const charIndexToRemoveUnnecessaryPart = sheetUrl.indexOf("edit");
   const clearApiLink = sheetUrl
@@ -75,6 +82,7 @@ async function urlInputSubmitHandler() {
   } catch (err) {
     console.error("Fetch error:", err);
     outputList.innerHTML = `<li style="color: red">Hata: ${err.message}</li>`;
+    outputTitle.textContent = "Output";
   }
 }
 
