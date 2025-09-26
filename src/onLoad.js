@@ -1,9 +1,15 @@
 import Papa from "papaparse";
-import { totalWordlistLength, wordIndexElement } from "./domElements.js";
+import {
+  totalWordlistLength,
+  wordIndexElement,
+  outputTitle,
+} from "./domElements.js";
 import {
   getlastCsvJsonResult,
   setLastCsvJsonResult,
   setIndexOfWordObj,
+  setWordInfoIndex,
+  clearRevisitList,
 } from "./state.js";
 import { shuffle, createStartText } from "./utils.js";
 import { outputList } from "./domElements.js";
@@ -28,10 +34,17 @@ export function onLoad(e) {
   // Set result to shuffled array
   setLastCsvJsonResult(wordObjects);
 
-  // When a new file is loaded, set Index of Word Object to -1
+  // When a new file is loaded, set Index of Word Object to 0
   setIndexOfWordObj(0);
+  // Reset word info index so first Next shows the first field
+  setWordInfoIndex(-1);
+  // Clear revisit list to avoid stale appended items
+  clearRevisitList();
+
   // When a new file is loaded, clear the output-list field
   outputList.replaceChildren();
+  // Reset output title to default
+  outputTitle.textContent = "Output";
   // When a new file is loaded, create and display the start text in output element.
   createStartText(outputList);
   // When a new file is loaded set word index display to 0.

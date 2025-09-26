@@ -59,12 +59,11 @@ input[type="file"] {
   border: 1px solid #90caf9;
   background: #e3f2fd;
   transition: border-color 0.2s;
-  overflow: hidden; /* taşmayı kes */
-  text-overflow: ellipsis; /* uzun metni üç noktayla kırp */
-  white-space: nowrap; /* satır kaydırmayı önle */
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
-/* isteğe bağlı: dosya seçme butonunu küçült ve daha uyumlu yap */
 input[type="file"]::file-selector-button {
   padding: 0.5rem 0.8rem;
   margin-right: 0.5rem;
