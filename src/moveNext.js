@@ -62,6 +62,10 @@ export function moveNext(element) {
   const wordTitles = Object.keys(currentWordObjects[getIndexOfWordObj()]);
   // Store the current title
   let currWordTitle = wordTitles[getWordInfoIndex()];
+  // Prefix "new" emoji for the first field of each word object
+  if (getWordInfoIndex() === 0) {
+    currWordTitle = "✨ " + currWordTitle;
+  }
   // Change output title
   changeOutputTitle(outputTitle, currWordTitle);
 
