@@ -34,7 +34,7 @@ import {
 // TODO 9: Bitti ve başlama alertlerinin içine emoji eklemek. tatlılaştırmak (comeaunun önerisi çünkü böyle çok sert duruyor demişti alertler itici geliyor)
 // TODO 10: Liste'de yeni kelimeye geçtiği anlaşılmıyor. Meaning title başına bir yeni emojisi vb. bir emoji eklemek.
 // TODO 11: Kelime ekleme'de toastify ile eklendiğini bildirmek olabilir!
-// TODO 12: Dosya seçtiğimde veya url submit edildiğin output kısmı sıfırlanmıyor. Her şey en başa dönmeli!
+// TODO 12: README OLUŞTUR.
 
 /* ******************** CSV read ********************* */
 
