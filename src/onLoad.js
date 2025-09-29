@@ -13,6 +13,7 @@ import {
 } from "./state.js";
 import { shuffle, createStartText } from "./utils.js";
 import { outputList } from "./domElements.js";
+import { setElementTextContent } from "./presenter.js";
 
 export function onLoad(e) {
   const csvText = e.target.result;
@@ -27,7 +28,7 @@ export function onLoad(e) {
   const shuffledJsonResult = shuffle(jsonResultShallowCopy);
   console.log("shuffledJsonResult", shuffledJsonResult);
   // Show output wordlist length on screen
-  totalWordlistLength.textContent = shuffledJsonResult.length;
+  setElementTextContent(totalWordlistLength, shuffledJsonResult.length);
 
   //
   let wordObjects = [...shuffledJsonResult];
@@ -44,9 +45,10 @@ export function onLoad(e) {
   // When a new file is loaded, clear the output-list field
   outputList.replaceChildren();
   // Reset output title to default
-  outputTitle.textContent = "Output";
+  setElementTextContent(outputTitle, "Output");
+
   // When a new file is loaded, create and display the start text in output element.
   createStartText(outputList);
   // When a new file is loaded set word index display to 0.
-  wordIndexElement.textContent = 0;
+  setElementTextContent(wordIndexElement, 0);
 }

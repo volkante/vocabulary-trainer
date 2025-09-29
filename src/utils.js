@@ -1,3 +1,5 @@
+import { setElementTextContent } from "./presenter";
+
 /* *** Word Shuffle *** */
 
 // Shuffle word informations
@@ -14,12 +16,6 @@ export function shuffle(arr) {
   return arr;
 }
 
-// When the word information is empty, create a string with "keine"
-function wordInfoCreate(key, val) {
-  const wordInfo = val === "" ? `no ${key}` : val;
-  return wordInfo;
-}
-
 /* *** Output children creation *** */
 
 // Create and fill the output ul's child(each word info as a li element)
@@ -31,7 +27,7 @@ export function createOutputsChild(element, currWordInfo) {
   // If the content is empty, add "no" to title and show it
   if (!currWordInfo) {
     wordElement = document.createElement("li");
-    wordElement.textContent = "no information";
+    setElementTextContent(wordElement, "no information");
     element.appendChild(wordElement);
     // If revealed info is a link, make it anchor element
   } else if (currWordInfo.startsWith("https")) {
@@ -46,7 +42,7 @@ export function createOutputsChild(element, currWordInfo) {
       // If text does not have a new line (e.g. just one example), write it simply to the list element
     } else {
       wordElement = document.createElement("li");
-      wordElement.textContent = currWordInfo;
+      setElementTextContent(wordElement, currWordInfo);
       element.appendChild(wordElement);
     }
   }
@@ -56,7 +52,7 @@ export function createOutputsChild(element, currWordInfo) {
 export function createLink(content, wordElement) {
   const link = document.createElement("a");
   link.href = content;
-  link.textContent = content;
+  setElementTextContent(link, content);
   link.target = "_blank";
   wordElement.appendChild(link);
 }
@@ -67,7 +63,7 @@ export function createNewLines(element, content) {
   const examplesArr = content.split("\n");
   const exampleElements = examplesArr.map((item) => {
     const exampleElement = document.createElement("li");
-    exampleElement.textContent = item;
+    setElementTextContent(exampleElement, item);
     return exampleElement;
   });
   for (let i = 0; i < exampleElements.length; i++) {
@@ -76,18 +72,11 @@ export function createNewLines(element, content) {
   }
 }
 
-/* *** Output Title Change *** */
-
-// Change Output title by showed information type between "Meaning", "Word", "Source" and "Example"
-
-export function changeOutputTitle(outputTitle, currWordTitle) {
-  outputTitle.textContent = currWordTitle;
-}
-
 /* *** Create and Display a start text in output area *** */
 
 export function createStartText(outputElement) {
   const startText = document.createElement("li");
   startText.textContent = "💡 Click Next Button to start";
+  setElementTextContent(startText, "💡 Click Next Button to start");
   outputElement.appendChild(startText);
 }
