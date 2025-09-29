@@ -11,9 +11,13 @@ import {
   setWordInfoIndex,
   clearRevisitList,
 } from "./state.js";
-import { shuffle, createStartText } from "./utils.js";
+import { shuffle } from "./utils.js";
 import { outputList } from "./domElements.js";
-import { setElementTextContent } from "./presenter.js";
+import {
+  setElementTextContent,
+  clearElement,
+  createAndShowStartText,
+} from "./presenter.js";
 
 export function onLoad(e) {
   const csvText = e.target.result;
@@ -43,12 +47,12 @@ export function onLoad(e) {
   clearRevisitList();
 
   // When a new file is loaded, clear the output-list field
-  outputList.replaceChildren();
+  clearElement(outputList);
   // Reset output title to default
   setElementTextContent(outputTitle, "Output");
 
   // When a new file is loaded, create and display the start text in output element.
-  createStartText(outputList);
+  createAndShowStartText(outputList);
   // When a new file is loaded set word index display to 0.
   setElementTextContent(wordIndexElement, 0);
 }
