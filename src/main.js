@@ -14,7 +14,7 @@ import { moveNext } from "./moveNext.js";
 import { moveBack } from "./moveBack.js";
 import { onLoad } from "./onLoad.js";
 import { revisit } from "./revisit.js";
-import { setElementTextContent } from "./presenter.js";
+import { setElementTextContent, clearElement } from "./presenter.js";
 
 // TODO 1: Stillerle oynama. Özellikle button ve icon tuşları. bu generic stilden kurtulmak.
 // TODO 2: CSS'leri ayrıntılı comment ile ayır
@@ -35,8 +35,8 @@ function csvChangeHandler(event) {
   const file = event.target.files[0];
   // If no file is uploaded, reset output section
   if (!file) {
-    outputList.replaceChildren();
-    wordIndexElement.textContent = 0;
+    clearElement(outputList);
+    setElementTextContent(wordIndexElement, 0);
     setElementTextContent(outputTitle, "Output");
     return;
   }

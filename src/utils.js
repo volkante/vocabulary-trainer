@@ -1,4 +1,4 @@
-import { setElementTextContent } from "./presenter";
+import { setElementTextContent, clearElement } from "./presenter";
 
 /* *** Word Shuffle *** */
 
@@ -21,7 +21,7 @@ export function shuffle(arr) {
 // Create and fill the output ul's child(each word info as a li element)
 export function createOutputsChild(element, currWordInfo) {
   // Reset the previous word info (li element) each time this function's called
-  element.replaceChildren();
+  clearElement(element);
   let wordElement;
 
   // If the content is empty, add "no" to title and show it
@@ -70,13 +70,4 @@ export function createNewLines(element, content) {
     const liElement = exampleElements[i];
     element.appendChild(liElement);
   }
-}
-
-/* *** Create and Display a start text in output area *** */
-
-export function createStartText(outputElement) {
-  const startText = document.createElement("li");
-  startText.textContent = "💡 Click Next Button to start";
-  setElementTextContent(startText, "💡 Click Next Button to start");
-  outputElement.appendChild(startText);
 }
