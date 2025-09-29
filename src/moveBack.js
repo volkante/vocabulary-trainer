@@ -10,7 +10,10 @@ import { outputTitle, wordIndexElement } from "./domElements.js";
 
 export function moveBack(element) {
   const wordObjects = getlastCsvJsonResult();
-  if (!wordObjects || wordObjects.length === 0) return;
+  if (!wordObjects || wordObjects.length === 0) {
+    alert("📚 Please upload a CSV file or paste a sheet URL first!");
+    return;
+  }
 
   // Get the number of properties (word information titles) from the first word object
   const objectPropertyLength = Object.keys(wordObjects[0]).length;
