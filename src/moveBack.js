@@ -5,8 +5,9 @@ import {
   getWordInfoIndex,
   getlastCsvJsonResult,
 } from "./state.js";
-import { createOutputsChild, changeOutputTitle } from "./utils.js";
+import { createOutputsChild } from "./utils.js";
 import { outputTitle, wordIndexElement } from "./domElements.js";
+import { setElementTextContent } from "./presenter.js";
 
 export function moveBack(element) {
   const wordObjects = getlastCsvJsonResult();
@@ -35,7 +36,7 @@ export function moveBack(element) {
   }
 
   // Update word index header (display as 1-based index)
-  wordIndexElement.textContent = getIndexOfWordObj() + 1;
+  setElementTextContent(wordIndexElement, getIndexOfWordObj() + 1);
 
   // Get all word titles in an array
   const wordTitles = Object.keys(wordObjects[getIndexOfWordObj()]);
@@ -46,7 +47,7 @@ export function moveBack(element) {
     currWordTitle = "✨ " + currWordTitle;
   }
   // Change output title
-  changeOutputTitle(outputTitle, currWordTitle);
+  setElementTextContent(outputTitle, currWordTitle);
 
   // Get word informations (definitions, examples, etc.)
   const wordFieldValues = Object.values(wordObjects[getIndexOfWordObj()]);

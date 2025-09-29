@@ -13,7 +13,8 @@ import {
   getRevisitList,
   clearRevisitList,
 } from "./state.js";
-import { changeOutputTitle, createOutputsChild } from "./utils.js";
+import { createOutputsChild } from "./utils.js";
+import { setElementTextContent } from "./presenter.js";
 
 export function moveNext(element) {
   const wordObjects = getlastCsvJsonResult();
@@ -44,7 +45,8 @@ export function moveNext(element) {
       setLastCsvJsonResult(updatedList);
       clearRevisitList();
       // Update the total word count display
-      totalWordlistLength.textContent = updatedList.length;
+      setElementTextContent(totalWordlistLength, updatedList.length);
+
       // Continue without resetting index, as the list has grown
     } else {
       alert("🎉 Word list is finished. Great job!");
@@ -56,7 +58,7 @@ export function moveNext(element) {
   const currentWordObjects = getlastCsvJsonResult();
 
   /*  Word Index Header */
-  wordIndexElement.textContent = getIndexOfWordObj() + 1;
+  setElementTextContent(wordIndexElement, getIndexOfWordObj() + 1);
 
   // Get all wordTitles in an array
   const wordTitles = Object.keys(currentWordObjects[getIndexOfWordObj()]);
@@ -67,7 +69,7 @@ export function moveNext(element) {
     currWordTitle = "✨ " + currWordTitle;
   }
   // Change output title
-  changeOutputTitle(outputTitle, currWordTitle);
+  setElementTextContent(outputTitle, currWordTitle);
 
   // Get word informations (definitions, examples e.g.)
   const wordFieldValues = Object.values(

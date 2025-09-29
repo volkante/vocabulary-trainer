@@ -14,20 +14,20 @@ import { moveNext } from "./moveNext.js";
 import { moveBack } from "./moveBack.js";
 import { onLoad } from "./onLoad.js";
 import { revisit } from "./revisit.js";
+import { setElementTextContent } from "./presenter.js";
 
 // TODO 1: Stillerle oynama. Özellikle button ve icon tuşları. bu generic stilden kurtulmak.
 // TODO 2: CSS'leri ayrıntılı comment ile ayır
 // (ÖNERİ) TODO 3: Inputlardan biri girilince diğeri boş gözüksün.
-// TODO 4: İçeride bir şey yoksa back tuşu alert versin. Dosya yükle ya da link sağla diye.
-// TODO 5: Unit test yazma, popüler bir unit test library'si yükleyerek. Sürekli bug çıkıyor. Soruna baştan çözüm.
-// TODO 6: revealnextinfo revealprevious'lardaki getter func'dan dönen sonucu önce readability için result vb. isimli değişkenle at.
-// DEVAM TODO 6: aslında tüm getter functionlar'ı başta değişkenlere atamak okunurluk açısından daha iyi olabilir.
-// TODO 7: html elementlerin text content gösterme şeyleri ayrı bir function olabilir.
-// TODO 8: unload.js'de en alttaki, restart şeyleri hep baştan yüklenince diye gidiyor. Bunları tek bir func.'ta toplama
-// TODO 9: Bitti ve başlama alertlerinin içine emoji eklemek. tatlılaştırmak (comeaunun önerisi çünkü böyle çok sert duruyor demişti alertler itici geliyor)
-// TODO 10: Liste'de yeni kelimeye geçtiği anlaşılmıyor. Meaning title başına bir yeni emojisi vb. bir emoji eklemek.
-// TODO 11: Kelime ekleme'de toastify ile eklendiğini bildirmek olabilir!
-// TODO 12: README OLUŞTUR.
+// TODO 3: Unit test yazma, popüler bir unit test library'si yükleyerek. Sürekli bug çıkıyor. Soruna baştan çözüm.
+// TODO 4: revealnextinfo revealprevious'lardaki getter func'dan dönen sonucu önce readability için result vb. isimli değişkenle at.
+// DEVAM TODO 4: aslında tüm getter functionlar'ı başta değişkenlere atamak okunurluk açısından daha iyi olabilir.
+// TODO 5: html elementlerin text content gösterme şeyleri ayrı bir function olabilir.
+// TODO 6: unload.js'de en alttaki, restart şeyleri hep baştan yüklenince diye gidiyor. Bunları tek bir func.'ta toplama
+// TODO 7: Bitti ve başlama alertlerinin içine emoji eklemek. tatlılaştırmak (comeaunun önerisi çünkü böyle çok sert duruyor demişti alertler itici geliyor)
+// TODO 8: Liste'de yeni kelimeye geçtiği anlaşılmıyor. Meaning title başına bir yeni emojisi vb. bir emoji eklemek.
+// TODO 9: Kelime ekleme'de toastify ile eklendiğini bildirmek olabilir!
+// TODO 10: README OLUŞTUR.
 
 /* ******************** CSV read ********************* */
 
@@ -37,12 +37,12 @@ function csvChangeHandler(event) {
   if (!file) {
     outputList.replaceChildren();
     wordIndexElement.textContent = 0;
-    outputTitle.textContent = "Output";
+    setElementTextContent(outputTitle, "Output");
     return;
   }
 
   // Reset output title when a new file is chosen
-  outputTitle.textContent = "Output";
+  setElementTextContent(outputTitle, "Output");
 
   const reader = new FileReader();
   reader.onload = onLoad;
@@ -57,7 +57,7 @@ async function urlInputSubmitHandler() {
   if (!sheetUrl) return;
 
   // Reset output title when a new URL is submitted
-  outputTitle.textContent = "Output";
+  setElementTextContent(outputTitle, "Output");
 
   const charIndexToRemoveUnnecessaryPart = sheetUrl.indexOf("edit");
   const clearApiLink = sheetUrl
@@ -75,7 +75,7 @@ async function urlInputSubmitHandler() {
   } catch (err) {
     console.error("Fetch error:", err);
     outputList.innerHTML = `<li style="color: red">Hata: ${err.message}</li>`;
-    outputTitle.textContent = "Output";
+    setElementTextContent(outputTitle, "Output");
   }
 }
 

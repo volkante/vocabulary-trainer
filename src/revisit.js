@@ -6,6 +6,8 @@ import {
   getRevisitList,
 } from "./state.js";
 
+import { setElementTextContent } from "./presenter.js";
+
 import { totalWordlistLength } from "./domElements.js";
 
 export function revisit() {
@@ -18,6 +20,7 @@ export function revisit() {
     alert("📚 Please upload a CSV file or paste a sheet URL first!");
     return;
   }
+
   // Sadece ilk meaning gösteriliyorsa ekle
   if (
     wordObjIndex >= 0 &&
@@ -30,6 +33,6 @@ export function revisit() {
 
     // revisit eklendiği anda toplam sayıyı artır ve DOM'u güncelle
     const updatedTotal = wordObjects.length + getRevisitList().length;
-    totalWordlistLength.textContent = updatedTotal;
+    setElementTextContent(totalWordlistLength, updatedTotal);
   }
 }
