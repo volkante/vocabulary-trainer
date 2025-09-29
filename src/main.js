@@ -8,19 +8,12 @@ import {
   wordIndexElement,
   urlSubmitBtn,
   revisitBtn,
-  totalWordlistLength,
   outputTitle,
 } from "./domElements.js";
 import { moveNext } from "./moveNext.js";
 import { moveBack } from "./moveBack.js";
 import { onLoad } from "./onLoad.js";
-import {
-  getlastCsvJsonResult,
-  addToRevisitList,
-  getIndexOfWordObj,
-  getWordInfoIndex,
-  getRevisitList,
-} from "./state.js";
+import { revisit } from "./revisit.js";
 
 // TODO 1: Stillerle oynama. Özellikle button ve icon tuşları. bu generic stilden kurtulmak.
 // TODO 2: CSS'leri ayrıntılı comment ile ayır
@@ -103,28 +96,7 @@ function revealPreviousInfoEventHandler() {
 /* ********************* Revisit event handler ***************** */
 
 function revisitEventHandler() {
-  const wordObjects = getlastCsvJsonResult();
-  const wordObjIndex = getIndexOfWordObj();
-  const wordInfoIndex = getWordInfoIndex();
-
-  if (!wordObjects || wordObjects.length === 0) {
-    alert("📚 Please upload a CSV file or paste a sheet URL first");
-    return;
-  }
-  // Sadece ilk meaning gösteriliyorsa ekle
-  if (
-    wordObjIndex >= 0 &&
-    wordObjIndex < wordObjects.length &&
-    wordInfoIndex !== -1
-  ) {
-    const currentObj = wordObjects[wordObjIndex];
-    addToRevisitList(currentObj);
-    console.log("🔄 Word added to revisit list!");
-
-    // Güncelle: revisit eklendiği anda toplam sayıyı artır ve DOM'u güncelle
-    const updatedTotal = wordObjects.length + getRevisitList().length;
-    totalWordlistLength.textContent = updatedTotal;
-  }
+  revisit();
 }
 
 /* ****************** Event Listeners ********************* */
