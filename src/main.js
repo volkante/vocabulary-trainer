@@ -15,6 +15,7 @@ import { moveBack } from "./moveBack.js";
 import { onLoad } from "./onLoad.js";
 import { revisit } from "./revisit.js";
 import { setElementTextContent, clearElement } from "./presenter.js";
+import { clearApiLink } from "./utils.js";
 
 // TODO 1: Stillerle oynama. Özellikle button ve icon tuşları. bu generic stilden kurtulmak.
 // TODO 2: CSS'leri ayrıntılı comment ile ayır
@@ -52,22 +53,18 @@ function csvChangeHandler(event) {
 /* ********************* fetch json from url function ***************** */
 
 async function urlInputSubmitHandler() {
-  const sheetUrl = document.getElementById("sheetUrl").value;
+  const unformattedApiLink = document.getElementById("sheetUrl").value;
 
   if (!sheetUrl) return;
 
   // Reset output title when a new URL is submitted
   setElementTextContent(outputTitle, "Output");
-
-  const charIndexToRemoveUnnecessaryPart = sheetUrl.indexOf("edit");
-  const clearApiLink = sheetUrl
-    .slice(0, charIndexToRemoveUnnecessaryPart)
-    .concat("gviz/tq?tqx=out:csv");
+  // Format api address to get csv link from google sheets according to google sheets rules
+  const formattedApiLink = clearApiLink(unformattedApiLink);
 
   try {
-    const response = await fetch(clearApiLink);
+    const response = await fetch(formattedApiLink);
     if (!response.ok) throw new Error("Network error: " + response.status);
-
     const csvString = await response.text();
 
     // Send CSV string to onLoad function

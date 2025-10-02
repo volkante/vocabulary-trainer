@@ -1,4 +1,5 @@
 import { setElementTextContent, clearElement } from "./presenter";
+import Papa from "papaparse";
 
 /* *** Word Shuffle *** */
 
@@ -16,6 +17,29 @@ export function shuffle(arr) {
     [copy[i], copy[j]] = [copy[j], copy[i]];
   }
   return copy;
+}
+
+/* *** Parse csv to array utility *** */
+
+export function parseCsvToArray(csvText) {
+  const result = Papa.parse(csvText, {
+    header: true, // use first row as column names
+    skipEmptyLines: true,
+  });
+  if (result.errors && result.errors.length) {
+    throw new Error(result.errors.map((e) => e.message).join(", "));
+  }
+  return result.data;
+}
+
+/* *** Clear api link *** */
+// Format api address to be able to get csv link from google sheets according to google sheets rules
+export function clearApiLink(unformattedApiLink) {
+  const charIndexToRemoveUnnecessaryPart = unformattedApiLink.indexOf("edit");
+  const clearApiLink = unformattedApiLink
+    .slice(0, charIndexToRemoveUnnecessaryPart)
+    .concat("gviz/tq?tqx=out:csv");
+  return clearApiLink;
 }
 
 /* *** Output children creation *** */

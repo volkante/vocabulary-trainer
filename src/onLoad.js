@@ -11,7 +11,7 @@ import {
   setWordInfoIndex,
   clearRevisitList,
 } from "./state.js";
-import { shuffle } from "./utils.js";
+import { parseCsvToArray, shuffle } from "./utils.js";
 import { outputList } from "./domElements.js";
 import {
   setElementTextContent,
@@ -22,14 +22,9 @@ import {
 export function onLoad(e) {
   const csvText = e.target.result;
   // Use Papa.parse program to get json result
-  let jsonResult = Papa.parse(csvText, {
-    header: true, // use first row as column names
-    skipEmptyLines: true,
-  });
-
-  const jsonResultShallowCopy = [...jsonResult.data];
+  const result = parseCsvToArray(csvText);
   // Shuffle the array of objects by using shuffle function
-  const shuffledJsonResult = shuffle(jsonResultShallowCopy);
+  const shuffledJsonResult = shuffle(result);
   console.log("shuffledJsonResult", shuffledJsonResult);
   // Show output wordlist length on screen
   setElementTextContent(totalWordlistLength, shuffledJsonResult.length);
