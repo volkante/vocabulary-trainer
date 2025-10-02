@@ -8,12 +8,14 @@ export function shuffle(arr) {
   if (!Array.isArray(arr)) throw new Error("Expected Array");
   // Check if more than one word is given as input
   if (arr.length <= 1) throw new Error("Expected more than one word");
-  // Shuffle the array
-  for (let i = arr.length - 1; i > 0; i--) {
+  // Create a copy
+  const copy = arr.slice();
+  // Shuffle the copy
+  for (let i = copy.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
-    [arr[i], arr[j]] = [arr[j], arr[i]];
+    [copy[i], copy[j]] = [copy[j], copy[i]];
   }
-  return arr;
+  return copy;
 }
 
 /* *** Output children creation *** */
