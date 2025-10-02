@@ -5,9 +5,8 @@ import {
   getWordInfoIndex,
   getlastCsvJsonResult,
 } from "./state.js";
-import { createOutputsChild } from "./utils.js";
 import { outputTitle, wordIndexElement } from "./domElements.js";
-import { setElementTextContent } from "./presenter.js";
+import { setElementTextContent, createOutputsChild } from "./presenter.js";
 
 export function moveBack(element) {
   const wordObjects = getlastCsvJsonResult();

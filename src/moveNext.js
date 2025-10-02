@@ -13,8 +13,8 @@ import {
   getRevisitList,
   clearRevisitList,
 } from "./state.js";
-import { createOutputsChild } from "./utils.js";
-import { setElementTextContent } from "./presenter.js";
+
+import { setElementTextContent, createOutputsChild } from "./presenter.js";
 
 export function moveNext(element) {
   const wordObjects = getlastCsvJsonResult();
