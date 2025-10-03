@@ -15,8 +15,8 @@ import { parseCsvToArray, shuffle } from "./utils.js";
 import { outputList } from "./domElements.js";
 import {
   setElementTextContent,
-  clearElement,
   createAndShowStartText,
+  resetOutput,
 } from "./presenter.js";
 
 export function onLoad(e) {
@@ -41,13 +41,7 @@ export function onLoad(e) {
   // Clear revisit list to avoid stale appended items
   clearRevisitList();
 
-  // When a new file is loaded, clear the output-list field
-  clearElement(outputList);
-  // Reset output title to default
-  setElementTextContent(outputTitle, "Output");
-
+  resetOutput(outputList, wordIndexElement, outputTitle);
   // When a new file is loaded, create and display the start text in output element.
   createAndShowStartText(outputList);
-  // When a new file is loaded set word index display to 0.
-  setElementTextContent(wordIndexElement, 0);
 }
