@@ -6,6 +6,17 @@ export function clearElement(element) {
   element.replaceChildren();
 }
 
+/* *** Reset output *** */
+
+export function resetOutput(outputList, wordIndexElement, outputTitle) {
+  // When a new file is loaded, clear the output-list field
+  clearElement(outputList);
+  // When a new file is loaded set word index display to 0.
+  setElementTextContent(wordIndexElement, 0);
+  // Reset output title to default
+  setElementTextContent(outputTitle, "Output");
+}
+
 /* *** Create and Display a start text in output area *** */
 export function createAndShowStartText(outputElement) {
   const startText = document.createElement("li");

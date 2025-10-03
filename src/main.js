@@ -14,7 +14,11 @@ import { moveNext } from "./moveNext.js";
 import { moveBack } from "./moveBack.js";
 import { onLoad } from "./onLoad.js";
 import { revisit } from "./revisit.js";
-import { setElementTextContent, clearElement } from "./presenter.js";
+import {
+  setElementTextContent,
+  clearElement,
+  resetOutput,
+} from "./presenter.js";
 import { clearApiLink } from "./utils.js";
 
 // TODO 1: Stillerle oynama. Özellikle button ve icon tuşları. bu generic stilden kurtulmak.
@@ -36,9 +40,10 @@ function csvChangeHandler(event) {
   const file = event.target.files[0];
   // If no file is uploaded, reset output section
   if (!file) {
-    clearElement(outputList);
+    resetOutput(outputList, wordIndexElement, outputTitle);
+    /* clearElement(outputList);
     setElementTextContent(wordIndexElement, 0);
-    setElementTextContent(outputTitle, "Output");
+    setElementTextContent(outputTitle, "Output"); */
     return;
   }
 
