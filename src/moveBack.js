@@ -10,6 +10,7 @@ import { setElementTextContent, createOutputsChild } from "./presenter.js";
 
 export function moveBack(element) {
   const wordObjects = getlastCsvJsonResult();
+
   if (!wordObjects || wordObjects.length === 0) {
     alert("📚 Please upload a CSV file or paste a sheet URL first!");
     return;
