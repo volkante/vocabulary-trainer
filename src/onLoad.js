@@ -1,4 +1,3 @@
-import Papa from "papaparse";
 import {
   totalWordlistLength,
   wordIndexElement,
