@@ -41,9 +41,6 @@ function csvChangeHandler(event) {
   // If no file is uploaded, reset output section
   if (!file) {
     resetOutput(outputList, wordIndexElement, outputTitle);
-    /* clearElement(outputList);
-    setElementTextContent(wordIndexElement, 0);
-    setElementTextContent(outputTitle, "Output"); */
     return;
   }
 
