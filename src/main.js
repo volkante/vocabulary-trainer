@@ -30,9 +30,8 @@ import { clearApiLink } from "./utils.js";
 // TODO 5: html elementlerin text content gösterme şeyleri ayrı bir function olabilir.
 // TODO 6: unload.js'de en alttaki, restart şeyleri hep baştan yüklenince diye gidiyor. Bunları tek bir func.'ta toplama
 // TODO 7: Bitti ve başlama alertlerinin içine emoji eklemek. tatlılaştırmak (comeaunun önerisi çünkü böyle çok sert duruyor demişti alertler itici geliyor)
-// TODO 8: Liste'de yeni kelimeye geçtiği anlaşılmıyor. Meaning title başına bir yeni emojisi vb. bir emoji eklemek.
-// TODO 9: Kelime ekleme'de toastify ile eklendiğini bildirmek olabilir!
-// TODO 10: README OLUŞTUR.
+// TODO 8: Kelime ekleme'de toastify ile eklendiğini bildirmek olabilir!
+// TODO 9: README OLUŞTUR.
 
 /* ******************** CSV read ********************* */
 
