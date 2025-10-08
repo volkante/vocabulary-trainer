@@ -19,7 +19,7 @@ You'll need Node.js installed on your computer.
 2. Open terminal in the project folder
 3. Run `npm install` to install dependencies
 4. Run `npm run dev` to start the app
-5. Open `http://localhost:5173` in your browser
+5. Open localhost in your browser
 
 ## Setting up your vocabulary
 
@@ -59,7 +59,7 @@ Book,Collection of pages,She reads a book,Kitap
 - `presenter.js` - Updates what you see on screen
 - `utils.js` - Helper functions (shuffle, parse CSV, etc.)
 - `domElements.js` - References to HTML elements
-- `style.css` - How everything looks
+- `style.css` - Style stuff
 
 ## Built with
 
